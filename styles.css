@@ -2172,3 +2172,164 @@ footer { display: none; }
         min-height: 680px;
     }
 }
+
+
+/* =========================================================
+   V15 — FINAL VISUAL CLEANUP
+   Flat hierarchy, unified navigation accent, compact embeds,
+   and frameless archival imagery.
+   ========================================================= */
+
+:root {
+    --navigation-accent: #201b17;
+}
+
+/* ---------- Remove sequential chapter styling ---------- */
+.dossier-entry-framework {
+    grid-template-columns: minmax(0,1fr) minmax(190px,.42fr) 30px;
+}
+
+.case-card-body {
+    grid-template-columns: minmax(0,1fr) 28px;
+}
+
+/* ---------- Unify light-surface navigation animation ---------- */
+.global-nav a::after {
+    background: var(--navigation-accent);
+}
+
+/* The dark section rail keeps a light marker for legibility. */
+.nav-group li a::before {
+    background: #d7b89e;
+}
+
+/* ---------- StoryMaps: fit comfortably within one browser view ---------- */
+#saffin-storymap,
+#storymap-container {
+    width: min(980px, 100%);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#saffin-storymap .storymap-container,
+#storymap-container {
+    overflow: hidden;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+#saffin-storymap iframe,
+#storymap-container iframe {
+    display: block;
+    width: 100%;
+    height: clamp(460px, 58svh, 600px);
+    min-height: 0;
+    border: 0 !important;
+    background: transparent;
+}
+
+#storymap-container.media-placeholder {
+    padding: 0;
+    border-top: 0 !important;
+    border-bottom: 0 !important;
+    margin-top: 3.2rem;
+    margin-bottom: 3.2rem;
+}
+
+/* ---------- Archival images: no white/card-like framing ---------- */
+.adam-figure img,
+.archive-image,
+#saffin-manuscript img,
+#section-patricio .storymap-container > img {
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.adam-map-panel {
+    border: 0;
+    background: transparent;
+}
+
+.adam-map-panel img {
+    background: transparent;
+}
+
+.adam-map-label {
+    border-top: 1px solid var(--rule);
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.adam-context-map,
+.adam-manuscript,
+.adam-map-comparison {
+    background: transparent;
+}
+
+/* Keep captions aligned to the reading column without visual boxes. */
+.figure-caption {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+@media (max-width: 720px) {
+    #saffin-storymap iframe,
+    #storymap-container iframe {
+        height: clamp(440px, 62svh, 560px);
+    }
+}
+
+
+/* =========================================================
+   V15.1 — LANDING GRID SAFETY / CACHE FIX
+   ========================================================= */
+.dossier-entry-framework {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(190px, .42fr) 30px;
+    gap: 1.1rem;
+    align-items: center;
+}
+
+.dossier-entry-framework > .entry-copy {
+    grid-column: 1;
+    min-width: 0;
+}
+
+.dossier-entry-framework > .entry-meta {
+    grid-column: 2;
+}
+
+.dossier-entry-framework > .entry-arrow {
+    grid-column: 3;
+}
+
+.case-card-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 28px;
+}
+
+.case-card-body > .entry-copy {
+    grid-column: 1;
+    min-width: 0;
+}
+
+.case-card-body > .entry-arrow {
+    grid-column: 2;
+}
+
+@media (max-width: 900px) {
+    .dossier-entry-framework {
+        grid-template-columns: minmax(0, 1fr) 26px;
+    }
+
+    .dossier-entry-framework > .entry-meta {
+        display: none;
+    }
+
+    .dossier-entry-framework > .entry-arrow {
+        grid-column: 2;
+    }
+}
