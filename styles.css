@@ -2333,3 +2333,100 @@ footer { display: none; }
         grid-column: 2;
     }
 }
+
+
+/* =========================================================
+   V16 — PUBLICATION CLEANUP
+   ========================================================= */
+
+/* Utility links read as deliberate buttons without introducing a heavy footer bar. */
+.utility-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.55rem;
+    padding: .62rem .9rem;
+    border: 1px solid var(--navigation-accent, #201b17);
+    background: transparent;
+    color: var(--navigation-accent, #201b17);
+    font-family: var(--font-ui);
+    font-size: .78rem;
+    font-weight: 700;
+    line-height: 1.15;
+    text-decoration: none;
+    transition: background-color .18s ease, color .18s ease, border-color .18s ease;
+}
+
+.utility-button:hover,
+.utility-button:focus-visible {
+    background: var(--navigation-accent, #201b17);
+    color: var(--paper, #f3eadc);
+    outline: none;
+}
+
+.landing-footer-links {
+    gap: .65rem;
+}
+
+/* Sidebar utility buttons use the light side of the palette for contrast. */
+.rail-utility-button,
+.utility-layout .section-rail .rail-utility-button {
+    display: inline-flex;
+    width: fit-content;
+    margin-top: 1rem;
+    border-color: rgba(247,239,225,.5);
+    color: #f4eadb;
+    background: transparent;
+}
+
+.rail-utility-button:hover,
+.rail-utility-button:focus-visible,
+.utility-layout .section-rail .rail-utility-button:hover,
+.utility-layout .section-rail .rail-utility-button:focus-visible {
+    border-color: #f4eadb;
+    background: #f4eadb;
+    color: #2d251f;
+}
+
+/* Cards no longer reserve space for arrow icons. */
+.dossier-entry-framework {
+    grid-template-columns: minmax(0, 1fr) minmax(190px, .42fr);
+}
+
+.dossier-entry-framework > .entry-copy {
+    grid-column: 1;
+}
+
+.dossier-entry-framework > .entry-meta {
+    grid-column: 2;
+}
+
+.case-card-body {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.case-card-body > .entry-copy {
+    grid-column: 1;
+}
+
+/* Uniform current-team card treatment. */
+.contributor-card,
+.contributor-card-faculty,
+.contributor-card-lead {
+    background: transparent !important;
+}
+
+/* Remove special lead/faculty visual emphasis; hierarchy comes from role text. */
+.contributor-grid-current .contributor-card {
+    border-color: var(--rule);
+}
+
+@media (max-width: 900px) {
+    .dossier-entry-framework {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .dossier-entry-framework > .entry-meta {
+        display: none;
+    }
+}
