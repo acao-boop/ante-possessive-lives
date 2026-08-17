@@ -2594,3 +2594,54 @@ footer { display: none; }
         padding-inline: 1.25rem;
     }
 }
+
+
+/* =========================================================
+   V16.2 — LANDING FOOTER REVERT
+   Restore the earlier cream/footer layout while retaining
+   the compact animated Sources/About buttons.
+   ========================================================= */
+
+.landing-footer {
+    position: static;
+    width: min(1180px, calc(100% - clamp(2.4rem, 10vw, 9rem))) !important;
+    max-width: 1180px !important;
+    margin: clamp(3.8rem, 7vw, 6rem) auto 0 !important;
+    padding: 1.7rem 0 0;
+    border-top: 1px solid rgba(32,27,23,.22);
+    background: transparent;
+    color: #66564a;
+}
+
+.landing-footer p {
+    max-width: 650px;
+    margin: 0;
+    color: #66564a;
+}
+
+.landing-footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .7rem;
+}
+
+/* Keep the V16.1 compact card-button interaction. */
+.footer-project-button {
+    background: var(--paper, #f3eadc);
+    border-color: rgba(32,27,23,.55);
+    color: #201b17 !important;
+}
+
+.footer-project-button:hover,
+.footer-project-button:focus-visible {
+    background: #e6d8c5;
+    border-color: #201b17;
+    color: #201b17 !important;
+}
+
+@media (max-width: 780px) {
+    .landing-footer {
+        width: min(100% - 2rem, 1180px) !important;
+        padding-inline: 0;
+    }
+}
