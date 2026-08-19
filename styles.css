@@ -2889,3 +2889,137 @@ footer { display: none; }
         width: min(180px, 55vw);
     }
 }
+
+
+/* =========================================================
+   V24 — CASE MEDIA / SOURCE APPARATUS REFINEMENT
+   ========================================================= */
+
+/* Major case media stays inside the reading column so the sticky
+   vocabulary remains continuously available. */
+.media-breakout {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 3.6rem 0 !important;
+}
+
+#saffin-storymap,
+#storymap-container,
+.comparison-container,
+.adam-map-comparison {
+    width: 100% !important;
+    max-width: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* Taller rather than wider: more usable StoryMap viewport without
+   consuming the vocabulary column. */
+#saffin-storymap .storymap-container,
+#storymap-container {
+    overflow: hidden;
+    background: #eee6d8 !important;
+    box-shadow: none !important;
+}
+
+#saffin-storymap iframe,
+#storymap-container iframe {
+    display: block;
+    width: 100%;
+    height: clamp(660px, 76svh, 790px);
+    min-height: 0;
+    border: 0 !important;
+    background: #eee6d8;
+}
+
+/* Page-specific colored frames. Restrained enough to read as an
+   editorial device, not a card border. */
+.page-saffin #saffin-storymap .storymap-container,
+.page-saffin .adam-map-comparison {
+    border: 2px solid rgba(102,116,99,.72) !important;
+}
+
+.page-patricio #storymap-container,
+.page-patricio .comparison-slider {
+    border: 2px solid rgba(99,112,123,.72) !important;
+}
+
+/* Let ordinary archival figures use a quiet single rule rather than
+   the old white-frame treatment. */
+.page-saffin .adam-figure,
+.page-patricio .storymap-container:not(.embedded-storymap) {
+    border-top: 1px solid rgba(102,116,99,.42);
+    border-bottom: 1px solid rgba(102,116,99,.42);
+    padding-block: .45rem;
+}
+
+.page-patricio .storymap-container:not(.embedded-storymap) {
+    border-color: rgba(99,112,123,.42);
+}
+
+/* Comparison image stage should never collapse if the images have loaded. */
+.comparison-slider {
+    position: relative;
+    min-height: 460px;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #ded5c8;
+}
+
+.comparison-image,
+.comparison-left-layer {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.comparison-image {
+    display: block;
+    object-fit: cover;
+}
+
+/* Direct project-transcription access belongs with the bibliography,
+   not as a large final case-page block. */
+.primary-record-link {
+    margin: .55rem 0 0 !important;
+    padding-left: 1.15rem;
+    font-family: var(--font-ui);
+    font-size: .8rem !important;
+    text-indent: 0 !important;
+}
+
+.primary-record-link a {
+    color: var(--seal-wax);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+/* Updated Gabriela portrait crop already exists in the file itself;
+   keep its position neutral. */
+.contributor-portrait img.portrait-gabriela {
+    object-position: center center;
+}
+
+@media (max-width: 980px) {
+    #saffin-storymap iframe,
+    #storymap-container iframe {
+        height: clamp(620px, 73svh, 740px);
+    }
+
+    .comparison-slider {
+        min-height: 390px;
+    }
+}
+
+@media (max-width: 640px) {
+    #saffin-storymap iframe,
+    #storymap-container iframe {
+        height: 620px;
+    }
+
+    .comparison-slider {
+        min-height: 300px;
+        aspect-ratio: 4 / 3;
+    }
+}
