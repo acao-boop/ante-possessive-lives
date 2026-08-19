@@ -3314,3 +3314,390 @@ footer { display: none; }
         transform: translate(0,0);
     }
 }
+
+
+/* =========================================================
+   V21 — CONSISTENT SOURCE FIELD + STICKY VOCABULARY ON ALL PAGES
+   ========================================================= */
+
+/* SOURCES: eliminate the inherited utility/primary-source tint completely.
+   The bibliography should sit on one continuous parchment field. */
+.bibliography-page .repository-layout .bibliography-main {
+    background: var(--paper) !important;
+}
+
+.bibliography-page .source-group,
+.bibliography-page .source-group > header,
+.bibliography-page .source-list,
+.bibliography-page .citation-entry,
+.bibliography-page .citation-entry.primary-source,
+.bibliography-page .featured-source {
+    background: transparent !important;
+    background-image: none !important;
+}
+
+.bibliography-page .source-group > header > p:last-child {
+    color: var(--ink) !important;
+    opacity: 1 !important;
+}
+
+/* The assigned-reading line is intentionally secondary, but remains fully
+   legible rather than appearing as a different paper color. */
+.bibliography-page .excerpt-note {
+    color: #6e5d50 !important;
+}
+
+
+/* ---------------------------
+   SHARED CASE READING LAYOUT
+   --------------------------- */
+
+.case-reading-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 820px) 275px;
+    justify-content: center;
+    align-items: start;
+    gap: clamp(2.4rem, 4vw, 4.5rem);
+    width: min(100%, 1160px);
+    margin: 0 auto;
+}
+
+.case-reading-flow {
+    min-width: 0;
+}
+
+.case-reading-flow > .card,
+.case-reading-flow > figure,
+.case-reading-flow > section,
+.case-reading-flow > .adam-interactive-module,
+.case-reading-flow > .storymap-container {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+
+/* ---------------------------
+   SHARED STICKY VOCABULARY
+   --------------------------- */
+
+.side-vocab-stick {
+    position: sticky;
+    top: calc(var(--masthead) + 1.55rem);
+    align-self: start;
+    width: 100%;
+    margin: 0;
+    padding: .3rem 0 .35rem 1.2rem;
+    border-left: 3px solid rgba(32,27,23,.62);
+    background:
+        linear-gradient(90deg, rgba(255,255,255,.18), rgba(255,255,255,.05) 72%, transparent);
+    z-index: 9;
+}
+
+.side-vocab-stick .vocabulary-heading {
+    display: block;
+    margin: 0 0 .8rem;
+}
+
+.side-vocab-stick .vocabulary-kicker {
+    margin: 0 0 .2rem !important;
+    color: var(--seal-wax);
+    font-family: var(--font-ui);
+    font-size: .65rem !important;
+    font-weight: 750;
+    letter-spacing: .14em;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.side-vocab-stick .vocabulary-heading h2 {
+    margin: 0 !important;
+    color: var(--ink);
+    font-family: var(--font-serif);
+    font-size: 1.08rem;
+    font-weight: 600;
+    line-height: 1.15;
+}
+
+.side-vocab-stick .vocab-stick-helper {
+    margin: .34rem 0 0 !important;
+    color: #725f51;
+    font-family: var(--font-ui);
+    font-size: .68rem !important;
+    line-height: 1.35 !important;
+}
+
+.side-vocab-stick .vocabulary-bank {
+    display: block;
+    border: 0;
+    background: transparent;
+}
+
+.side-vocab-stick .vocab-term {
+    position: relative;
+    display: block;
+    width: 100%;
+    min-height: 0;
+    margin: 0;
+    padding: .74rem .34rem .72rem .8rem;
+    border: 0 !important;
+    border-top: 1px solid rgba(92,73,60,.18) !important;
+    background: transparent !important;
+    color: var(--ink-soft);
+    text-align: left;
+    overflow: visible;
+    box-shadow: none;
+    transform: none;
+}
+
+.side-vocab-stick .vocab-term:last-child {
+    border-bottom: 1px solid rgba(92,73,60,.18) !important;
+}
+
+.side-vocab-stick .vocab-term::before {
+    content: "";
+    position: absolute;
+    left: -1.27rem;
+    top: .55rem;
+    bottom: .55rem;
+    width: 3px;
+    background: var(--seal-wax);
+    transform: scaleY(0);
+    transform-origin: center;
+    transition: transform .16s ease;
+}
+
+.side-vocab-stick .vocab-term::after {
+    display: none !important;
+}
+
+.side-vocab-stick .vocab-term:hover,
+.side-vocab-stick .vocab-term:focus,
+.side-vocab-stick .vocab-term:focus-visible {
+    color: var(--ink);
+    background: rgba(255,255,255,.26) !important;
+    outline: none;
+}
+
+.side-vocab-stick .vocab-term:hover::before,
+.side-vocab-stick .vocab-term:focus::before,
+.side-vocab-stick .vocab-term:focus-visible::before {
+    transform: scaleY(1);
+}
+
+.side-vocab-stick .vocab-term-label {
+    display: block;
+    color: inherit;
+    font-family: var(--font-serif);
+    font-size: .94rem;
+    font-weight: 600;
+    line-height: 1.17;
+}
+
+.side-vocab-stick .vocab-term-source {
+    display: block;
+    margin-top: .26rem;
+    color: #806d5e;
+    font-family: var(--font-ui);
+    font-size: .57rem;
+    font-weight: 700;
+    letter-spacing: .065em;
+    line-height: 1.25;
+    text-transform: uppercase;
+}
+
+/* Tooltip opens left into the reading field. */
+.side-vocab-stick .vocab-tooltip {
+    top: 50%;
+    right: calc(100% + .95rem);
+    left: auto;
+    width: 340px;
+    padding: 1rem 1.08rem 1.05rem;
+    transform: translate(-7px,-50%);
+    z-index: 40;
+}
+
+.side-vocab-stick .vocab-tooltip-definition {
+    margin: .52rem 0 .7rem;
+    font-size: .9rem;
+    line-height: 1.5;
+}
+
+.side-vocab-stick .vocab-tooltip-meta {
+    font-size: .62rem;
+}
+
+.side-vocab-stick .vocab-tooltip::before {
+    top: 50%;
+    right: -7px;
+    left: auto;
+    border: 7px solid transparent;
+    border-left-color: #49382f;
+    transform: translateY(-50%);
+}
+
+.side-vocab-stick .vocab-term:hover .vocab-tooltip,
+.side-vocab-stick .vocab-term:focus .vocab-tooltip,
+.side-vocab-stick .vocab-term:focus-visible .vocab-tooltip {
+    transform: translate(0,-50%);
+}
+
+
+/* Theory uses the same larger shared spine. */
+.theory-reading-layout {
+    grid-template-columns: minmax(0, 760px) 275px;
+    gap: clamp(2.4rem, 4vw, 4.5rem);
+    width: min(100%, 1120px);
+}
+
+.theory-vocab-stick {
+    width: 100%;
+    padding: .3rem 0 .35rem 1.2rem;
+    border-left-width: 3px;
+}
+
+/* Override the smaller V20 typography with V21 shared sizing. */
+.theory-vocab-stick .vocabulary-heading h2 {
+    font-size: 1.08rem;
+}
+
+.theory-vocab-stick .vocab-term-label {
+    font-size: .94rem;
+}
+
+.theory-vocab-stick .vocab-term-source {
+    font-size: .57rem;
+}
+
+
+/* ---------------------------
+   RESPONSIVE FALLBACK
+   --------------------------- */
+
+@media (max-width: 1240px) {
+    .case-reading-layout,
+    .theory-reading-layout {
+        grid-template-columns: minmax(0, var(--reading));
+        gap: 1.8rem;
+    }
+
+    .side-vocab-stick {
+        position: static;
+        grid-row: 1;
+        width: 100%;
+        padding: .85rem 0 .8rem;
+        border-left: 0;
+        border-top: 1px solid var(--rule);
+        border-bottom: 1px solid var(--rule);
+        background: transparent;
+    }
+
+    .side-vocab-stick .vocabulary-heading {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: .25rem .85rem;
+        align-items: baseline;
+    }
+
+    .side-vocab-stick .vocabulary-kicker {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .side-vocab-stick .vocabulary-heading h2 {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .side-vocab-stick .vocab-stick-helper {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .side-vocab-stick .vocabulary-bank {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0,1fr));
+        margin-top: .4rem;
+    }
+
+    .side-vocab-stick .vocab-term {
+        padding: .72rem .65rem;
+        border-top: 1px solid rgba(92,73,60,.16) !important;
+        border-right: 1px solid rgba(92,73,60,.16) !important;
+    }
+
+    .side-vocab-stick .vocab-term:nth-child(4n) {
+        border-right: 0 !important;
+    }
+
+    .side-vocab-stick .vocab-term::before {
+        left: .55rem;
+        right: .55rem;
+        top: auto;
+        bottom: -1px;
+        width: auto;
+        height: 2px;
+        transform: scaleX(0);
+    }
+
+    .side-vocab-stick .vocab-term:hover::before,
+    .side-vocab-stick .vocab-term:focus::before,
+    .side-vocab-stick .vocab-term:focus-visible::before {
+        transform: scaleX(1);
+    }
+
+    .side-vocab-stick .vocab-tooltip {
+        top: calc(100% + .5rem);
+        left: 50%;
+        right: auto;
+        width: min(340px, 84vw);
+        transform: translate(-50%,-5px);
+    }
+
+    .side-vocab-stick .vocab-tooltip::before {
+        top: -7px;
+        left: 50%;
+        right: auto;
+        border: 7px solid transparent;
+        border-bottom-color: #49382f;
+        transform: translateX(-50%);
+    }
+
+    .side-vocab-stick .vocab-term:hover .vocab-tooltip,
+    .side-vocab-stick .vocab-term:focus .vocab-tooltip,
+    .side-vocab-stick .vocab-term:focus-visible .vocab-tooltip {
+        transform: translate(-50%,0);
+    }
+}
+
+@media (max-width: 760px) {
+    .side-vocab-stick .vocabulary-bank {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .side-vocab-stick .vocab-term:nth-child(4n) {
+        border-right: 1px solid rgba(92,73,60,.16) !important;
+    }
+
+    .side-vocab-stick .vocab-term:nth-child(even) {
+        border-right: 0 !important;
+    }
+
+    .side-vocab-stick .vocab-tooltip {
+        left: 0;
+        width: min(330px, calc(100vw - 3rem));
+        transform: translate(0,-5px);
+    }
+
+    .side-vocab-stick .vocab-tooltip::before {
+        left: 1.5rem;
+        transform: none;
+    }
+
+    .side-vocab-stick .vocab-term:hover .vocab-tooltip,
+    .side-vocab-stick .vocab-term:focus .vocab-tooltip,
+    .side-vocab-stick .vocab-term:focus-visible .vocab-tooltip {
+        transform: translate(0,0);
+    }
+}
