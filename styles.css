@@ -2645,3 +2645,672 @@ footer { display: none; }
         padding-inline: 0;
     }
 }
+
+
+/* =========================================================
+   V17 — KAZANJIAN CONTENT REVISION SUPPORT
+   ========================================================= */
+
+.opening-epigraph {
+    margin: .4rem 0 1.7rem;
+    color: var(--ink-faint);
+    font-style: italic;
+}
+
+.theory-aside {
+    margin: 1.6rem 0;
+    padding: 1rem 1.35rem;
+    border-left: 3px solid var(--seal-wax);
+    background: rgba(255,255,255,.28);
+    color: var(--ink-soft);
+    font-style: italic;
+    line-height: 1.65;
+}
+
+.section-emphasis {
+    margin-top: 1.8rem;
+    padding-top: 1.3rem;
+    border-top: 1px solid var(--rule);
+    font-weight: 600;
+}
+
+.section-action {
+    margin-top: 1.2rem;
+}
+
+.source-note,
+.internal-reference,
+.transcription-credit,
+.map-credit {
+    color: var(--ink-faint);
+    font-family: var(--font-ui);
+    font-size: .82rem;
+    line-height: 1.55;
+}
+
+.source-note,
+.internal-reference {
+    margin-top: 1.25rem;
+}
+
+.internal-reference {
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule);
+}
+
+.inline-reference,
+.internal-reference a,
+.source-link {
+    color: var(--seal-wax);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.inline-reference:hover,
+.inline-reference:focus-visible,
+.internal-reference a:hover,
+.internal-reference a:focus-visible,
+.source-link:hover,
+.source-link:focus-visible {
+    color: var(--ink);
+}
+
+.map-credit {
+    display: block;
+    margin-top: .45rem;
+    font-style: normal;
+}
+
+.transcription-credit {
+    margin: .25rem 0 0;
+}
+
+.term-aside p:last-child,
+.term-inline {
+    margin-top: .65rem;
+    font-style: normal;
+    font-size: .95rem;
+}
+
+.closing-statement {
+    margin-top: 1.6rem;
+    padding: 1.15rem 1.25rem;
+    border-left: 3px solid var(--seal-wax);
+    background: rgba(255,255,255,.22);
+    font-style: italic;
+}
+
+/* =========================================================
+   V18 SCHOLARLY APPARATUS / BIBLIOGRAPHY CLEANUP
+   ========================================================= */
+
+/* Section descriptions should read as part of the bibliography, not as
+   secondary faded metadata. */
+.bibliography-page .source-group > header > p:last-child {
+    color: var(--ink);
+}
+
+/* Chicago-style bibliography rhythm: a readable hanging indent makes author
+   names easy to scan while preserving the thematic grouping of the site. */
+.bibliography-page .citation-entry > p:not(.usage-note):not(.excerpt-note) {
+    margin: 0;
+    padding-left: 1.15rem;
+    text-indent: -1.15rem;
+    color: var(--ink);
+    font-size: 1.05rem;
+    line-height: 1.65;
+}
+
+/* Page ranges belong to the project reading apparatus, not inside the
+   full-work citation. Keeping them separate avoids confusing a selected
+   reading range with a book's total pagination. */
+.bibliography-page .excerpt-note {
+    margin: .5rem 0 0;
+    padding-left: 1.15rem;
+    color: var(--ink-soft);
+    font-family: var(--font-ui);
+    font-size: .79rem;
+    font-style: normal;
+    line-height: 1.45;
+}
+
+.bibliography-page .source-link {
+    color: var(--seal-wax);
+    text-decoration: underline;
+    text-decoration-color: rgba(147,69,47,.35);
+    text-underline-offset: .14em;
+}
+
+.bibliography-page .source-link:hover,
+.bibliography-page .source-link:focus-visible {
+    color: var(--ink);
+    text-decoration-color: currentColor;
+    outline: none;
+}
+
+
+/* =========================================================
+   V19 — SYLLABUS RANGES + VOCABULARY / EMPHASIS REFINEMENT
+   ========================================================= */
+
+/* Source-page section descriptions use the same readable ink family as the
+   bibliography itself; page-range notes remain secondary metadata. */
+.bibliography-page .source-group > header > p:last-child {
+    color: var(--ink-soft);
+    opacity: 1;
+}
+
+/* Assigned reading ranges reproduce the seminar syllabus and remain visually
+   distinct from the formal Chicago citation. */
+.bibliography-page .excerpt-note {
+    color: var(--ink-soft);
+    font-size: .8rem;
+    letter-spacing: .005em;
+}
+
+/* Vocabulary: an editorial index strip rather than five boxed cards. */
+.vocabulary-module {
+    padding: 1.1rem 0 1.3rem;
+    margin-bottom: clamp(3.2rem, 5.5vw, 4.5rem);
+}
+
+.vocabulary-heading {
+    display: grid;
+    grid-template-columns: 110px minmax(170px, .65fr) minmax(260px, 1fr);
+    gap: .8rem 1.35rem;
+    margin-bottom: .72rem;
+}
+
+.vocabulary-heading h2 {
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.vocabulary-heading > p:last-child {
+    font-size: .72rem;
+}
+
+.vocabulary-bank {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0,1fr));
+    gap: 0;
+    border: 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    background: transparent;
+    overflow: visible;
+}
+
+.vocab-term {
+    min-height: 66px;
+    padding: .78rem .75rem .72rem;
+    border: 0;
+    border-right: 1px solid var(--rule);
+    background: transparent;
+    overflow: visible;
+}
+
+.vocab-term:last-child {
+    border-right: 0;
+}
+
+.vocab-term::after {
+    content: "";
+    position: absolute;
+    left: .72rem;
+    right: .72rem;
+    bottom: -1px;
+    height: 2px;
+    background: var(--seal-wax);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .16s ease;
+}
+
+.vocab-term:hover,
+.vocab-term:focus,
+.vocab-term:focus-visible {
+    background: rgba(255,255,255,.26);
+    color: var(--ink);
+}
+
+.vocab-term:hover::after,
+.vocab-term:focus::after,
+.vocab-term:focus-visible::after {
+    transform: scaleX(1);
+}
+
+.vocab-term-label {
+    font-size: .88rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.vocab-term-source {
+    display: block;
+    margin-top: .28rem;
+    color: var(--ink-faint);
+    font-family: var(--font-ui);
+    font-size: .58rem;
+    font-weight: 600;
+    letter-spacing: .055em;
+    line-height: 1.25;
+    text-transform: uppercase;
+}
+
+.vocab-tooltip {
+    top: calc(100% + .5rem);
+    width: min(330px, 84vw);
+    padding: .9rem 1rem 1rem;
+}
+
+.vocab-tooltip-definition {
+    margin: .48rem 0 .64rem;
+    font-size: .84rem;
+}
+
+.vocab-tooltip-meta > span {
+    min-width: 54px;
+}
+
+/* Scholarly emphasis should guide reading rather than dominate it. */
+.card p strong,
+.archive-section p strong,
+.concept-emphasis {
+    font-weight: 600;
+}
+
+.term-note {
+    margin: 1.25rem 0 1.5rem;
+    padding: .85rem 1rem;
+    border-left: 2px solid var(--rule-strong);
+    background: rgba(255,255,255,.18);
+    color: var(--ink-soft);
+    font-style: normal;
+}
+
+.term-note p {
+    margin: 0;
+}
+
+.term-note p + p {
+    margin-top: .35rem;
+}
+
+.term-note-label {
+    color: var(--seal-wax);
+    font-family: var(--font-ui);
+    font-size: .69rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.term-note-inline {
+    margin-top: .75rem;
+    color: var(--ink-soft);
+    font-style: normal;
+}
+
+@media (max-width: 900px) {
+    .vocabulary-bank {
+        grid-template-columns: repeat(3, minmax(0,1fr));
+    }
+    .vocab-term:nth-child(3) {
+        border-right: 0;
+    }
+    .vocab-term:nth-child(n+4) {
+        border-top: 1px solid var(--rule);
+    }
+}
+
+@media (max-width: 640px) {
+    .vocabulary-heading {
+        grid-template-columns: 1fr;
+        gap: .25rem;
+    }
+    .vocabulary-heading > p:last-child {
+        text-align: left;
+    }
+    .vocabulary-bank {
+        grid-template-columns: 1fr 1fr;
+    }
+    .vocab-term,
+    .vocab-term:nth-child(3) {
+        border-right: 1px solid var(--rule);
+        border-top: 0;
+    }
+    .vocab-term:nth-child(even) {
+        border-right: 0;
+    }
+    .vocab-term:nth-child(n+3) {
+        border-top: 1px solid var(--rule);
+    }
+}
+
+
+/* =========================================================
+   V20 — THEORY READING FLOW + STICKY RIGHT-SIDE VOCABULARY
+   ========================================================= */
+
+/* Theory now uses a two-column editorial reading field:
+   prose in the main column, a narrow conceptual spine at right. */
+.page-theory #section-theory > header {
+    width: min(100%, 1040px);
+    max-width: none;
+}
+
+.theory-reading-layout {
+    display: grid;
+    grid-template-columns: minmax(0, var(--reading)) 220px;
+    justify-content: center;
+    align-items: start;
+    gap: clamp(2.2rem, 4vw, 4.2rem);
+    width: min(100%, 1080px);
+    margin: 0 auto;
+}
+
+.theory-reading-flow {
+    min-width: 0;
+}
+
+.theory-reading-flow .card {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* The vocabulary is no longer a bank of cards. It reads as a vertical
+   "conceptual spine" that remains available while the Theory prose scrolls. */
+.theory-vocab-stick {
+    position: sticky;
+    top: calc(var(--masthead) + 1.6rem);
+    align-self: start;
+    width: 100%;
+    margin: 0;
+    padding: .15rem 0 .2rem 1rem;
+    border-left: 2px solid rgba(32,27,23,.58);
+    z-index: 8;
+}
+
+.theory-vocab-stick .vocabulary-heading {
+    display: block;
+    margin: 0 0 .7rem;
+}
+
+.theory-vocab-stick .vocabulary-kicker {
+    margin: 0 0 .18rem !important;
+    color: var(--seal-wax);
+    font-family: var(--font-ui);
+    font-size: .58rem !important;
+    font-weight: 750;
+    letter-spacing: .13em;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.theory-vocab-stick .vocabulary-heading h2 {
+    margin: 0 !important;
+    color: var(--ink);
+    font-size: .9rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.theory-vocab-stick .vocab-stick-helper {
+    margin: .28rem 0 0 !important;
+    color: var(--ink-faint);
+    font-family: var(--font-ui);
+    font-size: .62rem !important;
+    line-height: 1.35 !important;
+}
+
+.theory-vocab-stick .vocabulary-bank {
+    display: block;
+    border: 0;
+    background: transparent;
+}
+
+.theory-vocab-stick .vocab-term {
+    position: relative;
+    display: block;
+    width: 100%;
+    min-height: 0;
+    margin: 0;
+    padding: .62rem .2rem .62rem .72rem;
+    border: 0 !important;
+    border-top: 1px solid rgba(92,73,60,.15) !important;
+    background: transparent !important;
+    color: var(--ink-soft);
+    text-align: left;
+    overflow: visible;
+    box-shadow: none;
+    transform: none;
+}
+
+.theory-vocab-stick .vocab-term:last-child {
+    border-bottom: 1px solid rgba(92,73,60,.15) !important;
+}
+
+.theory-vocab-stick .vocab-term::before {
+    content: "";
+    position: absolute;
+    left: -1.08rem;
+    top: .55rem;
+    bottom: .55rem;
+    width: 2px;
+    background: var(--seal-wax);
+    transform: scaleY(0);
+    transform-origin: center;
+    transition: transform .16s ease;
+}
+
+.theory-vocab-stick .vocab-term::after {
+    display: none;
+}
+
+.theory-vocab-stick .vocab-term:hover,
+.theory-vocab-stick .vocab-term:focus,
+.theory-vocab-stick .vocab-term:focus-visible {
+    color: var(--ink);
+    background: rgba(255,255,255,.18) !important;
+    outline: none;
+}
+
+.theory-vocab-stick .vocab-term:hover::before,
+.theory-vocab-stick .vocab-term:focus::before,
+.theory-vocab-stick .vocab-term:focus-visible::before {
+    transform: scaleY(1);
+}
+
+.theory-vocab-stick .vocab-term-label {
+    display: block;
+    color: inherit;
+    font-family: var(--font-serif);
+    font-size: .82rem;
+    font-weight: 600;
+    line-height: 1.17;
+}
+
+.theory-vocab-stick .vocab-term-source {
+    display: block;
+    margin-top: .2rem;
+    color: var(--ink-faint);
+    font-family: var(--font-ui);
+    font-size: .52rem;
+    font-weight: 650;
+    letter-spacing: .055em;
+    line-height: 1.25;
+    text-transform: uppercase;
+}
+
+/* Tooltip opens toward the prose, keeping it inside the browser window. */
+.theory-vocab-stick .vocab-tooltip {
+    top: 50%;
+    right: calc(100% + .85rem);
+    left: auto;
+    width: 305px;
+    transform: translate(-6px,-50%);
+    z-index: 30;
+}
+
+.theory-vocab-stick .vocab-tooltip::before {
+    top: 50%;
+    right: -7px;
+    left: auto;
+    border: 7px solid transparent;
+    border-left-color: #49382f;
+    transform: translateY(-50%);
+}
+
+.theory-vocab-stick .vocab-term:hover .vocab-tooltip,
+.theory-vocab-stick .vocab-term:focus .vocab-tooltip,
+.theory-vocab-stick .vocab-term:focus-visible .vocab-tooltip {
+    transform: translate(0,-50%);
+}
+
+/* Theory emphasis is intentionally sparse: terms, not sentences. */
+.page-theory .theory-reading-flow strong,
+.page-theory .theory-reading-flow .concept-key {
+    color: var(--ink);
+    font-weight: 600;
+}
+
+.page-theory .theory-reading-flow .concept-triad {
+    color: var(--ink-soft);
+    font-style: italic;
+    font-weight: 500;
+}
+
+/* Prevent legacy rules from re-boldening all prose. */
+.page-theory .article-shell p strong {
+    font-weight: 600;
+}
+
+/* Responsive fallback: the conceptual spine becomes a compact block above
+   the prose rather than compressing the reading column. */
+@media (max-width: 1180px) {
+    .theory-reading-layout {
+        grid-template-columns: minmax(0, var(--reading));
+        gap: 1.8rem;
+    }
+
+    .theory-vocab-stick {
+        position: static;
+        grid-row: 1;
+        width: 100%;
+        padding: 0 0 .8rem;
+        border-left: 0;
+        border-top: 1px solid var(--rule);
+        border-bottom: 1px solid var(--rule);
+    }
+
+    .theory-vocab-stick .vocabulary-heading {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: .25rem .8rem;
+        align-items: baseline;
+        padding-top: .8rem;
+    }
+
+    .theory-vocab-stick .vocabulary-kicker {
+        grid-row: 1;
+        grid-column: 1;
+    }
+
+    .theory-vocab-stick .vocabulary-heading h2 {
+        grid-row: 1;
+        grid-column: 2;
+    }
+
+    .theory-vocab-stick .vocab-stick-helper {
+        grid-row: 2;
+        grid-column: 2;
+    }
+
+    .theory-vocab-stick .vocabulary-bank {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0,1fr));
+    }
+
+    .theory-vocab-stick .vocab-term {
+        padding: .68rem .6rem;
+        border-top: 0 !important;
+        border-right: 1px solid rgba(92,73,60,.15) !important;
+    }
+
+    .theory-vocab-stick .vocab-term:last-child {
+        border-right: 0 !important;
+        border-bottom: 0 !important;
+    }
+
+    .theory-vocab-stick .vocab-term::before {
+        left: .55rem;
+        right: .55rem;
+        top: auto;
+        bottom: -1px;
+        width: auto;
+        height: 2px;
+        transform: scaleX(0);
+    }
+
+    .theory-vocab-stick .vocab-term:hover::before,
+    .theory-vocab-stick .vocab-term:focus::before,
+    .theory-vocab-stick .vocab-term:focus-visible::before {
+        transform: scaleX(1);
+    }
+
+    .theory-vocab-stick .vocab-tooltip {
+        top: calc(100% + .5rem);
+        left: 50%;
+        right: auto;
+        transform: translate(-50%,-5px);
+    }
+
+    .theory-vocab-stick .vocab-tooltip::before {
+        top: -7px;
+        left: 50%;
+        right: auto;
+        border: 7px solid transparent;
+        border-bottom-color: #49382f;
+        transform: translateX(-50%);
+    }
+
+    .theory-vocab-stick .vocab-term:hover .vocab-tooltip,
+    .theory-vocab-stick .vocab-term:focus .vocab-tooltip,
+    .theory-vocab-stick .vocab-term:focus-visible .vocab-tooltip {
+        transform: translate(-50%,0);
+    }
+}
+
+@media (max-width: 760px) {
+    .theory-vocab-stick .vocabulary-bank {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .theory-vocab-stick .vocab-term {
+        border-top: 1px solid rgba(92,73,60,.15) !important;
+    }
+
+    .theory-vocab-stick .vocab-term:nth-child(even) {
+        border-right: 0 !important;
+    }
+
+    .theory-vocab-stick .vocab-tooltip {
+        left: 0;
+        width: min(320px, calc(100vw - 3.2rem));
+        transform: translate(0,-5px);
+    }
+
+    .theory-vocab-stick .vocab-tooltip::before {
+        left: 1.5rem;
+        transform: none;
+    }
+
+    .theory-vocab-stick .vocab-term:hover .vocab-tooltip,
+    .theory-vocab-stick .vocab-term:focus .vocab-tooltip,
+    .theory-vocab-stick .vocab-term:focus-visible .vocab-tooltip {
+        transform: translate(0,0);
+    }
+}
