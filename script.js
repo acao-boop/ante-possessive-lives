@@ -43,6 +43,12 @@ function initializeComparisonSliders() {
         range.addEventListener('input', updateComparisonSliders);
         range.addEventListener('change', updateComparisonSliders);
     });
+
+    if ('ResizeObserver' in window) {
+        const resizeObserver = new ResizeObserver(updateComparisonSliders);
+        document.querySelectorAll('.comparison-slider').forEach(slider => resizeObserver.observe(slider));
+    }
+
     updateComparisonSliders();
 }
 
