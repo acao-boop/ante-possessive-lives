@@ -3023,3 +3023,488 @@ footer { display: none; }
         aspect-ratio: 4 / 3;
     }
 }
+
+/* =========================================================
+   V25 — THEORY EXPANSION REVIEW
+   ========================================================= */
+:root {
+    --review-red: #922a23;
+    --diagram-fill: #f8f5ed;
+    --diagram-fill-deep: #e8e1d3;
+    --diagram-line: #b8aa96;
+    --diagram-accent: #8c2d19;
+}
+
+/* Align all three research-page titles with the left edge of the prose grid. */
+.content-page .archive-section > header {
+    width: min(100%, 1060px);
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Review convention: only proposed explanatory prose is red. */
+.review-addition {
+    color: var(--review-red) !important;
+}
+
+/* Shared editorial figure treatment */
+.theory-figure {
+    width: 100%;
+    margin: 3.25rem 0 3.8rem;
+    padding: 1.55rem 0 1.35rem;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+}
+
+.card .theory-figure-title,
+.theory-figure-title {
+    max-width: 620px;
+    margin: 0 0 1.8rem;
+    color: var(--ink);
+    font-size: clamp(1.28rem, 2.2vw, 1.72rem);
+    font-weight: 550;
+    line-height: 1.2;
+    letter-spacing: -.012em;
+}
+
+.theory-figure figcaption {
+    max-width: 720px;
+    margin: 1.2rem 0 0;
+    color: var(--ink-faint);
+    font-family: var(--font-ui);
+    font-size: .78rem;
+    line-height: 1.55;
+    text-align: left;
+}
+
+.theory-figure figcaption strong {
+    color: var(--ink-soft);
+    font-weight: 650;
+}
+
+/* Figure 1: familiar theft contrasted with recursive dispossession */
+.theft-model {
+    display: grid;
+    gap: .9rem;
+}
+
+.theft-model-row {
+    display: grid;
+    grid-template-columns: minmax(142px, .7fr) minmax(0, 2.3fr);
+    gap: 1.15rem;
+    align-items: stretch;
+    padding: 1.15rem;
+    border: 1px solid var(--diagram-line);
+    background: rgba(248,245,237,.58);
+}
+
+.theft-model-recursive {
+    border-left: 3px solid var(--diagram-accent);
+    background: rgba(232,225,211,.52);
+}
+
+.theft-model-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 1rem;
+    border-right: 1px solid var(--diagram-line);
+}
+
+.theft-model-label > span {
+    margin-bottom: .42rem;
+    color: var(--ink-faint);
+    font-family: var(--font-ui);
+    font-size: .65rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.theft-model-label h4 {
+    margin: 0;
+    color: var(--ink);
+    font-size: 1.04rem;
+    font-weight: 600;
+    line-height: 1.22;
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.45rem;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.process-steps li {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto minmax(0,1fr);
+    gap: .55rem;
+    align-items: start;
+    min-width: 0;
+    color: var(--ink-soft);
+    font-size: .86rem;
+    line-height: 1.42;
+}
+
+.process-steps li:not(:last-child)::after {
+    content: "→";
+    position: absolute;
+    top: 50%;
+    right: -.98rem;
+    color: var(--diagram-accent);
+    font-family: var(--font-ui);
+    font-size: 1rem;
+    transform: translateY(-50%);
+}
+
+.process-number,
+.frame-number,
+.stage-number {
+    display: inline-flex;
+    width: 1.55rem;
+    height: 1.55rem;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--diagram-accent);
+    border-radius: 50%;
+    color: var(--diagram-accent);
+    font-family: var(--font-ui);
+    font-size: .69rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+/* Figure 2: one concept, three relations to ownership */
+.ante-map {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ante-hub {
+    display: flex;
+    width: 144px;
+    height: 144px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--paper-soft);
+    font-size: 1.24rem;
+    font-weight: 550;
+    line-height: 1.05;
+    letter-spacing: -.012em;
+    text-align: center;
+}
+
+.ante-branches {
+    position: relative;
+    width: 66.666%;
+    height: 74px;
+}
+
+.ante-branches::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 37px;
+    border-left: 1px solid var(--diagram-accent);
+}
+
+.ante-branches::after {
+    content: "";
+    position: absolute;
+    top: 37px;
+    right: 0;
+    left: 0;
+    border-top: 1px solid var(--diagram-accent);
+}
+
+.ante-branches span {
+    position: absolute;
+    top: 37px;
+    height: 37px;
+    border-left: 1px solid var(--diagram-accent);
+}
+
+.ante-branches span:nth-child(1) { left: 0; }
+.ante-branches span:nth-child(2) { left: 50%; }
+.ante-branches span:nth-child(3) { right: 0; }
+
+.ante-frames {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: .8rem;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ante-frames li {
+    min-height: 190px;
+    padding: 1.15rem;
+    border: 1px solid var(--diagram-line);
+    background: rgba(248,245,237,.6);
+}
+
+.ante-frames h4 {
+    margin: .8rem 0 .55rem;
+    color: var(--ink);
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+.article-shell .ante-frames p {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: .86rem;
+    line-height: 1.48;
+}
+
+/* Figure 3: evenly spaced recursive cycle */
+.recursivity-cycle {
+    position: relative;
+    width: min(680px, 100%);
+    aspect-ratio: 1;
+    margin: 0 auto;
+}
+
+.cycle-arrows {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.cycle-arrows path {
+    fill: none;
+    stroke: var(--diagram-accent);
+    stroke-width: 1.7;
+    marker-end: url(#cycle-arrowhead);
+}
+
+.cycle-arrows marker path {
+    fill: var(--diagram-accent);
+    stroke: none;
+}
+
+.cycle-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    display: flex;
+    width: 178px;
+    height: 178px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--paper-soft);
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+.cycle-center strong {
+    margin-bottom: .55rem;
+    color: var(--paper-soft);
+    font-size: 1.16rem;
+    font-weight: 600;
+}
+
+.cycle-center span {
+    color: #ddd3c5;
+    font-family: var(--font-ui);
+    font-size: .72rem;
+    line-height: 1.38;
+}
+
+.cycle-stages {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.cycle-stage {
+    position: absolute;
+    z-index: 3;
+    width: 210px;
+    min-height: 126px;
+    padding: .92rem 1rem;
+    border: 1px solid var(--diagram-line);
+    background: var(--diagram-fill);
+    box-shadow: 0 7px 18px rgba(48,37,28,.055);
+}
+
+.cycle-stage-1 { top: 0; left: 50%; transform: translateX(-50%); }
+.cycle-stage-2 { top: 50%; right: 0; transform: translateY(-50%); }
+.cycle-stage-3 { bottom: 0; left: 50%; transform: translateX(-50%); }
+.cycle-stage-4 { top: 50%; left: 0; transform: translateY(-50%); }
+
+.cycle-stage h4 {
+    display: inline-block;
+    margin: .05rem 0 .45rem .42rem;
+    color: var(--ink);
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.2;
+    vertical-align: top;
+}
+
+.article-shell .cycle-stage p {
+    margin: .45rem 0 0;
+    color: var(--ink-soft);
+    font-size: .82rem;
+    line-height: 1.43;
+}
+
+/* Figure 4: archival map */
+.theory-map-image {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    max-height: 920px;
+    margin: 0 auto;
+    border: 1px solid #c7baa6;
+    background: #fff;
+    box-shadow: 0 10px 28px rgba(48,37,28,.09);
+}
+
+.theory-map-figure figcaption {
+    max-width: 680px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.theory-map-figure .map-credit {
+    display: block;
+    margin-top: .48rem;
+}
+
+@media (max-width: 760px) {
+    .theft-model-row {
+        grid-template-columns: 1fr;
+        gap: .85rem;
+    }
+
+    .theft-model-label {
+        padding: 0 0 .75rem;
+        border-right: 0;
+        border-bottom: 1px solid var(--diagram-line);
+    }
+
+    .process-steps {
+        grid-template-columns: 1fr;
+        gap: 1.35rem;
+    }
+
+    .process-steps li:not(:last-child)::after {
+        content: "↓";
+        top: auto;
+        right: auto;
+        bottom: -1.18rem;
+        left: .28rem;
+        transform: none;
+    }
+
+    .ante-branches {
+        display: none;
+    }
+
+    .ante-hub {
+        width: 126px;
+        height: 126px;
+        margin-bottom: 1.2rem;
+        font-size: 1.12rem;
+    }
+
+    .ante-frames {
+        grid-template-columns: 1fr;
+        gap: .75rem;
+    }
+
+    .ante-frames li {
+        position: relative;
+        min-height: 0;
+    }
+
+    .ante-frames li:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        bottom: -.76rem;
+        left: 50%;
+        height: .76rem;
+        border-left: 1px solid var(--diagram-accent);
+    }
+
+    .recursivity-cycle {
+        display: flex;
+        min-height: 0;
+        aspect-ratio: auto;
+        flex-direction: column;
+    }
+
+    .cycle-arrows {
+        display: none;
+    }
+
+    .cycle-center {
+        position: static;
+        width: 164px;
+        height: 164px;
+        margin: 0 auto 1.35rem;
+        transform: none;
+    }
+
+    .cycle-stages {
+        display: grid;
+        gap: 1.2rem;
+    }
+
+    .cycle-stage {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        min-height: 0;
+        transform: none;
+    }
+
+    .cycle-stage:not(:last-child)::after {
+        content: "↓";
+        position: absolute;
+        bottom: -1.08rem;
+        left: 50%;
+        color: var(--diagram-accent);
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 520px) {
+    .theory-figure {
+        margin: 2.7rem 0 3.15rem;
+        padding-top: 1.25rem;
+    }
+
+    .theory-figure-title {
+        margin-bottom: 1.35rem;
+    }
+
+    .theft-model-row,
+    .ante-frames li,
+    .cycle-stage {
+        padding: 1rem;
+    }
+}
