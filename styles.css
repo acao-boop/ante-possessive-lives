@@ -3736,3 +3736,39 @@ footer { display: none; }
         transform: none;
     }
 }
+
+/* =========================================================
+   V26.3 — MOBILE THEORY INDEX CARD
+   ========================================================= */
+
+/* The desktop framework entry has a second metadata column. On mobile the
+   metadata is hidden, so the grid itself must also collapse or it leaves an
+   empty column that compresses the visible title and description. */
+@media (max-width: 900px) {
+    .landing-page .dossier-entry-framework {
+        grid-template-columns: minmax(0, 1fr);
+        gap: .7rem;
+        min-height: 0;
+        padding: 1.35rem 1.25rem 1.45rem;
+    }
+
+    .landing-page .dossier-entry-framework > .entry-copy {
+        grid-column: 1;
+        width: 100%;
+    }
+
+    .landing-page .dossier-entry-framework > .entry-meta {
+        display: none;
+    }
+}
+
+@media (max-width: 520px) {
+    .landing-page .dossier-entry-framework {
+        padding: 1.2rem 1.05rem 1.3rem;
+    }
+
+    .landing-page .dossier-entry-framework .entry-title,
+    .landing-page .dossier-entry-framework .entry-description {
+        max-width: none;
+    }
+}
