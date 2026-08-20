@@ -3706,3 +3706,33 @@ footer { display: none; }
         transform: none;
     }
 }
+
+/* =========================================================
+   V26.2 — FIGURE I ARROW BALANCE
+   ========================================================= */
+
+/* Keep the numerals at the common upper-left position while allowing each
+   step to occupy the full row height. Arrows then sit at the visual midpoint
+   between neighboring steps. */
+.page-theory .process-steps {
+    align-items: stretch;
+}
+
+.page-theory .process-steps li {
+    align-self: stretch;
+}
+
+.page-theory .process-steps li:not(:last-child)::after {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@media (max-width: 760px) {
+    .page-theory .process-steps li:not(:last-child)::after {
+        top: auto;
+        right: auto;
+        bottom: -1.18rem;
+        left: .28rem;
+        transform: none;
+    }
+}
