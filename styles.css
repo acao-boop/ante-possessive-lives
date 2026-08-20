@@ -3517,3 +3517,138 @@ footer { display: none; }
         padding: 1rem;
     }
 }
+
+/* =========================================================
+   V26 — FINAL EDITORIAL AND SOURCE APPARATUS
+   ========================================================= */
+
+/* Theory figure alignment */
+.process-steps {
+    align-items: start;
+}
+
+.ante-frames .frame-number {
+    display: flex;
+    margin-inline: auto;
+}
+
+/* StoryMaps stand on their own without an enclosing colored frame. */
+.page-saffin #saffin-storymap .storymap-container,
+.page-patricio #storymap-container {
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.page-saffin #saffin-storymap iframe,
+.page-patricio #storymap-container iframe {
+    border: 0 !important;
+    background: transparent;
+}
+
+.page-saffin .adam-map-comparison {
+    border: 0 !important;
+}
+
+/* Adam comparison maps retain their own proportions while aligning in height. */
+.adam-map-pair {
+    grid-template-columns: minmax(0, 1.86fr) minmax(220px, 1fr);
+    gap: 1.25rem;
+    align-items: start;
+}
+
+.adam-map-panel img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Captions and notes are distinguished by structure, not color alone. */
+.figure-caption {
+    max-width: none;
+    padding-top: .9rem;
+    border-top: 1px solid var(--rule);
+}
+
+.figure-source,
+.map-credit {
+    display: block;
+    margin-top: .7rem;
+    padding: .65rem .8rem;
+    border-left: 2px solid var(--rule-strong);
+    background: rgba(255,255,255,.22);
+    color: var(--ink-faint);
+    font-size: .76rem;
+    line-height: 1.5;
+}
+
+.figure-source a,
+.map-credit a {
+    color: var(--seal-wax);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.editorial-reference,
+.storymap-fallback {
+    margin: 1.25rem 0 0;
+    padding: .8rem 1rem;
+    border-left: 3px solid var(--section-accent);
+    background: rgba(255,255,255,.25);
+    color: var(--ink-soft);
+    font-family: var(--font-ui);
+    font-size: .8rem;
+    font-style: normal;
+    line-height: 1.55;
+    text-align: left;
+}
+
+.editorial-reference > span,
+.storymap-fallback > span {
+    display: block;
+    margin-bottom: .28rem;
+    color: var(--ink);
+    font-size: .62rem;
+    font-weight: 700;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+}
+
+.editorial-reference p {
+    margin: 0 !important;
+    color: inherit !important;
+    font-size: inherit !important;
+    line-height: inherit !important;
+}
+
+.editorial-reference a,
+.storymap-fallback a {
+    color: var(--seal-wax);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.portrait-credit-note {
+    margin-top: 1rem;
+    padding-top: .8rem;
+    border-top: 1px solid var(--rule);
+    color: var(--ink-faint);
+    font-family: var(--font-ui);
+    font-size: .76rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 760px) {
+    .adam-map-pair {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+    }
+
+    .adam-map-panel img {
+        width: auto;
+        max-width: 100%;
+        max-height: none;
+        margin-inline: auto;
+    }
+}
