@@ -3025,10 +3025,9 @@ footer { display: none; }
 }
 
 /* =========================================================
-   V25 — THEORY EXPANSION REVIEW
+   V25.1 — THEORY EXPANSION
    ========================================================= */
 :root {
-    --review-red: #922a23;
     --diagram-fill: #f8f5ed;
     --diagram-fill-deep: #e8e1d3;
     --diagram-line: #b8aa96;
@@ -3041,11 +3040,6 @@ footer { display: none; }
     max-width: none;
     margin-left: auto;
     margin-right: auto;
-}
-
-/* Review convention: only proposed explanatory prose is red. */
-.review-addition {
-    color: var(--review-red) !important;
 }
 
 /* Shared editorial figure treatment */
@@ -3190,16 +3184,16 @@ footer { display: none; }
 
 .ante-hub {
     display: flex;
-    width: 144px;
-    height: 144px;
+    width: 216px;
+    height: 92px;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
+    border-radius: 999px;
     background: var(--ink);
     color: var(--paper-soft);
-    font-size: 1.24rem;
+    font-size: 1.18rem;
     font-weight: 550;
-    line-height: 1.05;
+    line-height: 1.15;
     letter-spacing: -.012em;
     text-align: center;
 }
@@ -3378,9 +3372,9 @@ footer { display: none; }
     max-width: 100%;
     max-height: 920px;
     margin: 0 auto;
-    border: 1px solid #c7baa6;
-    background: #fff;
-    box-shadow: 0 10px 28px rgba(48,37,28,.09);
+    border: 0;
+    background: transparent;
+    box-shadow: none;
 }
 
 .theory-map-figure figcaption {
@@ -3392,6 +3386,20 @@ footer { display: none; }
 .theory-map-figure .map-credit {
     display: block;
     margin-top: .48rem;
+}
+
+.card .implication-subhead,
+.implication-subhead {
+    margin: 2.55rem 0 .85rem;
+    color: var(--ink);
+    font-size: clamp(1.16rem, 2vw, 1.42rem);
+    font-weight: 600;
+    line-height: 1.28;
+    letter-spacing: -.006em;
+}
+
+.card .implication-subhead:first-of-type {
+    margin-top: 1.65rem;
 }
 
 @media (max-width: 760px) {
@@ -3425,10 +3433,11 @@ footer { display: none; }
     }
 
     .ante-hub {
-        width: 126px;
-        height: 126px;
+        width: 190px;
+        height: 82px;
         margin-bottom: 1.2rem;
-        font-size: 1.12rem;
+        border-radius: 999px;
+        font-size: 1.08rem;
     }
 
     .ante-frames {
