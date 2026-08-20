@@ -2,7 +2,7 @@
 
 Static GitHub Pages build for the 2026 PURM iteration.
 
-V26 is the final editorial and source-apparatus pass. It preserves the completed Theory & Method expansion, refines the Adam Saffin and Juan Patricio pages, standardizes figure labels and credits, removes decorative frames from the StoryMap embeds, improves map and caption treatment, and updates contributor descriptions. See `V26-NOTES.md` for the finalized scope and `V26-SOURCE-AUDIT.md` for the asset and link review.
+V26.1 is the final editorial and source-apparatus build with a focused Theory & Method layout correction. It preserves the V26 content, removes doubled section dividers, and aligns the Figure I numerals across the upper-left corners of their steps. See `V26-NOTES.md`, `V26-1-NOTES.md`, and `V26-SOURCE-AUDIT.md` for the finalized scope.
 
 ## Deployment
 Upload the files in this directory to the repository root. GitHub Pages should deploy from the `main` branch / root.

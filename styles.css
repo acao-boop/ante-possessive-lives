@@ -3652,3 +3652,57 @@ footer { display: none; }
         margin-inline: auto;
     }
 }
+
+/* =========================================================
+   V26.1 — THEORY FLOW AND FIGURE I ALIGNMENT
+   ========================================================= */
+
+/* Each theory transition uses the card rule only. Removing the figure's
+   second rule prevents stacked dividers when a figure closes a section. */
+.page-theory .theory-reading-flow > .card {
+    margin-bottom: 3.8rem;
+    padding-bottom: 3.1rem;
+}
+
+.page-theory .theory-figure {
+    border-bottom: 0;
+}
+
+.page-theory .card > .theory-figure:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Figure I: each numeral occupies the upper-left corner of its own step.
+   The three numerals and connecting arrows share one horizontal axis. */
+.page-theory .process-steps {
+    align-items: start;
+}
+
+.page-theory .process-steps li {
+    display: flex;
+    align-self: start;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .52rem;
+}
+
+.page-theory .process-steps li:not(:last-child)::after {
+    top: .775rem;
+    transform: translateY(-50%);
+}
+
+@media (max-width: 760px) {
+    .page-theory .theory-reading-flow > .card {
+        margin-bottom: 3.1rem;
+        padding-bottom: 2.5rem;
+    }
+
+    .page-theory .process-steps li:not(:last-child)::after {
+        top: auto;
+        right: auto;
+        bottom: -1.18rem;
+        left: .28rem;
+        transform: none;
+    }
+}
