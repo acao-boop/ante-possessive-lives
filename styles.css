@@ -3772,3 +3772,33 @@ footer { display: none; }
         max-width: none;
     }
 }
+
+/* =========================================================
+   V26.4 — FACULTY PROFILE LINK
+   ========================================================= */
+
+.contributor-profile-link-wrap {
+    margin: .68rem 0 0;
+    font-family: var(--font-ui);
+    font-size: .76rem;
+    line-height: 1.45;
+}
+
+.contributor-profile-link {
+    display: inline-flex;
+    gap: .28rem;
+    align-items: baseline;
+    padding-bottom: .08rem;
+    border-bottom: 1px solid rgba(140,45,25,.42);
+    color: var(--seal-wax);
+    font-weight: 650;
+    text-decoration: none;
+    transition: border-color .18s ease, color .18s ease;
+}
+
+.contributor-profile-link:hover,
+.contributor-profile-link:focus-visible {
+    border-bottom-color: currentColor;
+    color: #692112;
+    outline: none;
+}
