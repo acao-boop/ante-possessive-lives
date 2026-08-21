@@ -3375,23 +3375,6 @@ footer { display: none; }
 
 .contributor-profile-link {
     display: inline-flex;
-    gap: .38rem;
     align-items: center;
-    padding: .52rem .68rem;
-    border: 1px solid rgba(140,45,25,.52);
-    background: rgba(140,45,25,.035);
-    color: var(--seal-wax);
-    font-weight: 700;
-    letter-spacing: .025em;
-    text-decoration: none;
-    transition: background-color .18s ease, border-color .18s ease, color .18s ease, transform .18s ease;
-}
-
-.contributor-profile-link:hover,
-.contributor-profile-link:focus-visible {
-    border-color: var(--seal-wax);
-    background: var(--seal-wax);
-    color: var(--paper-soft);
-    transform: translateY(-1px);
-    outline: none;
+    justify-content: center;
 }

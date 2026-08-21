@@ -25,6 +25,7 @@ First formal public release, corresponding to internal build V26.4.
 - Professor David Kazanjian’s portrait and institutional profile link
 - Figure I sequencing, now communicated by aligned Roman numerals and spatial order without directional arrows
 - Site-wide divider treatment and production CSS, removing stacked rules and unused component styles
+- Professor Kazanjian’s marked About-page revisions, including the Stanford collaborators heading and Stanford Humanities Center acknowledgment
 
 ### Validated
 
