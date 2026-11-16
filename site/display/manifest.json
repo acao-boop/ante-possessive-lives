@@ -1,0 +1,347 @@
+{
+  "adam-archive-manuscript.jpg": {
+    "width": 1200,
+    "height": 1600,
+    "original_bytes": 348113,
+    "variants": [
+      {
+        "path": "display/adam-archive-manuscript-480.webp",
+        "width": 480,
+        "height": 640,
+        "bytes": 57322
+      },
+      {
+        "path": "display/adam-archive-manuscript-960.webp",
+        "width": 960,
+        "height": 1280,
+        "bytes": 168400
+      },
+      {
+        "path": "display/adam-archive-manuscript-1200.webp",
+        "width": 1200,
+        "height": 1600,
+        "bytes": 258248
+      }
+    ]
+  },
+  "adam-colonial-new-england-map.jpg": {
+    "width": 1600,
+    "height": 1359,
+    "original_bytes": 642824,
+    "variants": [
+      {
+        "path": "display/adam-colonial-new-england-map-480.webp",
+        "width": 480,
+        "height": 408,
+        "bytes": 47822
+      },
+      {
+        "path": "display/adam-colonial-new-england-map-960.webp",
+        "width": 960,
+        "height": 815,
+        "bytes": 170194
+      },
+      {
+        "path": "display/adam-colonial-new-england-map-1600.webp",
+        "width": 1600,
+        "height": 1359,
+        "bytes": 604302
+      }
+    ]
+  },
+  "adam-indigenous-territories-map.jpg": {
+    "width": 557,
+    "height": 883,
+    "original_bytes": 150760,
+    "variants": [
+      {
+        "path": "display/adam-indigenous-territories-map-480.webp",
+        "width": 480,
+        "height": 761,
+        "bytes": 88778
+      },
+      {
+        "path": "display/adam-indigenous-territories-map-557.webp",
+        "width": 557,
+        "height": 883,
+        "bytes": 114190
+      }
+    ]
+  },
+  "adam-plymouth-colony-map.jpg": {
+    "width": 1600,
+    "height": 1282,
+    "original_bytes": 339869,
+    "variants": [
+      {
+        "path": "display/adam-plymouth-colony-map-480.webp",
+        "width": 480,
+        "height": 385,
+        "bytes": 39280
+      },
+      {
+        "path": "display/adam-plymouth-colony-map-960.webp",
+        "width": 960,
+        "height": 769,
+        "bytes": 109496
+      },
+      {
+        "path": "display/adam-plymouth-colony-map-1600.webp",
+        "width": 1600,
+        "height": 1282,
+        "bytes": 209800
+      }
+    ]
+  },
+  "headshot-andrew-cao.jpg": {
+    "width": 400,
+    "height": 400,
+    "original_bytes": 39892,
+    "variants": [
+      {
+        "path": "display/headshot-andrew-cao-160.webp",
+        "width": 160,
+        "height": 160,
+        "bytes": 7926
+      },
+      {
+        "path": "display/headshot-andrew-cao-320.webp",
+        "width": 320,
+        "height": 320,
+        "bytes": 19192
+      }
+    ]
+  },
+  "headshot-braden-lipman.jpg": {
+    "width": 315,
+    "height": 420,
+    "original_bytes": 11206,
+    "variants": [
+      {
+        "path": "display/headshot-braden-lipman-160.webp",
+        "width": 160,
+        "height": 213,
+        "bytes": 3354
+      },
+      {
+        "path": "display/headshot-braden-lipman-315.webp",
+        "width": 315,
+        "height": 420,
+        "bytes": 8440
+      }
+    ]
+  },
+  "headshot-david-kazanjian.png": {
+    "width": 1254,
+    "height": 1254,
+    "original_bytes": 2168501,
+    "variants": [
+      {
+        "path": "display/headshot-david-kazanjian-160.webp",
+        "width": 160,
+        "height": 160,
+        "bytes": 4934
+      },
+      {
+        "path": "display/headshot-david-kazanjian-320.webp",
+        "width": 320,
+        "height": 320,
+        "bytes": 15356
+      }
+    ]
+  },
+  "headshot-gabriela-chavez-hernandez.jpg": {
+    "width": 650,
+    "height": 650,
+    "original_bytes": 65273,
+    "variants": [
+      {
+        "path": "display/headshot-gabriela-chavez-hernandez-160.webp",
+        "width": 160,
+        "height": 160,
+        "bytes": 5422
+      },
+      {
+        "path": "display/headshot-gabriela-chavez-hernandez-320.webp",
+        "width": 320,
+        "height": 320,
+        "bytes": 14272
+      }
+    ]
+  },
+  "juan-patricio-archive-cover.jpg": {
+    "width": 1128,
+    "height": 1600,
+    "original_bytes": 399858,
+    "variants": [
+      {
+        "path": "display/juan-patricio-archive-cover-480.webp",
+        "width": 480,
+        "height": 681,
+        "bytes": 48602
+      },
+      {
+        "path": "display/juan-patricio-archive-cover-960.webp",
+        "width": 960,
+        "height": 1362,
+        "bytes": 185418
+      },
+      {
+        "path": "display/juan-patricio-archive-cover-1128.webp",
+        "width": 1128,
+        "height": 1600,
+        "bytes": 265218
+      }
+    ]
+  },
+  "juan-patricio-hero.jpg": {
+    "width": 1128,
+    "height": 1600,
+    "original_bytes": 329067,
+    "variants": [
+      {
+        "path": "display/juan-patricio-hero-480.webp",
+        "width": 480,
+        "height": 681,
+        "bytes": 48896
+      },
+      {
+        "path": "display/juan-patricio-hero-960.webp",
+        "width": 960,
+        "height": 1362,
+        "bytes": 189008
+      },
+      {
+        "path": "display/juan-patricio-hero-1128.webp",
+        "width": 1128,
+        "height": 1600,
+        "bytes": 293066
+      }
+    ]
+  },
+  "juan-patricio-map-historical.webp": {
+    "width": 2100,
+    "height": 1666,
+    "original_bytes": 525638,
+    "variants": [
+      {
+        "path": "display/juan-patricio-map-historical-480.webp",
+        "width": 480,
+        "height": 381,
+        "bytes": 54530
+      },
+      {
+        "path": "display/juan-patricio-map-historical-960.webp",
+        "width": 960,
+        "height": 762,
+        "bytes": 167480
+      },
+      {
+        "path": "display/juan-patricio-map-historical-1600.webp",
+        "width": 1600,
+        "height": 1269,
+        "bytes": 297910
+      }
+    ]
+  },
+  "juan-patricio-map-modern.webp": {
+    "width": 2100,
+    "height": 1666,
+    "original_bytes": 584716,
+    "variants": [
+      {
+        "path": "display/juan-patricio-map-modern-480.webp",
+        "width": 480,
+        "height": 381,
+        "bytes": 58200
+      },
+      {
+        "path": "display/juan-patricio-map-modern-960.webp",
+        "width": 960,
+        "height": 762,
+        "bytes": 175406
+      },
+      {
+        "path": "display/juan-patricio-map-modern-1600.webp",
+        "width": 1600,
+        "height": 1269,
+        "bytes": 350584
+      }
+    ]
+  },
+  "mani-land-treaty-map-1557-enhanced.png": {
+    "width": 1505,
+    "height": 2041,
+    "original_bytes": 2630084,
+    "variants": [
+      {
+        "path": "display/mani-land-treaty-map-1557-enhanced-480.webp",
+        "width": 480,
+        "height": 651,
+        "bytes": 58814
+      },
+      {
+        "path": "display/mani-land-treaty-map-1557-enhanced-960.webp",
+        "width": 960,
+        "height": 1302,
+        "bytes": 147398
+      },
+      {
+        "path": "display/mani-land-treaty-map-1557-enhanced-1505.webp",
+        "width": 1505,
+        "height": 2041,
+        "bytes": 246216
+      }
+    ]
+  },
+  "new-england-map-banner.jpg": {
+    "width": 1800,
+    "height": 700,
+    "original_bytes": 219190,
+    "variants": [
+      {
+        "path": "display/new-england-map-banner-480.webp",
+        "width": 480,
+        "height": 187,
+        "bytes": 24000
+      },
+      {
+        "path": "display/new-england-map-banner-960.webp",
+        "width": 960,
+        "height": 373,
+        "bytes": 61744
+      },
+      {
+        "path": "display/new-england-map-banner-1600.webp",
+        "width": 1600,
+        "height": 622,
+        "bytes": 105932
+      }
+    ]
+  },
+  "yucatan-map-banner.jpg": {
+    "width": 1800,
+    "height": 700,
+    "original_bytes": 151527,
+    "variants": [
+      {
+        "path": "display/yucatan-map-banner-480.webp",
+        "width": 480,
+        "height": 187,
+        "bytes": 16344
+      },
+      {
+        "path": "display/yucatan-map-banner-960.webp",
+        "width": 960,
+        "height": 373,
+        "bytes": 38240
+      },
+      {
+        "path": "display/yucatan-map-banner-1600.webp",
+        "width": 1600,
+        "height": 622,
+        "bytes": 65890
+      }
+    ]
+  }
+}

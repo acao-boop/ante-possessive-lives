@@ -1,0 +1,534 @@
+{
+  "files": [
+    {
+      "path": "CLAUDE.md",
+      "bytes": 2498,
+      "sha256": "46c57404616eb7b6255d182923e11433f7806bd88ad94f30345711f06d8d1b08"
+    },
+    {
+      "path": "Letter-to-Claude.md",
+      "bytes": 8162,
+      "sha256": "db6365f671ad460f0f83a6bb28e773999eaed834fad0bb84894c78b2aa59be21"
+    },
+    {
+      "path": "README.md",
+      "bytes": 58,
+      "sha256": "60c9e06852a6040dfcf4526428574d380fe7287e062c49abcaee5d7884359fe0"
+    },
+    {
+      "path": "START-HERE.md",
+      "bytes": 2723,
+      "sha256": "e83f19d391e6aed858758d030e8a566400298178a0e6d407628cb4bb55780fb3"
+    },
+    {
+      "path": "references/local-home.jpg",
+      "bytes": 91921,
+      "sha256": "3bec6941ae0da8b0a1e5010d50c6c05c85f1dfc99ec5184482b6b945046a8f1f"
+    },
+    {
+      "path": "references/published-home.jpg",
+      "bytes": 91977,
+      "sha256": "e377246e91cd01de77d2ba7ec1f3f15f725152c125126f5940cfc209125988d6"
+    },
+    {
+      "path": "site/404.html",
+      "bytes": 1731,
+      "sha256": "d4eeb8db36d026c5596167b3314a8d42ae4b770a1b1ee60b7210109b5bd366a6"
+    },
+    {
+      "path": "site/ARCHIVE-MIGRATION.md",
+      "bytes": 3201,
+      "sha256": "535e72c18d830dbad2395c7c7158ff0279aa2ee723ed6ef45508e24bc2557d8d"
+    },
+    {
+      "path": "site/ASSET-CREDITS.md",
+      "bytes": 3922,
+      "sha256": "7d757015266a28e6f6c575448db09042579ef3662e91833a540e70ce098f3c26"
+    },
+    {
+      "path": "site/AdamArchive.jpg",
+      "bytes": 85944,
+      "sha256": "a1ea238f352d980b28acd20c5fe77a6b20c88c1c90ebdfc6411e8fc11a117a80"
+    },
+    {
+      "path": "site/CHANGELOG.md",
+      "bytes": 1989,
+      "sha256": "6e0c89c88349a6dd7a375b39a8a64a922cfdc813e86db5c5040eb8dad27da83d"
+    },
+    {
+      "path": "site/CURATION-NOTES.md",
+      "bytes": 4302,
+      "sha256": "f488e446abeb1e004f3618d4b5bb706f050ec846f059633baa1a791d99d42f9c"
+    },
+    {
+      "path": "site/INTERFACE-NOTES.md",
+      "bytes": 6212,
+      "sha256": "b259174ccb0b7fbf5d68131eabdb643a5a60ac52113e47bb94ec93f40aa331ac"
+    },
+    {
+      "path": "site/MAINTENANCE.md",
+      "bytes": 7769,
+      "sha256": "957c057191691a680314f97482e785fc67c083cc28130a2e44945611a0761e00"
+    },
+    {
+      "path": "site/PURM_v23_script.txt",
+      "bytes": 3591,
+      "sha256": "228d000dfc15457c2c0d01e8baad8eab385e03fe1082e18158b5d8cd940f71f3"
+    },
+    {
+      "path": "site/PURM_v24_script.txt",
+      "bytes": 3591,
+      "sha256": "228d000dfc15457c2c0d01e8baad8eab385e03fe1082e18158b5d8cd940f71f3"
+    },
+    {
+      "path": "site/README.md",
+      "bytes": 3159,
+      "sha256": "525913f6867943cbb33e53d83f6890e1426ae751382214b5e4c20f8f1ec7fa01"
+    },
+    {
+      "path": "site/V24_NOTES.txt",
+      "bytes": 823,
+      "sha256": "c2acc0588de1b3db246d7b3fb8f19c766b9905bae9ff633863d9c4a9b1cb1538"
+    },
+    {
+      "path": "site/V25-1-NOTES.md",
+      "bytes": 1954,
+      "sha256": "801e7e4e9d9ebe3872dc5e73e13bb2f6102bc40b50e3bc1edd8aa67957e2f048"
+    },
+    {
+      "path": "site/V26-1-NOTES.md",
+      "bytes": 830,
+      "sha256": "37203b823cbf283e6ed339175529ec8aa8f5c7af48cefbcfca72a0d27925fd32"
+    },
+    {
+      "path": "site/V26-2-NOTES.md",
+      "bytes": 512,
+      "sha256": "6771e32d72643665f82c9c138a8eafdfc94534e5a5d81b36a61245d7fc0ae08d"
+    },
+    {
+      "path": "site/V26-3-NOTES.md",
+      "bytes": 572,
+      "sha256": "60961fe6bf6413278987cedc11e69a546e20cbe14595afc7a32f454d2d7af2c3"
+    },
+    {
+      "path": "site/V26-4-NOTES.md",
+      "bytes": 621,
+      "sha256": "8d50ecfb28a947b3de7f1cf8d31ce5c58acbfba66e5181ea8a2b787bdc842240"
+    },
+    {
+      "path": "site/V26-NOTES.md",
+      "bytes": 2531,
+      "sha256": "ac3af5a4e0a6848ba7a424208b324faf8fe3d09e749d08a8c2351a05b73eaaa6"
+    },
+    {
+      "path": "site/V26-SOURCE-AUDIT.md",
+      "bytes": 2306,
+      "sha256": "3fd56d4c98ce36082c2f5582bc9ce8ece5409a9da29f97f5ead29c56a34db9ac"
+    },
+    {
+      "path": "site/adam-archive-manuscript.jpg",
+      "bytes": 348113,
+      "sha256": "af76c3fa778f165d54f34dbadb9ba748dfeb66ef49a9f06a74954e6c8fbd41bc"
+    },
+    {
+      "path": "site/adam-colonial-new-england-map.jpg",
+      "bytes": 642824,
+      "sha256": "e9a0c3ce847a57e85b98ce3692ae64a6e02b5ddbd5728cf2297bbac5b751c6d2"
+    },
+    {
+      "path": "site/adam-indigenous-territories-map.jpg",
+      "bytes": 150760,
+      "sha256": "55af7a8c542d6c7452fd38c21ba6be0f2404bc792dec19b95e5723f67f1feb84"
+    },
+    {
+      "path": "site/adam-plymouth-colony-map.jpg",
+      "bytes": 339869,
+      "sha256": "1a9679dd164c1466765b71ef8f227cb0cc3c7ab8717fd3ea29921b95f406b37e"
+    },
+    {
+      "path": "site/adam.html",
+      "bytes": 22756,
+      "sha256": "5259317f8e0a34e291035a2e470ba62fdd188b252ef654f1665e84aa8ddee9d7"
+    },
+    {
+      "path": "site/andrew-cao-mark.svg",
+      "bytes": 9716,
+      "sha256": "0d4c0b39cc94bb9e2f10cfeabc217fd2ea689bfe129800a88d76fcb3498f19b5"
+    },
+    {
+      "path": "site/ante-device.svg",
+      "bytes": 247,
+      "sha256": "7aa850d03e10a775e5889dfcb379988decde28f22b3e80e095197f36119d5fa2"
+    },
+    {
+      "path": "site/bibliography.html",
+      "bytes": 16822,
+      "sha256": "6fe19e7922bea7192d64d358089d88af65ddeba8a90471a8efaae83bbfb24f5c"
+    },
+    {
+      "path": "site/credits.html",
+      "bytes": 9984,
+      "sha256": "701a6895235d21ff85e93d021085dabf7f23a2fdd092cd11d4eeb96a052e9a2b"
+    },
+    {
+      "path": "site/curation.css",
+      "bytes": 17582,
+      "sha256": "c2d30a608342d060dff9a9c3e430f4363a866769ecbc1bebb1d718697c9d51d7"
+    },
+    {
+      "path": "site/curation.js",
+      "bytes": 9033,
+      "sha256": "34554ce2877a3450b4a349b9e6798e3a9245e86e49c3d4d3020c03be6e35399f"
+    },
+    {
+      "path": "site/display/adam-archive-manuscript-1200.webp",
+      "bytes": 258248,
+      "sha256": "07b0a30c1b2162b4a4b1a0418c47bd7d619a773d86354b77ccca4fe0a14bdc50"
+    },
+    {
+      "path": "site/display/adam-archive-manuscript-480.webp",
+      "bytes": 57322,
+      "sha256": "e3392e6a25a5c916f686a073997580e627c86f473ff7d6e4d531b64dc320b31f"
+    },
+    {
+      "path": "site/display/adam-archive-manuscript-960.webp",
+      "bytes": 168400,
+      "sha256": "1bf4f752785cde44a17b2b0dbb55f5f02ab893a1bfe708ed9f0e73bc3dfe9981"
+    },
+    {
+      "path": "site/display/adam-colonial-new-england-map-1600.webp",
+      "bytes": 604302,
+      "sha256": "e5f57ab044df8d3517c9358ecb2f2d53d8705f8bf2f69f8947b9cddb1559c3fd"
+    },
+    {
+      "path": "site/display/adam-colonial-new-england-map-480.webp",
+      "bytes": 47822,
+      "sha256": "815c3e190974afe20ec2a85dfb86e420a44536c42712b77ef2dd2bbee169f222"
+    },
+    {
+      "path": "site/display/adam-colonial-new-england-map-960.webp",
+      "bytes": 170194,
+      "sha256": "03ebb1cb1ebf484b34d6486cad97d2d79be87050a6fb94d5860307f08aae4a7c"
+    },
+    {
+      "path": "site/display/adam-indigenous-territories-map-480.webp",
+      "bytes": 88778,
+      "sha256": "b5a84c24899d06eb7968b3ee0a1c9f75fe824942dd91a3a1699d1d625e410abb"
+    },
+    {
+      "path": "site/display/adam-indigenous-territories-map-557.webp",
+      "bytes": 114190,
+      "sha256": "451f9b17548c515a3cf7c0c9325f84b5850c2beca945d5b2d363661cad592d06"
+    },
+    {
+      "path": "site/display/adam-plymouth-colony-map-1600.webp",
+      "bytes": 209800,
+      "sha256": "2b55942397e0f65bb132d5eee2f6e3338d38a3454919530c58da5fb387194dc2"
+    },
+    {
+      "path": "site/display/adam-plymouth-colony-map-480.webp",
+      "bytes": 39280,
+      "sha256": "8a21df0436d68383366c76973fc780fababff968812b8d9e32a5971058cd3e26"
+    },
+    {
+      "path": "site/display/adam-plymouth-colony-map-960.webp",
+      "bytes": 109496,
+      "sha256": "7314ca19863714f0367dd6f2bd6ddb41249674129906a664781d361912ac7194"
+    },
+    {
+      "path": "site/display/headshot-andrew-cao-160.webp",
+      "bytes": 7926,
+      "sha256": "7db3bc4cab4768b55283b445276fc2597e920ec4cc2422ec65ec7bedd931970b"
+    },
+    {
+      "path": "site/display/headshot-andrew-cao-320.webp",
+      "bytes": 19192,
+      "sha256": "b93dc6134554717b67db233ff3f3524572e6a89f177d2acbf7e995295433b11a"
+    },
+    {
+      "path": "site/display/headshot-braden-lipman-160.webp",
+      "bytes": 3354,
+      "sha256": "9bc46b7c7ff101b98a80d5cdf688c40c63fd6109e6da943f7af334049978f64e"
+    },
+    {
+      "path": "site/display/headshot-braden-lipman-315.webp",
+      "bytes": 8440,
+      "sha256": "0aa6cc2720ed6b2737732550cf3e3ac72a22e8921a2f3f945df21c75c23db57b"
+    },
+    {
+      "path": "site/display/headshot-david-kazanjian-160.webp",
+      "bytes": 4934,
+      "sha256": "8bb3b5db55e932c49c547f06f3b31ffae2d8ceea066757ae53d1e9673698f439"
+    },
+    {
+      "path": "site/display/headshot-david-kazanjian-320.webp",
+      "bytes": 15356,
+      "sha256": "310b58efc256647d3d3f35513d672e7ba3ebb6fd905e825ab73bd0208202202a"
+    },
+    {
+      "path": "site/display/headshot-gabriela-chavez-hernandez-160.webp",
+      "bytes": 5422,
+      "sha256": "f7975e471d3f693007423cbe9b89b4f2d6e3e94e9500e990849f6e451d114151"
+    },
+    {
+      "path": "site/display/headshot-gabriela-chavez-hernandez-320.webp",
+      "bytes": 14272,
+      "sha256": "54de776f4306d114bdbbb4e49e289619a970c001f03eb648b60a6181eb7513f2"
+    },
+    {
+      "path": "site/display/juan-patricio-archive-cover-1128.webp",
+      "bytes": 265218,
+      "sha256": "80b7009c41e0aafd17bb7d9df29ee8b317926909febb0c7adebe785d9243df26"
+    },
+    {
+      "path": "site/display/juan-patricio-archive-cover-480.webp",
+      "bytes": 48602,
+      "sha256": "507209fb04e34d668d2f72c65059f2521719f0c761583d9beeaa807ba45c96a1"
+    },
+    {
+      "path": "site/display/juan-patricio-archive-cover-960.webp",
+      "bytes": 185418,
+      "sha256": "18ab3a6ae7c286fb4d2707f1c5c42fc6575854d38296bfd4eaf3e1b925a208be"
+    },
+    {
+      "path": "site/display/juan-patricio-hero-1128.webp",
+      "bytes": 293066,
+      "sha256": "2e2a68410df92e09662688e26bc0e5e3b38007391125b0c4191c3986dfe016f6"
+    },
+    {
+      "path": "site/display/juan-patricio-hero-480.webp",
+      "bytes": 48896,
+      "sha256": "60f5d2d9ac9f704c7917271a4d1abd87f1a4cffa3ab3703bc353e06b52b6e097"
+    },
+    {
+      "path": "site/display/juan-patricio-hero-960.webp",
+      "bytes": 189008,
+      "sha256": "a4e1c258dea8e525b780073b263d49ae5edafa719a5519ed55db3d5b4c0650e3"
+    },
+    {
+      "path": "site/display/juan-patricio-map-historical-1600.webp",
+      "bytes": 297910,
+      "sha256": "52c1247c7fd5cbf47212974d45c7da0f83caa487d9673b40ea240168f8139ae4"
+    },
+    {
+      "path": "site/display/juan-patricio-map-historical-480.webp",
+      "bytes": 54530,
+      "sha256": "0b0556ac3a62a9e13c6281e9edecd8433e5b79cd45692c991d778c3a73661627"
+    },
+    {
+      "path": "site/display/juan-patricio-map-historical-960.webp",
+      "bytes": 167480,
+      "sha256": "a053010e6ab74a179cc2e8c1881c9e0a342fa6614d346a4fd1520f0b58807d7b"
+    },
+    {
+      "path": "site/display/juan-patricio-map-modern-1600.webp",
+      "bytes": 350584,
+      "sha256": "d5f27f0dcb70a86937eb80acabadd42639dc939817f80ef42eab03877fba6e17"
+    },
+    {
+      "path": "site/display/juan-patricio-map-modern-480.webp",
+      "bytes": 58200,
+      "sha256": "0664e379d05613cded0d216c22c6791c7d2fc1397aea837c9feb5748fdd284b0"
+    },
+    {
+      "path": "site/display/juan-patricio-map-modern-960.webp",
+      "bytes": 175406,
+      "sha256": "c1064b139b7cc23f006e7aadb939fb9fa936d630b225821ab5efa0cbabaec66a"
+    },
+    {
+      "path": "site/display/mani-land-treaty-map-1557-enhanced-1505.webp",
+      "bytes": 246216,
+      "sha256": "dce2e999dfc296eb08dd21fc33753e8305a404f31e769219ea699c7af9827512"
+    },
+    {
+      "path": "site/display/mani-land-treaty-map-1557-enhanced-480.webp",
+      "bytes": 58814,
+      "sha256": "605641ae81f6ba23433cdbe3f8beb070b828cc1a136bf3b58450e70a9d19cb24"
+    },
+    {
+      "path": "site/display/mani-land-treaty-map-1557-enhanced-960.webp",
+      "bytes": 147398,
+      "sha256": "2914183a49a56e12cd32b19a3ea76c2721d83a1b00c5e05407b0059b051fec86"
+    },
+    {
+      "path": "site/display/manifest.json",
+      "bytes": 7931,
+      "sha256": "ab1e14247947736bb2d4e2bb766f3a2133f5a86d99ecf669f8c34fd169131b7b"
+    },
+    {
+      "path": "site/display/new-england-map-banner-1600.webp",
+      "bytes": 105932,
+      "sha256": "6342e899ce4b456bd50a4f217fa08ef378d612f87d2ba02b1464097bb1fe069f"
+    },
+    {
+      "path": "site/display/new-england-map-banner-480.webp",
+      "bytes": 24000,
+      "sha256": "6d2392803e5d62a9b2ca92a21cc5d7e10be181a74cbb62a07d0353181c43f180"
+    },
+    {
+      "path": "site/display/new-england-map-banner-960.webp",
+      "bytes": 61744,
+      "sha256": "6f81835961ebbb7db715283a400e4aba136136317311cdeb45b497145ef724ba"
+    },
+    {
+      "path": "site/display/yucatan-map-banner-1600.webp",
+      "bytes": 65890,
+      "sha256": "46b7920edbc8beab0b02c39ee45c09d3e03948884c86ba9d01d00edcf664c770"
+    },
+    {
+      "path": "site/display/yucatan-map-banner-480.webp",
+      "bytes": 16344,
+      "sha256": "bb6ac55f38b2aa137c036aab9681db3be2259423afc748e3dcc57b2a49c12f53"
+    },
+    {
+      "path": "site/display/yucatan-map-banner-960.webp",
+      "bytes": 38240,
+      "sha256": "d0fd8c924bd08e1ea0a34e6df526bf2017b734d7cd8d607472414ad451259445"
+    },
+    {
+      "path": "site/favicon.svg",
+      "bytes": 242,
+      "sha256": "2251bda004bea127648749ec2996deafd683f23f9698713b7461e669439b0929"
+    },
+    {
+      "path": "site/headshot-andrew-cao.jpg",
+      "bytes": 39892,
+      "sha256": "0edf1f51602bbe934257f79d67bb1811a7850718d31f54baf17994abbc2a5fa0"
+    },
+    {
+      "path": "site/headshot-braden-lipman.jpg",
+      "bytes": 11206,
+      "sha256": "8c04614bf84312f6d175d1f656e6dff6b782a1d620800f73291df56513003818"
+    },
+    {
+      "path": "site/headshot-david-kazanjian.jpg",
+      "bytes": 7739,
+      "sha256": "443afb8ec8ba10bf1dc650b0b37669adf53a175dda36f5efdf37df7a39a40ef1"
+    },
+    {
+      "path": "site/headshot-david-kazanjian.png",
+      "bytes": 2168501,
+      "sha256": "8423aeb7e4fab15ec297a1569ed4ec0f93adcd05540287f00cb2f164c3f68d84"
+    },
+    {
+      "path": "site/headshot-gabriela-chavez-hernandez.jpg",
+      "bytes": 65273,
+      "sha256": "454bbcbbdd28826bf95da28dd0ba7ee520d65324b0ec829d919d826aa2f5e982"
+    },
+    {
+      "path": "site/index.html",
+      "bytes": 8029,
+      "sha256": "a2b84b4eb7262944fd775aa475b5d20b7566caa8ac780eedaebe9ddc77f582bf"
+    },
+    {
+      "path": "site/interface.css",
+      "bytes": 47607,
+      "sha256": "22449e7ebb415c3a0ec93c812c6271473b394c7d698d2ef29efb81271a9adab3"
+    },
+    {
+      "path": "site/interface.js",
+      "bytes": 24674,
+      "sha256": "ccbd7981751aa3797ee254c86fe1bd93e858e379160f35f9805cccd91547284d"
+    },
+    {
+      "path": "site/juan-patricio-archive-cover.jpg",
+      "bytes": 399858,
+      "sha256": "1dd91a913798597eaea565bc6d664af80879f88ffe87680d63fc33c07cb70cf8"
+    },
+    {
+      "path": "site/juan-patricio-hero.jpg",
+      "bytes": 329067,
+      "sha256": "da315ad1e9c8e6f4100b9165cfa1d73e873b9152767e032dabf8ba4c4aa69634"
+    },
+    {
+      "path": "site/juan-patricio-map-historical.webp",
+      "bytes": 525638,
+      "sha256": "0989642a5e670212ead2e880e7cd3aa48fb2e810a3bf0a733651a71eb612e072"
+    },
+    {
+      "path": "site/juan-patricio-map-modern.webp",
+      "bytes": 584716,
+      "sha256": "2e2c6664156b8c77165f4b0f08b2ededff7fd3a509660bf1059ded7d16d0d402"
+    },
+    {
+      "path": "site/juan-patricio.html",
+      "bytes": 27642,
+      "sha256": "f1b8ac2471308e2f8e5a47943e44d3f124d41cad7dd75dfff418370a5dc7c587"
+    },
+    {
+      "path": "site/mani-land-treaty-map-1557-enhanced.png",
+      "bytes": 2630084,
+      "sha256": "1e4fce636bf156bb083a206693e7b21bdd35654203065a5d43578219f9a5ebd4"
+    },
+    {
+      "path": "site/mani-land-treaty-map-1557.png",
+      "bytes": 3595983,
+      "sha256": "759f1384c5cfabd98d8ff350bb43ed3170cc68a2da355e4e0c1704a835da796f"
+    },
+    {
+      "path": "site/new-england-map-banner.jpg",
+      "bytes": 219190,
+      "sha256": "4c2c17cd1e423ab076fcb67a502a78e2de458a5e7b46dbbbe4d0316d9529a699"
+    },
+    {
+      "path": "site/published/ante-possession-title.png",
+      "bytes": 20103,
+      "sha256": "d0670974dc0debe45ba8e418e32273bccb86a3616fac968a162b460e4fadd993"
+    },
+    {
+      "path": "site/published/bristol-woodbury.png",
+      "bytes": 361110,
+      "sha256": "8313c815fe4d3275a18f332e5159c9851b0a5763efdad5f8feb788899482c4f6"
+    },
+    {
+      "path": "site/published/i-am-he-title.png",
+      "bytes": 29030,
+      "sha256": "9feb22521e6ae6c0d50bc22cdf46c980fc915c5bb1f6d1ac2f6e0370172f13ee"
+    },
+    {
+      "path": "site/script.js",
+      "bytes": 3591,
+      "sha256": "228d000dfc15457c2c0d01e8baad8eab385e03fe1082e18158b5d8cd940f71f3"
+    },
+    {
+      "path": "site/search-index.json",
+      "bytes": 53347,
+      "sha256": "ccec7eb7b91e6d29633a96bacafb8d205a4b8734d3cba772abb6bef3ad26b013"
+    },
+    {
+      "path": "site/social-preview.jpg",
+      "bytes": 72646,
+      "sha256": "cc97dea32c0bf6f3a5fad7c6c9d4dccc5aeb034fe00d4c7effc6d11d237f1e51"
+    },
+    {
+      "path": "site/styles.css",
+      "bytes": 86585,
+      "sha256": "2259fac436bfddea7aeb2a2b6644af6569f2cfea89d8e85969827e2c05b56e6d"
+    },
+    {
+      "path": "site/theory.html",
+      "bytes": 29201,
+      "sha256": "1da58e08059d44063b3d11f10e8e0dfab1faf4af4037b52a903f8b77d991549d"
+    },
+    {
+      "path": "site/yucatan-map-banner.jpg",
+      "bytes": 151527,
+      "sha256": "50e8efd908babd596a653c7a8cb892ff976efc4862cbdaefe22a411cdc3a5c0d"
+    },
+    {
+      "path": "source-provenance.json",
+      "bytes": 18555,
+      "sha256": "51f447ae9d220d34c48ce80f618d97a0097409c414b1a1de73bf7fba4092ae19"
+    },
+    {
+      "path": "verification/live-source-checks.json",
+      "bytes": 2569,
+      "sha256": "da912bc79db83ccf32ed7c9aee2d2448749eeef5ef091ee77f4d775e05bbd8bc"
+    },
+    {
+      "path": "verification/local-link-check.json",
+      "bytes": 181,
+      "sha256": "2b46ffbc764afe2b2e65888b91d76db63f25d643bdf5abd2ce35d16673e1d6d8"
+    }
+  ]
+}

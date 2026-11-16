@@ -1,0 +1,6 @@
+{
+  "html_pages": 7,
+  "references_checked": 208,
+  "issues": [],
+  "scope": "Static HTML href/src/srcset/poster/data-src and anchor checks; not a fresh interactive browser test"
+}

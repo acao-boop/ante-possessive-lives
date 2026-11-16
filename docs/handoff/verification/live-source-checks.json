@@ -1,0 +1,61 @@
+{
+  "checked_at_utc": "2026-11-16T14:15:38.880953+00:00",
+  "checks": [
+    {
+      "url": "https://ante-possessive-lives.pages.dev/",
+      "status": 200,
+      "local_matches_live": true,
+      "local_sha256": "a2b84b4eb7262944fd775aa475b5d20b7566caa8ac780eedaebe9ddc77f582bf",
+      "live_sha256": "a2b84b4eb7262944fd775aa475b5d20b7566caa8ac780eedaebe9ddc77f582bf"
+    },
+    {
+      "url": "https://ante-possessive-lives.pages.dev/theory",
+      "status": 200,
+      "local_matches_live": true,
+      "local_sha256": "1da58e08059d44063b3d11f10e8e0dfab1faf4af4037b52a903f8b77d991549d",
+      "live_sha256": "1da58e08059d44063b3d11f10e8e0dfab1faf4af4037b52a903f8b77d991549d"
+    },
+    {
+      "url": "https://ante-possessive-lives.pages.dev/adam",
+      "status": 200,
+      "local_matches_live": true,
+      "local_sha256": "5259317f8e0a34e291035a2e470ba62fdd188b252ef654f1665e84aa8ddee9d7",
+      "live_sha256": "5259317f8e0a34e291035a2e470ba62fdd188b252ef654f1665e84aa8ddee9d7"
+    },
+    {
+      "url": "https://ante-possessive-lives.pages.dev/juan-patricio",
+      "status": 200,
+      "local_matches_live": true,
+      "local_sha256": "f1b8ac2471308e2f8e5a47943e44d3f124d41cad7dd75dfff418370a5dc7c587",
+      "live_sha256": "f1b8ac2471308e2f8e5a47943e44d3f124d41cad7dd75dfff418370a5dc7c587"
+    },
+    {
+      "url": "https://ante-possessive-lives.pages.dev/bibliography",
+      "status": 200,
+      "local_matches_live": true,
+      "local_sha256": "6fe19e7922bea7192d64d358089d88af65ddeba8a90471a8efaae83bbfb24f5c",
+      "live_sha256": "6fe19e7922bea7192d64d358089d88af65ddeba8a90471a8efaae83bbfb24f5c"
+    },
+    {
+      "url": "https://ante-possessive-lives.pages.dev/credits",
+      "status": 200,
+      "local_matches_live": true,
+      "local_sha256": "701a6895235d21ff85e93d021085dabf7f23a2fdd092cd11d4eeb96a052e9a2b",
+      "live_sha256": "701a6895235d21ff85e93d021085dabf7f23a2fdd092cd11d4eeb96a052e9a2b"
+    },
+    {
+      "url": "https://ante-possessive-lives.pages.dev/favicon.svg",
+      "status": 200,
+      "local_matches_live": true,
+      "local_sha256": "2251bda004bea127648749ec2996deafd683f23f9698713b7461e669439b0929",
+      "live_sha256": "2251bda004bea127648749ec2996deafd683f23f9698713b7461e669439b0929"
+    },
+    {
+      "url": "https://ante-possessive-lives.pages.dev/ante-device.svg",
+      "status": 200,
+      "local_matches_live": true,
+      "local_sha256": "7aa850d03e10a775e5889dfcb379988decde28f22b3e80e095197f36119d5fa2",
+      "live_sha256": "7aa850d03e10a775e5889dfcb379988decde28f22b3e80e095197f36119d5fa2"
+    }
+  ]
+}
