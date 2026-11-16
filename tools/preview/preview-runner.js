@@ -46,9 +46,9 @@ async () => {
       const target = url.pathname.replace(/^\//, '').replace(/\.html$/, '') || 'index';
       if (target === file.replace(/\.html$/, '')) return;
       event.preventDefault();
-      render(url.pathname).then(() => { if (url.hash) frame.contentWindow.location.hash = url.hash; });
+      render(url.pathname).then(next => { if (url.hash) next.contentWindow.location.hash = url.hash; });
     }, true);
-    return file;
+    return frame;
   };
-  return render(location.pathname);
+  return render(location.pathname).then(frame => frame.srcdoc && 'Preview open');
 }
