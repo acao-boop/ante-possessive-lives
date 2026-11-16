@@ -2,7 +2,7 @@
 
 ## Current state (2026-11-16, afternoon)
 - Moving to GitHub Pages: https://acao-boop.github.io/ante-possessive-lives/ (repo acao-boop/ante-possessive-lives). This local repo now carries that GitHub history; `site/` is published by `.github/workflows/pages.yml` on every push to `main`.
-- The live Cloudflare site (ante-possessive-lives.pages.dev) carries today's release plus edits made outside this repo: the engraved alpha device, `?v=20261116-alpha` / `-release` asset versions, and a project citation that leads with the title. Commit 14d6310 brought those into this repo byte-for-byte, except `site/social-preview.jpg` (the live alpha version still has to be copied in).
+- The live Cloudflare site (ante-possessive-lives.pages.dev) carries today's release plus edits made outside this repo: the engraved alpha device, `?v=20261116-alpha` / `-release` asset versions, and a project citation that leads with the title. Commits 14d6310 and the preview-image commit brought those into this repo byte-for-byte.
 - Checks on 2026-11-16: no missing files or anchors; all 51 search-index targets resolve.
 - **Not yet published on GitHub** until Andrew pushes `main` and switches Pages to GitHub Actions. Cloudflare then gets the `cloudflare-redirect/` folder.
 
@@ -15,7 +15,7 @@
 - 2026-11-16: moved into this project folder and added git, CLAUDE.md and this file. No site files changed.
 
 ## Next step
-- Andrew: save the live preview image into the repo (see Log), push `main` from VS Code, set Settings > Pages > Source to GitHub Actions, then upload `cloudflare-redirect/` to the Cloudflare Pages project. Claude then checks the GitHub site against `site/`, tags `published`, and reruns LinkedIn Post Inspector.
+- Push `main`, set Settings > Pages > Source to GitHub Actions, then upload `cloudflare-redirect/` to the Cloudflare Pages project. Claude then checks the GitHub site against `site/`, tags `published`, and reruns LinkedIn Post Inspector.
 - Ask Professor Kazanjian to confirm the citation's authorship line before readers rely on it.
 
 ## Known minor issues
