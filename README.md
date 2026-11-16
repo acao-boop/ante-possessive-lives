@@ -4,6 +4,8 @@ Collaborative scholarly site directed by David Kazanjian, on how Black and Indig
 
 **Live site:** https://acao-boop.github.io/ante-possessive-lives/
 
+Web design and build by [Andrew Cao](https://acao-boop.github.io/), whose other work is listed there.
+
 ## Layout
 - `site/`: the published website, plain static HTML, CSS and JavaScript. Every push to `main` publishes it through `.github/workflows/pages.yml`.
 - `tools/preview/`: previews unpublished changes over the live site in a browser.

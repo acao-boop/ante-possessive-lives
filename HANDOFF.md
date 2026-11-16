@@ -45,3 +45,8 @@ Reduced motion, from the code: styles.css and interface.css stop transitions, an
 - 2026-11-16: Claude fixes and refinements. Checked by loading the edited CSS/JS/HTML into the live pages in the built-in browser (a local server could not be used): desktop 1280×800 and phone 375×812 on all six pages; inner pages on phones now start content at 245px instead of 808px; no horizontal overflow; Key terms link focus, "/" search, search labels, slider focus ring, hover-only Link, hidden "Clear saved place" and header tab order confirmed. The Woodbury WebP copies could not load there because they are not deployed yet; the files themselves were checked. Reduced motion: checked in code only. Local reference check: 208 references, none missing.
 - 2026-11-16: Claude browser review (desktop/phone, keyboard; reduced motion from the code). 8 issues recorded under Review. No site files changed.
 - 2026-11-16: Claude setup (see above).
+
+## Portfolio tie-in (16 November 2026)
+- Andrew's mark beside his credit on credits.html now links to his home page, https://acao-boop.github.io/ (24px hit area; the 12px mark doesn't move). interface.css version bumped to 20261116-hub on every page.
+- README credits Andrew with a link to the home page; CLAUDE.md identity line records the link.
+- The home page lists this project with its social card. New projects start from acao-boop/project-template.
