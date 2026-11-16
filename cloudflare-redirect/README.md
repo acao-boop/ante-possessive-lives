@@ -1,0 +1,1 @@
+Upload this folder (not site/) to the existing Cloudflare Pages project. `_redirects` forwards every old pages.dev link to the same page on GitHub Pages; `index.html` is a fallback for the bare address.

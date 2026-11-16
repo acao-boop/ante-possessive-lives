@@ -1,20 +1,22 @@
 # Ante handoff
 
-## Current state (2026-11-16)
-- Source is the November 15 version (inverted-V device without a cross). Codex's live check found 8/8 sampled files matching https://ante-possessive-lives.pages.dev/.
-- Checks on 2026-11-16: 237 references across 7 pages, with no missing files or anchors. The 404 page's links were extensionless at that point; they now use `.html` paths and work in local preview too. All 51 search-index targets resolve.
-- Browser review done 2026-11-16 (see Review). All eight Review items were fixed the same day, plus interface refinements recorded in site/CURATION-NOTES.md ("Refinements — 16 November 2026").
-- **Not yet deployed.** The live site still shows the 15 November version until `site/` is uploaded to Cloudflare Pages. Asset versions are `?v=20261116`, so browsers will fetch the new CSS/JS.
+## Current state (2026-11-16, afternoon)
+- Moving to GitHub Pages: https://acao-boop.github.io/ante-possessive-lives/ (repo acao-boop/ante-possessive-lives). This local repo now carries that GitHub history; `site/` is published by `.github/workflows/pages.yml` on every push to `main`.
+- The live Cloudflare site (ante-possessive-lives.pages.dev) carries today's release plus edits made outside this repo: the engraved alpha device, `?v=20261116-alpha` / `-release` asset versions, and a project citation that leads with the title. Commit 14d6310 brought those into this repo byte-for-byte, except `site/social-preview.jpg` (the live alpha version still has to be copied in).
+- Checks on 2026-11-16: no missing files or anchors; all 51 search-index targets resolve.
+- **Not yet published on GitHub** until Andrew pushes `main` and switches Pages to GitHub Actions. Cloudflare then gets the `cloudflare-redirect/` folder.
 
 ## Last change
+- 2026-11-16: prepared the move to GitHub Pages: canonical and preview URLs now name the GitHub address; 404.html uses `/ante-possessive-lives/` paths; both scripts treat a folder address as Home; Actions workflow; `cloudflare-redirect/` for the old address; repo README; preview tool works under the GitHub folder. Adopted the engraved alpha as the project device (Andrew's decision).
+- 2026-11-16: synced this repo with the live Cloudflare release (14d6310).
 - 2026-11-16: built the three ideas: Cite (Chicago and MLA) on chapter pages and Home; a Night appearance that follows the device unless the reader picks Paper, Night or Device under Reading settings; and a one-line colophon on Home. Also darkened the faint rail labels in Paper to pass 4.5:1. Details in site/CURATION-NOTES.md.
 - 2026-11-16: fixed Review items 1–8 and added refinements: Key terms link in the contents rail, "/" opens search, balanced headings, a paper-toned text selection, page cross-fade (view transitions, off under reduced motion), a closing margin on Home, one rule under the Sources heading, a Theory page title matching the other pages, and Woodbury WebP copies in `display/`. No research prose, citations, credits, anchors or original image files changed.
 - 2026-11-16: browser review by Claude, recorded under Review. No site files changed.
 - 2026-11-16: moved into this project folder and added git, CLAUDE.md and this file. No site files changed.
 
 ## Next step
-- Andrew to look over the changes, then upload `site/` to Cloudflare Pages.
-- Ask Professor Kazanjian to confirm the citation's authorship line ("Kazanjian, David, dir." / "Directed by David Kazanjian") before readers rely on it.
+- Andrew: save the live preview image into the repo (see Log), push `main` from VS Code, set Settings > Pages > Source to GitHub Actions, then upload `cloudflare-redirect/` to the Cloudflare Pages project. Claude then checks the GitHub site against `site/`, tags `published`, and reruns LinkedIn Post Inspector.
+- Ask Professor Kazanjian to confirm the citation's authorship line before readers rely on it.
 
 ## Known minor issues
 - site/README.md still describes the GitHub Pages release 1.0/V26.4. The history is fine to keep, but it's not the current deployment.
@@ -36,6 +38,7 @@ Reviewed on the live site, whose 6 HTML pages, 3 CSS and 3 JS files match `site/
 Reduced motion, from the code: styles.css and interface.css stop transitions, animations, smooth scrolling and hover/focus zoom, and `interface.js:110` checks the setting before smooth anchor scrolling. Nothing else needs fixing beyond the slider focus cue in item 7.
 
 ## Log
+- 2026-11-16: found the live Cloudflare site edited outside this repo during the break; Andrew chose to keep the alpha device. Synced every changed page, script and SVG (SHA-256 checked against the live files); the live social-preview.jpg (82,540 bytes) could not be copied from this session and is still the older 72,646-byte version locally. Prepared the GitHub Pages move; push access from Claude is not set up, so Andrew pushes from VS Code.
 - 2026-11-16: Claude cite, Night and colophon. Checked in the built-in browser by loading the edited files into the live pages in a fresh frame: contrast of every visible text element measured at 4.5:1 or better on all six pages in Night, and in Paper apart from Home's "Saved" label, which the script read against the crimson band although it sits on paper; theme buttons store, clear and follow the device; both citations generate correctly with today's date; the cite dialog opens with focus on Copy. Local reference check: 208 references, none missing.
 - 2026-11-16: Claude fixes and refinements. Checked by loading the edited CSS/JS/HTML into the live pages in the built-in browser (a local server could not be used): desktop 1280×800 and phone 375×812 on all six pages; inner pages on phones now start content at 245px instead of 808px; no horizontal overflow; Key terms link focus, "/" search, search labels, slider focus ring, hover-only Link, hidden "Clear saved place" and header tab order confirmed. The Woodbury WebP copies could not load there because they are not deployed yet; the files themselves were checked. Reduced motion: checked in code only. Local reference check: 208 references, none missing.
 - 2026-11-16: Claude browser review (desktop/phone, keyboard; reduced motion from the code). 8 issues recorded under Review. No site files changed.

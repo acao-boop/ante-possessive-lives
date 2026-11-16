@@ -7,7 +7,7 @@
     ['bibliography.html','Sources & Bibliography'], ['credits.html','About & Credits']
   ];
   const base = new URL('.',document.currentScript.src);
-  const slug = decodeURIComponent(location.pathname).replace(/\/$/,'').split('/').pop().replace(/\.html$/,'') || 'index';
+  const slug = /\/$/.test(location.pathname) ? 'index' : decodeURIComponent(location.pathname).split('/').pop().replace(/\.html$/,'') || 'index';
   const currentFile = pages.find(([path]) => path === `${slug}.html`)?.[0];
   const key = 'ante-lives.bookmarks';
   const roman = n => {

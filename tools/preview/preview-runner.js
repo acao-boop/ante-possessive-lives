@@ -1,11 +1,13 @@
 async () => {
   // Shows the edited version of the current live page in a frame; re-run after navigating.
   const P = JSON.parse(localStorage.getItem('ante-preview-patch') || '{}');
+  // The site lives at the domain root on a custom host and under /ante-possessive-lives/ on GitHub Pages.
+  const root = location.pathname.startsWith('/ante-possessive-lives/') || location.pathname === '/ante-possessive-lives' ? '/ante-possessive-lives/' : '/';
   const apply = (text, reps) => { for (const [o, n] of reps || []) { if (!text.includes(o)) throw new Error('Preview patch no longer matches the live file: ' + o.slice(0, 60)); text = text.replace(o, () => n); } return text; };
   const render = async path => {
-    const clean = path.replace(/^\//, '').replace(/[#?].*$/, '');
+    const clean = path.replace(/[#?].*$/, '').replace(root, '/').replace(/^\//, '');
     const file = !clean ? 'index.html' : clean.endsWith('.html') ? clean : clean + '.html';
-    let html = apply(await (await fetch('/' + file, {cache: 'no-store'})).text(), P[file]);
+    let html = apply(await (await fetch(root + file, {cache: 'no-store'})).text(), P[file]);
     // Responsive copies that are not published yet fall back to the image's original file.
     const unpublished = JSON.parse(localStorage.getItem('ante-preview-unpublished') || '[]');
     html = html.replace(/\ssrcset="([^"]*)"/g, (match, list) => {
@@ -14,17 +16,17 @@ async () => {
     });
     const urls = {};
     for (const name of Object.keys(P).filter(n => /\.(css|js|json)$/.test(n))) {
-      let text = apply(await (await fetch('/' + name, {cache: 'no-store'})).text(), P[name]);
-      if (name.endsWith('.js')) text = text.replace('document.currentScript.src', JSON.stringify(location.origin + '/'));
+      let text = apply(await (await fetch(root + name, {cache: 'no-store'})).text(), P[name]);
+      if (name.endsWith('.js')) text = text.replace('document.currentScript.src', JSON.stringify(location.origin + root));
       urls[name] = URL.createObjectURL(new Blob([text], {type: name.endsWith('.css') ? 'text/css' : name.endsWith('.json') ? 'application/json' : 'text/javascript'}));
     }
     for (const [name, url] of Object.entries(urls)) {
       const escaped = name.replace(/\./g, '\\.');
-      html = html.replace(new RegExp(`((?:href|src)=")/?${escaped}(\\?v=[^"]*)?"`, 'g'), `$1${url}"`);
+      html = html.replace(new RegExp(`((?:href|src)=")(?:${root.replace(/\//g, '\\/')})?${escaped}(\\?v=[^"]*)?"`, 'g'), `$1${url}"`);
     }
     const guard = '<script>{const p=history.pushState.bind(history),r=history.replaceState.bind(history);history.pushState=(...a)=>{try{p(...a)}catch(e){}};history.replaceState=(...a)=>{try{r(...a)}catch(e){}}}</script>';
-    html = html.replace('<head>', `<head><base href="${location.origin}/${file}">${guard}`);
-    history.replaceState(null, '', '/' + (file === 'index.html' ? '' : file.replace(/\.html$/, '')));
+    html = html.replace('<head>', `<head><base href="${location.origin}${root}${file}">${guard}`);
+    history.replaceState(null, '', root + (file === 'index.html' ? '' : file.replace(/\.html$/, '')));
     document.querySelectorAll('iframe.ante-preview, .ante-preview-badge').forEach(el => el.remove());
     const frame = document.createElement('iframe');
     frame.className = 'ante-preview';
@@ -41,9 +43,9 @@ async () => {
     frame.contentDocument.addEventListener('click', event => {
       const link = event.target.closest('a[href]');
       if (!link || event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey) return;
-      const url = new URL(link.getAttribute('href'), `${location.origin}/${file}`);
+      const url = new URL(link.getAttribute('href'), `${location.origin}${root}${file}`);
       if (url.origin !== location.origin || /\.(jpe?g|png|webp|pdf|svg)$/i.test(url.pathname)) return;
-      const target = url.pathname.replace(/^\//, '').replace(/\.html$/, '') || 'index';
+      const target = url.pathname.replace(root, '').replace(/\.html$/, '') || 'index';
       if (target === file.replace(/\.html$/, '')) return;
       event.preventDefault();
       render(url.pathname).then(next => { if (url.hash) next.contentWindow.location.hash = url.hash; });

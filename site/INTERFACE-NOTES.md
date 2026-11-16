@@ -76,8 +76,8 @@ a 1200 by 627 pixel capture of the homepage. This image is additive; original
 media and visible page content are unchanged. No additional browser script or
 external service is used for previews.
 
-The metadata uses `https://ante-possessive-lives.pages.dev` as the
-public origin. If the hosting address changes, update the canonical, `og:url`,
+The metadata uses `https://acao-boop.github.io/ante-possessive-lives/` as the
+public origin (GitHub Pages since 16 November 2026; the Cloudflare address redirects there). If the hosting address changes, update the canonical, `og:url`,
 `og:image`, and `twitter:image` URLs on all six pages before uploading again.
 After deploying, request a fresh crawl with LinkedIn Post Inspector:
 https://www.linkedin.com/post-inspector/

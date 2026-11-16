@@ -27,7 +27,7 @@ The two title details are deliberate publication facsimiles: those essays contai
 
 ## Selected project identity
 
-The project identity is a simple inverted V, without a cross, beside the existing project title. The same device is used in the favicon. Andrew’s separate 12-pixel personal printer’s signature remains beside his contributor credit. All artwork is local SVG.
+Since 16 November 2026 the project identity is a serifed, engraved alpha (Λ); before that it was a simple inverted V without a cross. It sits beside the existing project title. The same device is used in the favicon. Andrew’s separate 12-pixel personal printer’s signature remains beside his contributor credit. All artwork is local SVG.
 
 ## Refinements — 16 November 2026
 

@@ -6,7 +6,7 @@
     ['bibliography.html', 'Sources & Bibliography'], ['credits.html', 'About & Credits']
   ];
   const base = new URL('.', document.currentScript.src);
-  const slug = path => decodeURIComponent(path).replace(/\/+$/, '').split('/').pop().replace(/\.html$/, '') || 'index';
+  const slug = path => /\/$/.test(path) ? 'index' : decodeURIComponent(path).split('/').pop().replace(/\.html$/, '') || 'index';
   const file = pages.find(([name]) => name.replace('.html', '') === slug(location.pathname))?.[0] || 'index.html';
   const compact = matchMedia('(max-width: 900px)');
   const reducedMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
