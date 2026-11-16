@@ -343,5 +343,30 @@
         "bytes": 65890
       }
     ]
+  },
+  "published/bristol-woodbury.png": {
+    "width": 1015,
+    "height": 1355,
+    "original_bytes": 361110,
+    "variants": [
+      {
+        "path": "display/bristol-woodbury-480.webp",
+        "width": 480,
+        "height": 641,
+        "bytes": 38398
+      },
+      {
+        "path": "display/bristol-woodbury-640.webp",
+        "width": 640,
+        "height": 854,
+        "bytes": 64334
+      },
+      {
+        "path": "display/bristol-woodbury-960.webp",
+        "width": 960,
+        "height": 1282,
+        "bytes": 127010
+      }
+    ]
   }
 }

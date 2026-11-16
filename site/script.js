@@ -5,7 +5,7 @@ function updateActiveLocalNav() {
     const nav = document.querySelector('.section-rail .nav-group');
     if (!nav) return;
 
-    const links = Array.from(nav.querySelectorAll('a[href^="#"]'));
+    const links = Array.from(nav.querySelectorAll('li a[href^="#"]'));
     if (!links.length) return;
 
     const offset = window.innerWidth <= 980 ? 150 : 125;
@@ -93,7 +93,7 @@ window.addEventListener('resize', () => {
     updateComparisonSliders();
 });
 
-document.addEventListener('DOMContentLoaded', () => {
+function initializeArchivePage() {
     updateActiveLocalNav();
     initializeComparisonSliders();
     loadDeferredFrames();
@@ -101,4 +101,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.section-rail a[href^="#"]').forEach(link => {
         link.addEventListener('click', () => window.setTimeout(updateActiveLocalNav, 40));
     });
-});
+}
+
+// Runs once the document is parsed, whether this script loads early, deferred, or late.
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initializeArchivePage);
+else initializeArchivePage();

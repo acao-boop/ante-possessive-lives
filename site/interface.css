@@ -121,8 +121,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .case-banner { height: 225px; border: 0; background: #e8e6dc; }
 .case-banner img { filter: saturate(.65); }
 .dossier-entry-case:hover .case-banner img, .dossier-entry-case:focus-visible .case-banner img { transform: none; }
-.case-banner::after { background: linear-gradient(0deg, #171c1999, transparent 55%); }
-.case-banner-label { left: 18px; bottom: 16px; padding: 0; background: transparent; color: #fff; font: 11px var(--font-ui); letter-spacing: .06em; text-transform: none; }
+.case-banner::after { background: none; } /* The map now carries no overlaid label, so it needs no darkening. */
 .case-card-body { position: relative; padding: 22px 0 0; }
 .dossier-entry-case .entry-copy { gap: 10px; }
 .dossier-entry-case .entry-title { color: var(--ink); font-size: 37px; font-weight: 400; letter-spacing: -.03em; }
@@ -511,9 +510,8 @@ html:has(.reading-tools) { scroll-padding-top: calc(var(--masthead) + var(--read
 .search-body input { width: 100%; min-height: 52px; border: 1px solid var(--rule); border-radius: 0; padding: 12px 14px; color: var(--ink); background: var(--paper-soft); font: 18px/1.5 var(--font-serif); }
 .search-body input:focus-visible { outline: 2px solid var(--seal-wax); outline-offset: 3px; }
 .search-count { min-height: 38px; margin: 14px 0 5px; color: var(--ink-faint); font: 13px/1.6 var(--font-serif); }
-.search-results { list-style-type: upper-roman; margin: 0; padding-left: 28px; }
-.search-results li { padding-left: 5px; border-top: 1px solid var(--rule); }
-.search-results li::marker { color: var(--seal-wax); font: 12px var(--font-serif); }
+.search-results { list-style: none; margin: 0; padding: 0; }
+.search-results li { border-top: 1px solid var(--rule); }
 .search-results a { display: block; padding: 18px 10px; color: var(--ink); text-decoration: none; --hover-zoom: 1.012; --press-zoom: .994; }
 .search-results a:hover, .search-results a:focus-visible { background: var(--paper-deep); }
 .search-context { display: block; margin-bottom: 8px; color: var(--seal-wax); font: 12px/1.5 var(--font-serif); }
@@ -547,7 +545,9 @@ body:has(.project-search[open]) { overflow: hidden; }
   .chapter-menu .global-nav a::after { display: none; }
   .chapter-menu .global-nav a.active { font-weight: 500; }
   .chapter-menu .global-nav a.active::before { color: var(--seal-wax); }
-  .reading-tools { margin-top: -8px; margin-bottom: 27px; }
+  /* On narrow screens only the masthead stays fixed; reading tools stay with the chapter opening. */
+  .reading-tools { position: static; margin-top: -8px; margin-bottom: 27px; }
+  html:has(.reading-tools) { scroll-padding-top: calc(var(--masthead) + 20px); }
 }
 @media (max-width: 640px) {
   .landing-topline nav { gap: 16px; }
@@ -567,7 +567,6 @@ body:has(.project-search[open]) { overflow: hidden; }
   .search-bar { gap: 16px; padding: 19px 18px; }
   .search-bar h2 { font-size: 27px; }
   .search-body { padding: 20px 18px 24px; }
-  .search-results { padding-left: 22px; }
   .search-results a { padding: 16px 5px; }
   .search-results strong { font-size: 23px; }
   .storymap-fallback a { display: inline-block; padding: 9px 0; text-underline-offset: 4px; }

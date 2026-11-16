@@ -91,7 +91,7 @@
     body.className='saved-body'; note.className='saved-note'; note.textContent='Chapters and sections saved in this browser. Your reading place is kept separately.';
     count=document.createElement('p'); count.className='saved-count'; count.setAttribute('role','status');
     list=document.createElement('ul'); list.className='saved-list';
-    empty=document.createElement('p'); empty.className='saved-empty'; empty.textContent='Use the bookmark beside a chapter title or section heading to add it here.';
+    empty=document.createElement('p'); empty.className='saved-empty'; empty.textContent='Use the bookmark beside a section heading, or beside a chapter in the Project Index, to add it here.';
     header.append(title,close); body.append(count,list,empty,note); dialog.append(header,body); document.body.append(dialog);
     dialog.addEventListener('close',() => returnFocus?.focus());
     dialog.addEventListener('click',event => { if(event.target===dialog) { const box=dialog.getBoundingClientRect(); if(event.clientX<box.left || event.clientX>box.right || event.clientY<box.top || event.clientY>box.bottom) dialog.close(); } });
@@ -101,7 +101,9 @@
   if (header) {
     const open=document.createElement('button'); open.type='button'; open.className='bookmark-open';
     open.setAttribute('aria-label','Open saved reading'); open.setAttribute('aria-haspopup','dialog'); open.title='Saved reading';
-    open.append(icon(),span('bookmark-label','Saved'),span('bookmark-count','')); header.append(open);
+    open.append(icon(),span('bookmark-label','Saved'),span('bookmark-count',''));
+    // Saved reading sits before Search in both reading order and tab order.
+    const find=header.querySelector(':scope > .site-find'); if(find) find.before(open); else header.append(open);
     open.addEventListener('click',() => { if(!dialog) buildDialog(); returnFocus=open; saved=load(); render(); dialog.showModal(); });
   }
   document.querySelectorAll('[data-bookmark-path]').forEach(button => {
@@ -116,12 +118,7 @@
       const entry={path:currentFile,id:decodeURIComponent(link.hash.slice(1)),label};
       if(valid(entry)) heading.append(makeBookmark(entry));
     });
-    const heading=document.querySelector('.archive-section > header h1');
-    if (heading) {
-      const entry={path:currentFile,id:'',label:pages.find(([path]) => path===currentFile)[1]};
-      const tools=document.querySelector('.place-tools');
-      if(tools) { const button=makeBookmark(entry); button.dataset.bookmarkContext='chapter'; tools.prepend(button); }
-    }
+    // Chapters are saved from the Project Index; sections are saved beside their headings.
   }
   refresh();
   addEventListener('storage',event => { if(event.key===key) { saved=load(); refresh(); } });

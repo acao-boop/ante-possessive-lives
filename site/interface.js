@@ -48,6 +48,16 @@
     summary.textContent = 'On this page';
     contents.append(summary);
     Array.from(rail.children).filter(el => !el.classList.contains('back-btn')).forEach(el => contents.append(el));
+    // The key terms sit after the article in reading order; offer a direct route to them.
+    const termsSection = document.querySelector('.side-vocab-stick[id], .theory-vocab-stick[id]');
+    const railSource = contents.querySelector('.rail-source-link');
+    if (termsSection && railSource) {
+      const termsLink = document.createElement('a');
+      termsLink.className = 'rail-source-link rail-terms-link';
+      termsLink.href = `#${termsSection.id}`;
+      termsLink.textContent = 'Key terms';
+      railSource.before(termsLink);
+    }
     rail.append(contents);
     const setContents = () => { contents.open = !compact.matches; };
     setContents();
@@ -103,11 +113,14 @@
     if (!target) return;
     if (updateHistory && location.hash !== hash) history.pushState(null, '', hash);
     const term = target.closest('.vocab-term');
-    const focus = term || (target.matches('main,h1,h2,h3,h4,a,button,input') ? target : target.querySelector('h1,h2,h3,h4')) || target;
+    // A visually hidden heading cannot take focus, so fall back to the first heading that renders.
+    const focus = term || (target.matches('main,h1,h2,h3,h4,a,button,input') ? target : [...target.querySelectorAll('h1,h2,h3,h4')].find(heading => heading.getClientRects().length)) || target;
     if (term) { pinnedTerm = term; showTerm(term); }
     if (!focus.matches('a,button,input,summary,[tabindex]')) focus.setAttribute('tabindex', '-1');
     focus.focus({preventScroll: true});
-    (term || target).scrollIntoView({behavior: smooth && !reducedMotion() ? 'smooth' : 'instant', block: 'start'});
+    // A pinned (sticky) panel is already in view; scrolling to it would only jump the reader back up the page.
+    const scrollTarget = term || target;
+    if (getComputedStyle(scrollTarget.closest('.side-vocab-stick,.theory-vocab-stick') || scrollTarget).position !== 'sticky') scrollTarget.scrollIntoView({behavior: smooth && !reducedMotion() ? 'smooth' : 'instant', block: 'start'});
   };
   document.querySelectorAll('a[href^="#"]').forEach(link => link.addEventListener('click', event => {
     if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button) return;
@@ -185,6 +198,7 @@
   const refreshResume = () => {
     document.querySelectorAll('.resume-notice').forEach(el => el.remove());
     const saved = savedPlace();
+    document.querySelectorAll('.clear-place').forEach(button => { button.hidden = !saved; });
     document.querySelectorAll('.resume-link').forEach(link => {
       link.hidden = !saved;
       if (saved) { link.href = new URL(`${saved.path}#${saved.id}`, base); link.setAttribute('aria-label', `Continue reading ${saved.page}: ${saved.label}`); }
@@ -323,7 +337,7 @@
     matches.slice(0, 12).forEach(entry => {
       const item = document.createElement('li');
       const link = document.createElement('a'); link.href = new URL(entry.path, base);
-      const context = document.createElement('span'); context.className = 'search-context'; context.textContent = entry.kind === 'Page' ? 'Chapter' : `${entry.page} · ${entry.kind}`;
+      const context = document.createElement('span'); context.className = 'search-context'; context.textContent = entry.kind === 'Page' ? (['theory.html','adam.html','juan-patricio.html'].includes(entry.path) ? 'Chapter' : 'Page') : `${entry.page} · ${entry.kind}`;
       const title = document.createElement('strong'); highlight(title, entry.title, tokens);
       const snippet = document.createElement('p');
       const position = matchRanges(entry.text, tokens)[0]?.[0] || 0;
@@ -370,10 +384,15 @@
   };
   document.querySelectorAll('.site-find').forEach(button => {
     button.hidden = false; button.setAttribute('aria-haspopup', 'dialog');
+    button.title = 'Search the project (/)'; button.setAttribute('aria-keyshortcuts', '/ Control+K Meta+K');
     button.addEventListener('click', () => openSearch(button));
   });
   addEventListener('keydown', event => {
     if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
+      event.preventDefault(); openSearch(document.querySelector('.site-find'));
+    }
+    // "/" also opens search, as on most reference sites, unless the reader is typing.
+    if (event.key === '/' && !event.metaKey && !event.ctrlKey && !event.altKey && !event.target.closest('input,textarea,select,[contenteditable]') && !document.querySelector('dialog[open]')) {
       event.preventDefault(); openSearch(document.querySelector('.site-find'));
     }
   });

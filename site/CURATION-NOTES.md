@@ -28,3 +28,16 @@ The two title details are deliberate publication facsimiles: those essays contai
 ## Selected project identity
 
 The project identity is a simple inverted V, without a cross, beside the existing project title. The same device is used in the favicon. Andrew’s separate 12-pixel personal printer’s signature remains beside his contributor credit. All artwork is local SVG.
+
+## Refinements — 16 November 2026
+
+Interface-only changes. No research prose, citations, credits, anchors or original image files changed.
+
+- Phones: the contents rail no longer fills the first screen (its desktop height rule is now scoped to widths above 900px), and the reading-tools bar is no longer sticky below 900px, so only the masthead stays fixed.
+- Home: removed the map overlay captions on the case cards (place and date already appear beneath each title), the footer that repeated the navigation band, and the “Explore the project” link that repeated “Project Index”. The index now carries the page's closing margin.
+- Saving: chapters are saved from the Project Index and sections beside their headings; the separate “Save chapter” control in the reading tools is gone. “Clear saved place” appears only when a place is saved. On pointer devices the “Link” control appears when its heading is hovered or focused.
+- Wayfinding: the contents rail has a “Key terms” link that moves focus to the key-terms panel. “/” opens search, as do Ctrl/⌘ K. Search results no longer carry Roman numerals; Home, Sources and About are labelled “Page” and the three chapters “Chapter”. Saved reading now precedes Search in the tab order, matching the layout.
+- Map comparison: keyboard focus shows as a ring around the slider and its handle.
+- Typesetting: balanced headings, `text-wrap: pretty` for prose, a paper-toned text selection, and a short cross-fade between pages (with the masthead held still) where the browser supports view transitions and reduced motion is off.
+- Images: the Woodbury plate has 480/640/960 WebP copies in `display/` (the PNG remains the original). The paired Indigenous Maps figures declare their real display widths.
+- Code: `script.js` is versioned and deferred and initializes whether it loads early or late; its active-link tracking reads only the section list. Asset versions are `20261116`. 404 links use `.html` paths so they also work in local preview. The Theory page title follows the other pages' pattern.

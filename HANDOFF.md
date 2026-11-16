@@ -2,20 +2,25 @@
 
 ## Current state (2026-11-16)
 - Source is the November 15 version (inverted-V device without a cross). Codex's live check found 8/8 sampled files matching https://ante-possessive-lives.pages.dev/.
-- Checks on 2026-11-16: 237 references across 7 pages, with no missing files or anchors except the 404 page's root-relative, extensionless links (fine on Cloudflare, broken in local preview). All 51 search-index targets resolve.
-- Browser review done 2026-11-16 (see Review). No site files changed.
+- Checks on 2026-11-16: 237 references across 7 pages, with no missing files or anchors. The 404 page's links were extensionless at that point; they now use `.html` paths and work in local preview too. All 51 search-index targets resolve.
+- Browser review done 2026-11-16 (see Review). All eight Review items were fixed the same day, plus interface refinements recorded in site/CURATION-NOTES.md ("Refinements — 16 November 2026").
+- **Not yet deployed.** The live site still shows the 15 November version until `site/` is uploaded to Cloudflare Pages. Asset versions are `?v=20261116`, so browsers will fetch the new CSS/JS.
 
 ## Last change
+- 2026-11-16: fixed Review items 1–8 and added refinements: Key terms link in the contents rail, "/" opens search, balanced headings, a paper-toned text selection, page cross-fade (view transitions, off under reduced motion), a closing margin on Home, one rule under the Sources heading, a Theory page title matching the other pages, and Woodbury WebP copies in `display/`. No research prose, citations, credits, anchors or original image files changed.
 - 2026-11-16: browser review by Claude, recorded under Review. No site files changed.
 - 2026-11-16: moved into this project folder and added git, CLAUDE.md and this file. No site files changed.
 
 ## Next step
-- Andrew to choose which Review items to fix. Item 1 first: it breaks every inner page on phones.
+- Andrew to look over the changes, then upload `site/` to Cloudflare Pages.
+- Ideas not built, for Andrew's decision: a "Cite this page" control (needs an agreed citation form and authorship line); a dark reading theme; a small colophon at the foot of Home.
 
 ## Known minor issues
 - site/README.md still describes the GitHub Pages release 1.0/V26.4. The history is fine to keep, but it's not the current deployment.
 
 ## Review (2026-11-16)
+Status: all eight items fixed on 2026-11-16 (see Last change). How they were checked is under Log. One departure from item 5: the Home card bookmarks stay, because with "Save chapter" removed they are now the only way to save a whole chapter.
+
 Reviewed on the live site, whose 6 HTML pages, 3 CSS and 3 JS files match `site/` byte-for-byte (SHA-256). Built-in browser at 1280×800 and 375×812 (phone emulation, DPR 2). Keyboard: Tab order on Home and Juan Patricio; image viewer, search dialog, key terms and map comparison operated by keyboard. Reduced motion: the browser could not emulate the setting, so it was checked in the CSS and JS only. Theory, Sources and About were checked by script at phone width but not looked through visually at desktop width. Ranked most serious first.
 
 1. **Layout break, phones: Theory, Adam Saffin, Juan Patricio, Sources, About.** The contents rail is 690px tall even when collapsed, so the first screen shows only "Return to Index" and "On this page" on an empty beige panel. The page content starts at 808px. Cause: `curation.css:27` sets `.section-rail { height: calc(100svh - var(--masthead)) }` with no media query, which overrides the `height: auto` in interface.css's ≤900px block. **Fix:** move that rule into `@media (min-width: 901px)`, or add `.section-rail { height: auto; }` to curation.css's ≤900px block.
@@ -30,5 +35,6 @@ Reviewed on the live site, whose 6 HTML pages, 3 CSS and 3 JS files match `site/
 Reduced motion, from the code: styles.css and interface.css stop transitions, animations, smooth scrolling and hover/focus zoom, and `interface.js:110` checks the setting before smooth anchor scrolling. Nothing else needs fixing beyond the slider focus cue in item 7.
 
 ## Log
+- 2026-11-16: Claude fixes and refinements. Checked by loading the edited CSS/JS/HTML into the live pages in the built-in browser (a local server could not be used): desktop 1280×800 and phone 375×812 on all six pages; inner pages on phones now start content at 245px instead of 808px; no horizontal overflow; Key terms link focus, "/" search, search labels, slider focus ring, hover-only Link, hidden "Clear saved place" and header tab order confirmed. The Woodbury WebP copies could not load there because they are not deployed yet; the files themselves were checked. Reduced motion: checked in code only. Local reference check: 208 references, none missing.
 - 2026-11-16: Claude browser review (desktop/phone, keyboard; reduced motion from the code). 8 issues recorded under Review. No site files changed.
 - 2026-11-16: Claude setup (see above).

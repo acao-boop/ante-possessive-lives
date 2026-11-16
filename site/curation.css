@@ -24,7 +24,8 @@
 .chapter-menu .global-nav a:is(:hover,:focus-visible,[aria-current="page"]) { color: var(--nav-paper); background: transparent; opacity: 1; }
 .chapter-menu .global-nav a:is(:hover,:focus-visible,[aria-current="page"])::after { transform: scaleX(1); }
 .chapter-menu a:focus-visible, .chapter-menu summary:focus-visible { outline-color: var(--nav-paper) !important; outline-offset: -2px; }
-.section-rail { top: var(--masthead); height: calc(100svh - var(--masthead)); background: #ede9de; }
+.section-rail { background: #ede9de; }
+@media (min-width: 901px) { .section-rail { top: var(--masthead); height: calc(100svh - var(--masthead)); } }
 .nav-group li a {
   background-image: linear-gradient(var(--section-accent,var(--seal-wax)),var(--section-accent,var(--seal-wax)));
   background-repeat: no-repeat; background-position: left bottom; background-size: 0 1px;
@@ -257,3 +258,37 @@ body:has(.saved-sections[open]) { overflow: hidden; }
   .site-masthead .project-mark { min-height: 72px; font-size: 13px; gap: 8px; }
   .landing-wordmark { gap: 10px; font-size: 14px; }
 }
+
+/* 16 November 2026 refinements. Each rule states its breakpoint; none override a media query from outside it. */
+/* Contents rail: a direct route to the key terms, set under the section list. */
+.contents-disclosure .rail-terms-link, .section-rail .rail-terms-link { display: block; }
+.section-rail .rail-terms-link + .rail-source-link { border-top: 0; margin-top: 0; padding-top: 6px; }
+
+/* Map comparison: the keyboard focus ring sits on the visible handle, not the transparent range. */
+.comparison-range:focus-visible { opacity: 0; outline: none; }
+.comparison-slider:has(.comparison-range:focus-visible) { outline: 2px solid var(--seal-wax); outline-offset: 3px; }
+.comparison-slider:has(.comparison-range:focus-visible) .comparison-handle { box-shadow: 0 0 0 3px var(--paper-soft), 0 0 0 5px var(--seal-wax); }
+
+/* Section links appear with their heading on pointer devices; touch screens keep them visible. */
+@media (hover: hover) and (pointer: fine) {
+  .linked-heading > .section-link { opacity: 0; transition: opacity .18s ease, color .18s ease; }
+  .linked-heading:is(:hover,:focus-within) > .section-link { opacity: 1; }
+}
+
+/* Typesetting: balanced headings, no stranded last words in prose, and a paper-toned selection. */
+h1, h2, h3, .entry-title, .entry-location, .study-title, .search-results strong, .saved-list a { text-wrap: balance; }
+.article-shell p, .entry-description, .figure-caption, .citation-entry p, .landing-hero .subtitle { text-wrap: pretty; }
+::selection { background: #e7d9b5; color: var(--ink); }
+
+/* Moving between chapters: the masthead holds still while the page beneath cross-fades. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+  .site-masthead { view-transition-name: masthead; }
+  ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 220ms; }
+}
+
+/* The index closes the home page, so it carries the page's closing margin. */
+.landing-page .archive-index { padding-bottom: clamp(56px, 8vw, 104px); }
+
+/* Sources: the first source group's rule already separates it from the page heading. */
+.bibliography-header { border-bottom: 0; }
