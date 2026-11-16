@@ -54,7 +54,7 @@ for name in sorted(os.listdir(site)):
     elif old != new:
         patches[name] = replacements(old, new)
 changed_files = subprocess.run(['git', '-C', ROOT, 'diff', '--name-only', BASE, '--', 'site'], capture_output=True, text=True).stdout.split()
-new_binary = [p[5:] for p in changed_files if not p.endswith(TEXT)]
+new_binary = [p[5:] for p in changed_files if not p.endswith(TEXT + ('.md', '.txt'))]
 
 runner = open(os.path.join(os.path.dirname(__file__), 'preview-runner.js'), encoding='utf-8').read()
 js = f"localStorage.setItem('ante-preview-patch', {json.dumps(json.dumps(patches))});\n" \
