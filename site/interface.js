@@ -431,8 +431,8 @@
       ['Chicago', `“${escapeHTML(title)}.” ${work}. Directed by David Kazanjian. 2026. ${url}. Accessed ${chicagoDate}.`],
       ['MLA', `“${escapeHTML(title)}.” ${work}, directed by David Kazanjian, 2026, ${bare}. Accessed ${mlaDate}.`]
     ] : [
-      ['Chicago', `Kazanjian, David, dir. ${work}. 2026. ${url}. Accessed ${chicagoDate}.`],
-      ['MLA', `Kazanjian, David, director. ${work}. 2026, ${bare}. Accessed ${mlaDate}.`]
+      ['Chicago', `${work}. Directed by David Kazanjian. 2026. ${url}. Accessed ${chicagoDate}.`],
+      ['MLA', `${work}. Directed by David Kazanjian, 2026, ${bare}. Accessed ${mlaDate}.`]
     ];
   };
   let citeDialog, citeTrigger;
