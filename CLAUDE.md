@@ -15,7 +15,13 @@ Collaborative scholarly site directed by David Kazanjian. Public: https://ante-p
 - Preview: from `site/`, run `python3 -m http.server 8000`, then open http://localhost:8000/. Use `.html` URLs locally: extensionless links like `/theory` work only on Cloudflare Pages.
 - No build step. When a feature changes, test search, bookmarks and reading-place persistence, chapter/anchor navigation, image enlargement, map comparisons, narrow layouts, keyboard access and reduced motion.
 - CSS and scripts are layered on purpose. Check the HTML load order before consolidating anything.
-- Andrew publishes by uploading `site/` to Cloudflare Pages.
+- Andrew publishes by uploading `site/` to Cloudflare Pages. The `published` git tag marks the commit that is live.
+
+## Review, then publish (every session)
+- Nothing goes live mid-session. Edit `site/`, commit as work lands, and keep HANDOFF.md current.
+- Andrew reviews in Claude's built-in browser: run `python3 tools/preview/make_preview.py`, open the live site in the browser pane, and run the generated `tools/preview/preview.js` there. The edited site shows over the live page (marked "Preview · unpublished") and its links stay in the preview. Check desktop and phone widths. New or replaced images appear only after publishing (see tools/preview/README.md).
+- Changes are requested and made in the conversation; regenerate the preview after each round.
+- At the end of the session, when Andrew approves: commit, update HANDOFF.md, and package `site/` for upload (or Andrew uploads the folder). After the upload, confirm the live HTML/CSS/JS match `site/` (SHA-256), then `git tag -f published`. If the homepage preview card changed, rerun LinkedIn Post Inspector.
 
 ## Constraints
 - Plain static HTML/CSS/JS only: no framework, build step, backend, login or paid service.

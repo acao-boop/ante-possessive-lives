@@ -25,6 +25,8 @@
 .chapter-menu .global-nav a:is(:hover,:focus-visible,[aria-current="page"])::after { transform: scaleX(1); }
 .chapter-menu a:focus-visible, .chapter-menu summary:focus-visible { outline-color: var(--nav-paper) !important; outline-offset: -2px; }
 .section-rail { background: #ede9de; }
+/* The rail's faint labels sit on a darker paper, so they take a slightly darker ink to stay above 4.5:1. */
+:root:not([data-theme="night"]) .section-rail :is(.rail-kicker, .rail-source-link) { color: #5c5c53; }
 @media (min-width: 901px) { .section-rail { top: var(--masthead); height: calc(100svh - var(--masthead)); } }
 .nav-group li a {
   background-image: linear-gradient(var(--section-accent,var(--seal-wax)),var(--section-accent,var(--seal-wax)));
@@ -287,8 +289,74 @@ h1, h2, h3, .entry-title, .entry-location, .study-title, .search-results strong,
   ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 220ms; }
 }
 
-/* The index closes the home page, so it carries the page's closing margin. */
-.landing-page .archive-index { padding-bottom: clamp(56px, 8vw, 104px); }
 
 /* Sources: the first source group's rule already separates it from the page heading. */
 .bibliography-header { border-bottom: 0; }
+
+/* Home colophon: one line of provenance and the citation, under the index. */
+.landing-colophon { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 14px 48px; align-items: baseline; margin-top: clamp(48px, 6vw, 80px); padding: 26px 0 clamp(48px, 7vw, 88px); border-top: 1px solid var(--rule); color: var(--ink-faint); font: 13px/1.75 var(--font-serif); }
+.landing-colophon p { margin: 0; max-width: 620px; }
+.landing-colophon cite { font-style: italic; color: var(--ink-soft); }
+.colophon-tools { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: flex-end; gap: 6px 22px; text-align: right; }
+.colophon-tools button, .reading-tools .cite-open { padding: 6px 0; border: 0; background: transparent; color: var(--seal-wax); font: 13px var(--font-serif); text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; cursor: pointer; }
+.reading-tools .cite-open { color: var(--ink-soft); text-decoration: none; }
+.reading-tools .cite-open:hover { color: var(--seal-wax); }
+.cite-open[hidden] { display: none !important; }
+@media (max-width: 640px) {
+  .landing-colophon { grid-template-columns: minmax(0,1fr); gap: 14px; }
+  .colophon-tools { justify-content: flex-start; text-align: left; }
+}
+
+/* Citation dialog: shares the search dialog's frame. */
+.cite-dialog { width: min(680px, calc(100vw - 32px)); max-width: none; max-height: 90svh; margin: 8svh auto; padding: 0; border: 1px solid var(--rule); background: var(--paper); color: var(--ink); box-shadow: 0 20px 80px #171c1933; }
+.cite-dialog[open] { display: flex; flex-direction: column; }
+.cite-dialog::backdrop { background: #1f2521dd; }
+.citation-style { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 6px 24px; padding: 18px 0; border-top: 1px solid var(--rule); }
+.citation-style h3 { grid-column: 1 / -1; margin: 0; color: var(--seal-wax); font: 12px/1.5 var(--font-serif); letter-spacing: .06em; text-transform: uppercase; }
+.citation-text { margin: 0; color: var(--ink); font: 17px/1.65 var(--font-serif); overflow-wrap: anywhere; user-select: all; }
+.citation-copy { align-self: start; min-height: 36px; padding: 6px 12px; border: 1px solid var(--rule); background: transparent; color: var(--ink-soft); font: 13px var(--font-serif); cursor: pointer; }
+.citation-copy:hover { color: var(--seal-wax); border-color: var(--seal-wax); }
+.citation-note { margin: 6px 0 0; padding-top: 16px; border-top: 1px solid var(--rule); color: var(--ink-faint); font: 13px/1.6 var(--font-serif); }
+body:has(.cite-dialog[open]) { overflow: hidden; }
+@media (max-width: 640px) {
+  .cite-dialog { width: calc(100vw - 16px); margin: 8px auto; max-height: calc(100svh - 16px); }
+  .citation-style { grid-template-columns: minmax(0,1fr); }
+  .citation-copy { justify-self: start; }
+}
+@media print { .landing-colophon .colophon-tools, .cite-dialog { display: none !important; } }
+
+/* Night: the same edition on dark paper. Screen only, so printing always uses paper.
+   Archival images keep their own tones; only the wells around them darken. */
+@media screen {
+  :root[data-theme="night"] {
+    color-scheme: dark;
+    --paper: #1b1a17; --paper-soft: #22211d; --paper-deep: #2a2924;
+    --ink: #e9e4d8; --ink-soft: #c2bcae; --ink-faint: #a29c8d;
+    --rule: #3b3933; --seal-wax: #d99a9e;
+    --england: #a3b99f; --yucatan: #9bb3c4;
+    --nav-ink: #3f1d23; --nav-paper: #f1e9dc;
+  }
+  :root[data-theme="night"] body { background: var(--paper); color: var(--ink); }
+  :root[data-theme="night"] .section-rail { background: #201f1b; }
+  :root[data-theme="night"] :is(.study-image-link, .chapter-source-art, .case-banner, .hero-image-link) { background: #2a2924; }
+  :root[data-theme="night"] :is(.study-image-link, .chapter-source-art) img { mix-blend-mode: normal; }
+  :root[data-theme="night"] ::selection { background: #5a4a2c; color: var(--ink); }
+  :root[data-theme="night"] .search-results mark { background: #5a4a2c; box-shadow: 0 1px 0 #b49259; }
+  :root[data-theme="night"] .text-size-options button[aria-pressed="true"],
+  :root[data-theme="night"] :is(.skip-link, .download-btn:hover) { color: #1b1a17 !important; }
+  /* Panels that stay dark in both themes keep light lettering (their paper-coloured text would vanish). */
+  :root[data-theme="night"] :is(.side-vocab-stick, .theory-vocab-stick) .vocab-tooltip,
+  :root[data-theme="night"] .vocab-tooltip-definition,
+  :root[data-theme="night"] .page-theory .cycle-center strong { color: #f1ece0; }
+  :root[data-theme="night"] :is(.side-vocab-stick, .theory-vocab-stick) .vocab-tooltip { background: #2f3a33; box-shadow: 0 10px 35px #0008; }
+  :root[data-theme="night"] :is(.editorial-reference, .storymap-fallback, .adam-manuscript, .theft-model-recursive) { background: #24231f; }
+  :root[data-theme="night"] .page-patricio .storymap-container:not(.embedded-storymap) { background: #24231f; }
+  :root[data-theme="night"] :is(.ante-hub, .cycle-center), :root[data-theme="night"] :is(.ante-hub, .cycle-center) * { color: #f1ece0; }
+  :root[data-theme="night"] .excerpt-note { color: var(--ink-faint) !important; }
+  :root[data-theme="night"] .figure-source { background: transparent; }
+  :root[data-theme="night"] .comparison-slider { background: #2a2924; }
+  :root[data-theme="night"] .comparison-handle { background: #7d3a42; }
+  :root[data-theme="night"] :is(.archive-symbol, .project-symbol) { filter: brightness(1.9) saturate(.85); }
+  :root[data-theme="night"] :is(.project-search, .saved-sections, .cite-dialog) { box-shadow: 0 20px 80px #000a; }
+}
+.cite-body .citation-style:first-child { border-top: 0; padding-top: 0; }

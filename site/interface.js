@@ -183,6 +183,18 @@
     caption.append(tools);
   });
 
+  // Reading theme: the reader's saved choice, otherwise the device setting. The page <head> applies it before first paint.
+  const darkQuery = matchMedia('(prefers-color-scheme: dark)');
+  const themeChoice = () => { const value = storage.get('theme'); return value === 'paper' || value === 'night' ? value : 'device'; };
+  const applyTheme = () => {
+    const choice = themeChoice();
+    document.documentElement.dataset.theme = choice === 'device' ? (darkQuery.matches ? 'night' : 'paper') : choice;
+    document.querySelectorAll('[data-theme-choice]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.themeChoice === choice)));
+  };
+  darkQuery.addEventListener?.('change', applyTheme);
+  addEventListener('storage', event => { if (event.key === 'ante-lives.theme') applyTheme(); });
+  applyTheme();
+
   // Reading preferences and saved places stay on the reader's own device.
   const setReadingSize = size => {
     document.documentElement.dataset.readingSize = ['standard','large','larger'].includes(size) ? size : 'standard';
@@ -220,7 +232,7 @@
   if (articleHeader) {
     const tools = document.createElement('div');
     tools.className = 'reading-tools';
-    tools.innerHTML = '<details class="reading-settings"><summary>Reading settings</summary><div class="reading-options"><fieldset><legend>Text size</legend><div class="text-size-options"><button type="button" data-text-size="standard">Standard</button><button type="button" data-text-size="large">Large</button><button type="button" data-text-size="larger">Larger</button></div></fieldset><button type="button" class="clear-place">Clear saved place</button><p>Preferences and saved places stay on this device.</p></div></details><div class="place-tools"><a class="resume-link" hidden>Resume saved place</a><button type="button" class="save-place">Save my place</button></div><p class="reading-status" role="status"></p>';
+    tools.innerHTML = '<details class="reading-settings"><summary>Reading settings</summary><div class="reading-options"><fieldset><legend>Text size</legend><div class="text-size-options"><button type="button" data-text-size="standard">Standard</button><button type="button" data-text-size="large">Large</button><button type="button" data-text-size="larger">Larger</button></div></fieldset><fieldset><legend>Appearance</legend><div class="text-size-options theme-options"><button type="button" data-theme-choice="paper">Paper</button><button type="button" data-theme-choice="night">Night</button><button type="button" data-theme-choice="device">Device</button></div></fieldset><button type="button" class="clear-place">Clear saved place</button><p>Preferences and saved places stay on this device.</p></div></details><div class="place-tools"><a class="resume-link" hidden>Resume saved place</a><button type="button" class="cite-open" hidden>Cite</button><button type="button" class="save-place">Save my place</button></div><p class="reading-status" role="status"></p>';
     articleHeader.after(tools);
     const measureTools = () => document.documentElement.style.setProperty('--reading-tools-height', `${Math.ceil(tools.getBoundingClientRect().height)}px`);
     if ('ResizeObserver' in window) new ResizeObserver(measureTools).observe(tools);
@@ -232,6 +244,12 @@
       storage.set('text-size', button.dataset.textSize);
       tools.querySelector('.reading-status').textContent = `${button.textContent} text selected.`;
     }));
+    tools.querySelectorAll('[data-theme-choice]').forEach(button => button.addEventListener('click', () => {
+      if (button.dataset.themeChoice === 'device') storage.remove('theme'); else storage.set('theme', button.dataset.themeChoice);
+      applyTheme();
+      tools.querySelector('.reading-status').textContent = `${button.textContent} appearance selected.`;
+    }));
+    applyTheme();
     tools.querySelector('.save-place').addEventListener('click', () => {
       const current = [...document.querySelectorAll('.nav-group li a[href^="#"]')].filter(link => {
         const section = document.getElementById(link.hash.slice(1));
@@ -395,6 +413,74 @@
     if (event.key === '/' && !event.metaKey && !event.ctrlKey && !event.altKey && !event.target.closest('input,textarea,select,[contenteditable]') && !document.querySelector('dialog[open]')) {
       event.preventDefault(); openSearch(document.querySelector('.site-find'));
     }
+  });
+
+  // Citations in Chicago and MLA, built from the page's canonical address and today's date.
+  const projectTitle = 'Ante-Possessive Lives in the Americas';
+  const escapeHTML = text => text.replace(/[&<>"]/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[character]);
+  const citations = () => {
+    const url = document.querySelector('link[rel="canonical"]')?.href || location.href.split('#')[0];
+    const bare = url.replace(/^https?:\/\//, '').replace(/\/$/, '');
+    const now = new Date();
+    const chicagoDate = now.toLocaleDateString('en-US', {month:'long', day:'numeric', year:'numeric'});
+    const months = ['Jan.','Feb.','Mar.','Apr.','May','June','July','Aug.','Sept.','Oct.','Nov.','Dec.'];
+    const mlaDate = `${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}`;
+    const title = file === 'index.html' ? '' : pages.find(([name]) => name === file)[1];
+    const work = `<i>${projectTitle}</i>`;
+    return title ? [
+      ['Chicago', `“${escapeHTML(title)}.” ${work}. Directed by David Kazanjian. 2026. ${url}. Accessed ${chicagoDate}.`],
+      ['MLA', `“${escapeHTML(title)}.” ${work}, directed by David Kazanjian, 2026, ${bare}. Accessed ${mlaDate}.`]
+    ] : [
+      ['Chicago', `Kazanjian, David, dir. ${work}. 2026. ${url}. Accessed ${chicagoDate}.`],
+      ['MLA', `Kazanjian, David, director. ${work}. 2026, ${bare}. Accessed ${mlaDate}.`]
+    ];
+  };
+  let citeDialog, citeTrigger;
+  const copyCitation = async (html, button) => {
+    const holder = document.createElement('div'); holder.innerHTML = html;
+    const text = holder.textContent;
+    try {
+      if (window.ClipboardItem && navigator.clipboard?.write) {
+        await navigator.clipboard.write([new ClipboardItem({'text/html': new Blob([html], {type:'text/html'}), 'text/plain': new Blob([text], {type:'text/plain'})})]);
+      } else if (navigator.clipboard?.writeText) await navigator.clipboard.writeText(text);
+      else throw new Error('Clipboard unavailable');
+      button.textContent = 'Copied'; announce('Citation copied.');
+    } catch {
+      const range = document.createRange(); range.selectNodeContents(button.closest('.citation-style').querySelector('.citation-text'));
+      getSelection().removeAllRanges(); getSelection().addRange(range);
+      button.textContent = 'Selected'; announce('The citation is selected, ready to copy.');
+    }
+    setTimeout(() => { button.textContent = 'Copy'; }, 1800);
+  };
+  const openCite = trigger => {
+    if (!citeDialog) {
+      citeDialog = document.createElement('dialog'); citeDialog.className = 'cite-dialog'; citeDialog.setAttribute('aria-labelledby', 'cite-dialog-title');
+      citeDialog.innerHTML = '<header class="search-bar"><h2 id="cite-dialog-title"></h2><button class="search-close" type="button" aria-label="Close citation">Close ×</button></header><div class="search-body cite-body"></div>';
+      document.body.append(citeDialog);
+      citeDialog.querySelector('.search-close').addEventListener('click', () => citeDialog.close());
+      citeDialog.addEventListener('click', event => { if (event.target === citeDialog) citeDialog.close(); });
+      citeDialog.addEventListener('close', () => citeTrigger?.focus());
+    }
+    citeTrigger = trigger;
+    citeDialog.querySelector('h2').textContent = file === 'index.html' ? 'Cite this project' : 'Cite this page';
+    const body = citeDialog.querySelector('.cite-body'); body.replaceChildren();
+    citations().forEach(([style, html]) => {
+      const block = document.createElement('section'); block.className = 'citation-style';
+      const label = document.createElement('h3'); label.textContent = style;
+      const text = document.createElement('p'); text.className = 'citation-text'; text.innerHTML = html;
+      const copy = document.createElement('button'); copy.type = 'button'; copy.className = 'citation-copy'; copy.textContent = 'Copy';
+      copy.setAttribute('aria-label', `Copy the ${style} citation`);
+      copy.addEventListener('click', () => copyCitation(html, copy));
+      block.append(label, text, copy); body.append(block);
+    });
+    const note = document.createElement('p'); note.className = 'citation-note';
+    note.textContent = 'The accessed date is today’s. Check the form against the style guide you are following.';
+    body.append(note);
+    citeDialog.showModal(); citeDialog.querySelector('.citation-copy').focus();
+  };
+  document.querySelectorAll('.cite-open').forEach(button => {
+    button.hidden = false; button.setAttribute('aria-haspopup', 'dialog');
+    button.addEventListener('click', () => openCite(button));
   });
 
   const images = Array.from(document.querySelectorAll('.article-shell img')).filter(img => !img.closest('.comparison-slider,.chapter-source-plate'));

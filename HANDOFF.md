@@ -7,13 +7,14 @@
 - **Not yet deployed.** The live site still shows the 15 November version until `site/` is uploaded to Cloudflare Pages. Asset versions are `?v=20261116`, so browsers will fetch the new CSS/JS.
 
 ## Last change
+- 2026-11-16: built the three ideas: Cite (Chicago and MLA) on chapter pages and Home; a Night appearance that follows the device unless the reader picks Paper, Night or Device under Reading settings; and a one-line colophon on Home. Also darkened the faint rail labels in Paper to pass 4.5:1. Details in site/CURATION-NOTES.md.
 - 2026-11-16: fixed Review items 1–8 and added refinements: Key terms link in the contents rail, "/" opens search, balanced headings, a paper-toned text selection, page cross-fade (view transitions, off under reduced motion), a closing margin on Home, one rule under the Sources heading, a Theory page title matching the other pages, and Woodbury WebP copies in `display/`. No research prose, citations, credits, anchors or original image files changed.
 - 2026-11-16: browser review by Claude, recorded under Review. No site files changed.
 - 2026-11-16: moved into this project folder and added git, CLAUDE.md and this file. No site files changed.
 
 ## Next step
 - Andrew to look over the changes, then upload `site/` to Cloudflare Pages.
-- Ideas not built, for Andrew's decision: a "Cite this page" control (needs an agreed citation form and authorship line); a dark reading theme; a small colophon at the foot of Home.
+- Ask Professor Kazanjian to confirm the citation's authorship line ("Kazanjian, David, dir." / "Directed by David Kazanjian") before readers rely on it.
 
 ## Known minor issues
 - site/README.md still describes the GitHub Pages release 1.0/V26.4. The history is fine to keep, but it's not the current deployment.
@@ -35,6 +36,7 @@ Reviewed on the live site, whose 6 HTML pages, 3 CSS and 3 JS files match `site/
 Reduced motion, from the code: styles.css and interface.css stop transitions, animations, smooth scrolling and hover/focus zoom, and `interface.js:110` checks the setting before smooth anchor scrolling. Nothing else needs fixing beyond the slider focus cue in item 7.
 
 ## Log
+- 2026-11-16: Claude cite, Night and colophon. Checked in the built-in browser by loading the edited files into the live pages in a fresh frame: contrast of every visible text element measured at 4.5:1 or better on all six pages in Night, and in Paper apart from Home's "Saved" label, which the script read against the crimson band although it sits on paper; theme buttons store, clear and follow the device; both citations generate correctly with today's date; the cite dialog opens with focus on Copy. Local reference check: 208 references, none missing.
 - 2026-11-16: Claude fixes and refinements. Checked by loading the edited CSS/JS/HTML into the live pages in the built-in browser (a local server could not be used): desktop 1280×800 and phone 375×812 on all six pages; inner pages on phones now start content at 245px instead of 808px; no horizontal overflow; Key terms link focus, "/" search, search labels, slider focus ring, hover-only Link, hidden "Clear saved place" and header tab order confirmed. The Woodbury WebP copies could not load there because they are not deployed yet; the files themselves were checked. Reduced motion: checked in code only. Local reference check: 208 references, none missing.
 - 2026-11-16: Claude browser review (desktop/phone, keyboard; reduced motion from the code). 8 issues recorded under Review. No site files changed.
 - 2026-11-16: Claude setup (see above).
