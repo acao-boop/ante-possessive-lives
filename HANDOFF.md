@@ -3,16 +3,32 @@
 ## Current state (2026-11-16)
 - Source is the November 15 version (inverted-V device without a cross). Codex's live check found 8/8 sampled files matching https://ante-possessive-lives.pages.dev/.
 - Checks on 2026-11-16: 237 references across 7 pages, with no missing files or anchors except the 404 page's root-relative, extensionless links (fine on Cloudflare, broken in local preview). All 51 search-index targets resolve.
-- Not yet done: a browser pass by Claude (desktop/phone, keyboard, reduced motion).
+- Browser review done 2026-11-16 (see Review). No site files changed.
 
 ## Last change
+- 2026-11-16: browser review by Claude, recorded under Review. No site files changed.
 - 2026-11-16: moved into this project folder and added git, CLAUDE.md and this file. No site files changed.
 
 ## Next step
-- Waiting for Andrew's next request.
+- Andrew to choose which Review items to fix. Item 1 first: it breaks every inner page on phones.
 
 ## Known minor issues
 - site/README.md still describes the GitHub Pages release 1.0/V26.4. The history is fine to keep, but it's not the current deployment.
 
+## Review (2026-11-16)
+Reviewed on the live site, whose 6 HTML pages, 3 CSS and 3 JS files match `site/` byte-for-byte (SHA-256). Built-in browser at 1280×800 and 375×812 (phone emulation, DPR 2). Keyboard: Tab order on Home and Juan Patricio; image viewer, search dialog, key terms and map comparison operated by keyboard. Reduced motion: the browser could not emulate the setting, so it was checked in the CSS and JS only. Theory, Sources and About were checked by script at phone width but not looked through visually at desktop width. Ranked most serious first.
+
+1. **Layout break, phones: Theory, Adam Saffin, Juan Patricio, Sources, About.** The contents rail is 690px tall even when collapsed, so the first screen shows only "Return to Index" and "On this page" on an empty beige panel. The page content starts at 808px. Cause: `curation.css:27` sets `.section-rail { height: calc(100svh - var(--masthead)) }` with no media query, which overrides the `height: auto` in interface.css's ≤900px block. **Fix:** move that rule into `@media (min-width: 901px)`, or add `.section-rail { height: auto; }` to curation.css's ≤900px block.
+2. **Layout, phones: case-study and Theory pages.** About 177px of sticky header stays on screen while reading: masthead plus Chapters bar (118px) and the reading-tools bar (59px). That is 22% of an 812px screen, and more in landscape. **Fix:** make `.reading-tools` static below 900px, or move "Reading settings / Save chapter / Save my place" into the Chapters disclosure.
+3. **Slow images: Adam Saffin.** (a) The Woodbury plate `published/bristol-woodbury.png` loads eagerly at 353 KB for a 267×145 crop, and it has no responsive copy. (b) The two Indigenous Maps figures sit side by side at 455px and 245px, but their `sizes` say 720px. So the browser fetches `adam-colonial-new-england-map-1600.webp` (590 KB) where the 960w copy (166 KB) is enough. **Fix:** add `display/bristol-woodbury-600.webp` with a srcset, keeping the PNG as the original. Give the paired figures their own `sizes`, about `(max-width: 900px) calc(100vw - 44px), 460px` and `260px`.
+4. **Redundant display: Home.** Each case card gives place and date twice: a small, low-contrast overlay on the map ("Southern New England · late 17th century") and the metadata line below it ("Boston & Bristol, New England · c. 1694–1714"). The footer repeats the crimson band's Sources and About links under a sentence that says the same thing. "Explore the project" repeats the band's "Project Index" link. **Fix:** remove the map overlay captions, the footer link pair and its sentence, and "Explore the project". The band, banner and chooser stay as they are.
+5. **Cluttered controls: case-study and Theory pages, and Home cards.** There are five save-type controls: header "Saved", "Save chapter", "Save my place", a "Link" and bookmark icon on every section heading, and a bookmark on each Home card. **Fix:** keep header "Saved" and one bookmark per section. Drop the chapter-level "Save chapter", which overlaps the section bookmarks, and the bookmarks on Home cards. Show "Link" only on hover or focus of the heading.
+6. **Inconsistent numbering: search dialog (all pages).** Search numbers Home as I, Theory II, Adam III and Juan IV, and labels Home a "Chapter". The navigation's accessible names (`interface.js:40`) and the figure numbers (Figure II.x Adam, III.x Juan) use Theory I, Adam II, Juan III. **Fix:** in `interface.js:326` and the search list, number only Theory, Adam and Juan with the nav's numerals, and label Home "Page".
+7. **Keyboard: Juan Patricio map comparison; case-study tab order.** The slider's focus ring is drawn on the range input, which has `opacity: .13` (`interface.css:220`), so the ring shows at 13% strength as a faint grey band. The handle's only other focus cue is a 4% scale, and reduced motion turns that off. The Key Terms rail sits after the article in the DOM, so a keyboard user reaches it only after every section, although it shows beside the opening. In the header, Search comes before Saved in the tab order but sits to its right on screen. **Fix:** put a visible ring on `.comparison-slider:focus-within .comparison-handle` (outline or box-shadow, not scale). Move the side vocabulary before the article flow, or add a "Key terms" link to the rail. Swap the two header buttons in the DOM.
+8. **Fragile code: all pages.** There are three CSS layers with 180 `!important` declarations (styles 111, interface 62, curation 7), and later files override earlier media queries with rules that have none, as in item 1. `script.js` loads without a version string or `defer`, while the others have both, so a changed `script.js` can stay cached. `404.html` uses root-relative, extensionless links that work only on Cloudflare. **Fix:** in curation.css, write each override inside the same breakpoint it overrides. Change to `script.js?v=20261116` with `defer`; its DOMContentLoaded handler still runs. Change the 404 links to `index.html`, `theory.html` and so on.
+
+Reduced motion, from the code: styles.css and interface.css stop transitions, animations, smooth scrolling and hover/focus zoom, and `interface.js:110` checks the setting before smooth anchor scrolling. Nothing else needs fixing beyond the slider focus cue in item 7.
+
 ## Log
+- 2026-11-16: Claude browser review (desktop/phone, keyboard; reduced motion from the code). 8 issues recorded under Review. No site files changed.
 - 2026-11-16: Claude setup (see above).
