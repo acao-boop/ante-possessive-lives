@@ -15,13 +15,13 @@ Collaborative scholarly site directed by David Kazanjian. Public: https://acao-b
 - Preview: from `site/`, run `python3 -m http.server 8000`, then open http://localhost:8000/. The live site sits under `/ante-possessive-lives/`, so keep page links relative; only 404.html uses full `/ante-possessive-lives/` paths.
 - No build step. When a feature changes, test search, bookmarks and reading-place persistence, chapter/anchor navigation, image enlargement, map comparisons, narrow layouts, keyboard access and reduced motion.
 - CSS and scripts are layered on purpose. Check the HTML load order before consolidating anything.
-- Publishing: every push to `main` on GitHub publishes `site/` through `.github/workflows/pages.yml`. Andrew pushes from VS Code. The `published` git tag marks the commit that is live.
+- Publishing: every push to `main` on GitHub publishes `site/` through `.github/workflows/pages.yml`. Claude commits and pushes after Andrew approves. The `published` git tag marks the commit that is live.
 
 ## Review, then publish (every session)
-- Nothing goes live mid-session. Edit `site/`, commit as work lands, and keep HANDOFF.md current.
-- Andrew reviews in Claude's built-in browser: run `python3 tools/preview/make_preview.py`, open https://acao-boop.github.io/ante-possessive-lives/ in the browser pane, and run the generated `tools/preview/preview.js` there. The edited site shows over the live page (marked "Preview · unpublished") and its links stay in the preview. Check desktop and phone widths. New or replaced images appear only after publishing (see tools/preview/README.md).
-- Changes are requested and made in the conversation; regenerate the preview after each round.
-- At the end of the session, when Andrew approves: commit and update HANDOFF.md; Andrew pushes `main` from VS Code (Source Control > Sync). When the Actions run finishes, confirm the live HTML/CSS/JS match `site/` (SHA-256), then `git tag -f published` and push the tag. If the homepage preview card changed, rerun LinkedIn Post Inspector.
+- Nothing goes live mid-session. Edit `site/` and keep HANDOFF.md current.
+- Review locally: from `site/`, run `python3 -m http.server 8000` and open http://localhost:8000/. Check desktop and phone widths.
+- As a fallback only, use the overlay preview: run `python3 tools/preview/make_preview.py`, open https://acao-boop.github.io/ante-possessive-lives/ in the browser pane, and run the generated `tools/preview/preview.js` there. New or replaced images appear only after publishing (see tools/preview/README.md).
+- When Andrew approves, Claude commits and pushes `main`. When the Actions run finishes, confirm the live HTML/CSS/JS match `site/` (SHA-256), then `git tag -f published` and push the tag. If the homepage preview card changed, rerun LinkedIn Post Inspector.
 
 ## Constraints
 - Plain static HTML/CSS/JS only: no framework, build step, backend, login or paid service.

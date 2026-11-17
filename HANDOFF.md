@@ -2,11 +2,12 @@
 
 ## Current state (2026-11-16, evening)
 - **Live on GitHub Pages:** https://acao-boop.github.io/ante-possessive-lives/ from commit 7e85db9 (Actions runs #1 and #2 succeeded; Pages source is GitHub Actions). All 18 checked files (6 pages, 404, CSS, JS, search index, device, favicon, preview image, a WebP) match `site/` by SHA-256; missing paths get the styled 404; `/adam` resolves; scripts, Cite, Key terms and bookmarks run under the project folder.
-- `published` tag = 7e85db9 locally; this session's proxy refused tag pushes, so it reaches GitHub on Andrew's next VS Code Sync.
+- `published` tag = 75263f79ecfb781a95c2a50a6e97b9a2b12f56d0 locally; tag push is pending Andrew's approval.
 - Cloudflare (ante-possessive-lives.pages.dev) still serves the old copy until `cloudflare-redirect/` is uploaded there.
 - Images copied to this computer through Claude's file bridge carry C2PA content credentials ("Claude provided this file"), about 5.7 KB each: the three Woodbury WebPs and social-preview.jpg. The pictures are unchanged; byte comparisons with files from elsewhere differ by that label only.
 
 ## Last change
+- 2026-11-17: switched review to the local VS Code server; Claude commits and pushes after Andrew approves, with the overlay preview as fallback.
 - 2026-11-16: published to GitHub Pages (Pages source switched to GitHub Actions in the browser; pushed main to 7e85db9).
 - 2026-11-16: prepared the move to GitHub Pages: canonical and preview URLs now name the GitHub address; 404.html uses `/ante-possessive-lives/` paths; both scripts treat a folder address as Home; Actions workflow; `cloudflare-redirect/` for the old address; repo README; preview tool works under the GitHub folder. Adopted the engraved alpha as the project device (Andrew's decision).
 - 2026-11-16: synced this repo with the live Cloudflare release (14d6310).
