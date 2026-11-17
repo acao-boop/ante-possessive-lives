@@ -77,7 +77,8 @@
 .study-credit a { color: inherit; text-underline-offset: 3px; }
 
 /* Publication details sit beside the chapter heading, outside its prose. */
-.archive-section > header.chapter-heading { display: grid; grid-template-columns: minmax(0,1fr) minmax(190px,28%); column-gap: 32px; align-items: center; }
+/* The source plate stands beside the chapter title, not at the far edge. */
+.archive-section > header.chapter-heading { display: grid; grid-template-columns: max-content minmax(190px, 17rem); justify-content: start; column-gap: clamp(40px, 5vw, 80px); align-items: center; }
 .chapter-heading > h1, .chapter-heading > p { grid-column: 1; }
 .chapter-heading > h1 { align-self: end; }
 .chapter-heading > p { align-self: start; }
@@ -168,10 +169,6 @@ body:has(.saved-sections[open]) { overflow: hidden; }
   .chapter-source-plate { margin: 26px 0 0; }
   .chapter-source-art { height: 150px; padding: 20px; }
   .chapter-source-plate figcaption { font-size: 11px; }
-  .linked-heading { flex-wrap: wrap; }
-  .linked-heading > .heading-label { flex-basis: 100%; }
-  .linked-heading > .section-link { margin-left: 0; }
-  .linked-heading > .bookmark-action { margin-left: auto; }
   .saved-sections { width: calc(100vw - 16px); max-height: calc(100svh - 16px); margin: 8px auto; }
   .saved-header, .saved-body { padding-inline: 20px; }
   .saved-header h2 { font-size: 28px; }
@@ -194,8 +191,9 @@ body:has(.saved-sections[open]) { overflow: hidden; }
 }
 .title-lockup {
   grid-column: 1 / -1; grid-row: 1; display: grid;
-  grid-template-columns: minmax(0,1.8fr) minmax(230px,.8fr);
-  gap: 0 50px; padding-bottom: 36px;
+  /* Columns size to the title, so the description sits beside it rather than at the far edge. */
+  grid-template-columns: max-content minmax(220px, 23rem); justify-content: start;
+  gap: 0 clamp(40px, 4.5vw, 72px); padding-bottom: 36px;
 }
 .landing-kicker { grid-column: 1 / -1; margin-bottom: 20px; }
 .landing-kicker::before { display: none; }
@@ -360,3 +358,26 @@ body:has(.cite-dialog[open]) { overflow: hidden; }
   :root[data-theme="night"] :is(.project-search, .saved-sections, .cite-dialog) { box-shadow: 0 20px 80px #000a; }
 }
 .cite-body .citation-style:first-child { border-top: 0; padding-top: 0; }
+
+/* Labels — 17 November 2026. Small labels are set in the reading serif, in the case they are written in,
+   instead of tracked capitals. Wording is unchanged; only the setting changes. */
+:is(.landing-kicker, .hero-source, .index-kicker, .index-group-label, .entry-meta, .entry-location, .case-banner-label,
+    .rail-kicker, .badge, .vocabulary-kicker, .source-plate-label, .bibliography-kicker, .usage-note,
+    .credits-kicker, .credits-eyebrow, .contributor-role, .contribution-label, .term-note-label, .adam-map-label,
+    .comparison-label, .download-btn, .vocab-tooltip-meta > span, .theft-model-label > span, .storymap-fallback > span,
+    .citation-style h3) {
+  text-transform: none !important; letter-spacing: 0 !important; font-variant-caps: normal;
+}
+/* Section labels and panel labels read as quiet italic running heads. */
+:is(.landing-kicker, .index-kicker, .index-group-label, .rail-kicker, .badge, .vocabulary-kicker, .source-plate-label,
+    .bibliography-kicker, .credits-kicker, .credits-eyebrow, .contribution-label, .term-note-label, .adam-map-label,
+    .citation-style h3) {
+  font-family: var(--font-serif) !important; font-style: italic; font-weight: 400 !important; font-size: 14px !important; line-height: 1.5;
+}
+.side-vocab-stick .vocabulary-kicker, .theory-vocab-stick .vocabulary-kicker { font-size: 14px !important; }
+:is(.entry-meta, .entry-location, .contributor-role, .hero-source, .usage-note) { font-family: var(--font-serif) !important; font-size: 13px !important; }
+.badge::before { display: none !important; }
+.badge { display: block; margin-bottom: 10px; }
+:is(.download-btn, .comparison-label) { font-family: var(--font-serif) !important; font-size: 13px !important; font-weight: 400 !important; }
+/* Where the side rail shows the page's label, the same label is not repeated above the title. */
+@media (min-width: 901px) { .bibliography-kicker, .credits-kicker { display: none; } }

@@ -47,3 +47,14 @@ Interface-only changes. No research prose, citations, credits, anchors or origin
 - **Cite.** Chapter pages have a “Cite” control in the reading tools; Home has “Cite this project” in its colophon. The dialog gives Chicago and MLA forms built from the page's canonical address and the reader's date, and copies them with italics where the clipboard allows. Forms used: project, “Kazanjian, David, dir. *Ante-Possessive Lives in the Americas*. 2026. URL. Accessed …”; chapter, ““Adam Saffin.” *Ante-Possessive Lives in the Americas*. Directed by David Kazanjian. 2026. URL. Accessed …”. The wording comes from About & Credits (“developed under the direction of Professor David Kazanjian”). Professor Kazanjian should confirm the authorship line before it is relied on.
 - **Night.** A dark-paper appearance follows the device setting unless the reader chooses Paper, Night or Device under Reading settings (stored as `ante-lives.theme`). A two-line script in each page's head applies it before first paint. Night is screen-only, so printing stays on paper. Archival images keep their own tones; only the wells around them darken, and `mix-blend-mode: multiply` is switched off so images do not disappear into the dark ground. All visible text on the six pages measured at least 4.5:1 contrast in both appearances.
 - **Colophon.** One line of provenance from About & Credits, the citation link, and a note that saved reading stays in the browser. It replaces nothing and adds no navigation.
+
+## Quieter reading pages — 17 November 2026
+
+Interface-only changes. No research prose, citations, credits, anchors or image files changed; label wording is unchanged.
+
+- **Titles.** Home: the description now sits beside the title (the title column sizes to its content) instead of in a column pinned to the far edge. Chapters: the "Related scholarship" plate stands beside the chapter title in the same way. Phones are unchanged.
+- **Copy links.** The "Link" text beside headings and figure captions is now a small copy icon (two sheets) that turns into a check for 1.8 s when the address is copied, and is announced to screen readers. It still appears on hover or keyboard focus with pointer devices and stays visible on touch screens.
+- **Heading bookmarks removed.** Readers keep their place with "Save my place"; chapters are still saved from the Project Index. Sections saved before this change still appear in Saved reading and open normally.
+- **Reading settings** is now an "Aa" control (its accessible name is still "Reading settings"); "Cite" and "Save my place" are unchanged.
+- **Labels.** Kickers, section badges, panel labels and contributor roles are set in the reading serif (italic for running-head labels) in the case they are written in, rather than tracked capitals. The short rule before section badges is gone. On wide screens the Sources and About pages no longer repeat their rail label above the title.
+- Asset versions are `20261117`.

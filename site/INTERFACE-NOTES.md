@@ -30,7 +30,7 @@ research prose has not been rewritten. Local file and anchor references pass.
 
 The presentation layer is in `interface.css` and `interface.js`. The HTML
 changes add these references, a skip link, and the homepage navigation/image
-presentation. The interface is hosted on Cloudflare. Local changes require uploading a new deployment archive to update the public site.
+presentation. The site is hosted on GitHub Pages; pushing `main` publishes it.
 
 ## Roman numerals
 

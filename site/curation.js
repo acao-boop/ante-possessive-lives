@@ -111,14 +111,8 @@
     if(valid(entry)) makeBookmark(entry,button);
   });
   if (currentFile && currentFile!=='index.html') {
-    document.querySelectorAll('main h2.linked-heading').forEach(heading => {
-      if (heading.closest('.study-display')) return;
-      const link=heading.querySelector('.section-link'),label=heading.querySelector('.heading-label')?.textContent.trim();
-      if(!link || !label) return;
-      const entry={path:currentFile,id:decodeURIComponent(link.hash.slice(1)),label};
-      if(valid(entry)) heading.append(makeBookmark(entry));
-    });
-    // Chapters are saved from the Project Index; sections are saved beside their headings.
+    // Chapters are saved from the Project Index; a reader's place is kept with "Save my place".
+    // Per-heading bookmark buttons were removed on 17 November 2026; sections saved before then still list and open.
   }
   refresh();
   addEventListener('storage',event => { if(event.key===key) { saved=load(); refresh(); } });

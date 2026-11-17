@@ -135,11 +135,19 @@
   if (location.hash) requestAnimationFrame(() => goToHash(location.hash, false, false));
 
   // Section links use the existing archival anchors and the actual hosting URL.
+  // A small copy icon (two overlapping sheets) that turns into a check once the link is copied.
+  const linkIcon = copied => {
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('viewBox', '0 0 16 16'); svg.setAttribute('aria-hidden', 'true'); svg.setAttribute('focusable', 'false');
+    svg.innerHTML = copied ? '<path d="M3.5 8.5l3 3 6-7"/>' : '<rect x="5.5" y="5.5" width="8" height="8" rx="1.2"/><path d="M10.5 3.5v-.8c0-.66-.54-1.2-1.2-1.2H3.7c-.66 0-1.2.54-1.2 1.2v5.6c0 .66.54 1.2 1.2 1.2h.8"/>';
+    return svg;
+  };
   const addSectionLink = (container, id, label) => {
     const link = document.createElement('a');
     link.className = 'section-link';
     link.href = `#${id}`;
-    link.textContent = 'Link';
+    link.append(linkIcon(false));
+    link.title = 'Copy link';
     link.setAttribute('aria-label', `Copy link to ${label}`);
     link.addEventListener('click', async event => {
       if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button) return;
@@ -150,9 +158,9 @@
       try {
         if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
         await navigator.clipboard.writeText(url.href);
-        link.textContent = 'Copied';
+        link.replaceChildren(linkIcon(true)); link.classList.add('is-copied'); link.title = 'Copied';
         announce(`Copied the link to ${label}.`);
-        setTimeout(() => { link.textContent = 'Link'; }, 1800);
+        setTimeout(() => { link.replaceChildren(linkIcon(false)); link.classList.remove('is-copied'); link.title = 'Copy link'; }, 1800);
       } catch {
         goToHash(url.hash);
         announce('The section link is in the address bar, ready to copy.');
@@ -232,7 +240,7 @@
   if (articleHeader) {
     const tools = document.createElement('div');
     tools.className = 'reading-tools';
-    tools.innerHTML = '<details class="reading-settings"><summary>Reading settings</summary><div class="reading-options"><fieldset><legend>Text size</legend><div class="text-size-options"><button type="button" data-text-size="standard">Standard</button><button type="button" data-text-size="large">Large</button><button type="button" data-text-size="larger">Larger</button></div></fieldset><fieldset><legend>Appearance</legend><div class="text-size-options theme-options"><button type="button" data-theme-choice="paper">Paper</button><button type="button" data-theme-choice="night">Night</button><button type="button" data-theme-choice="device">Device</button></div></fieldset><button type="button" class="clear-place">Clear saved place</button><p>Preferences and saved places stay on this device.</p></div></details><div class="place-tools"><a class="resume-link" hidden>Resume saved place</a><button type="button" class="cite-open" hidden>Cite</button><button type="button" class="save-place">Save my place</button></div><p class="reading-status" role="status"></p>';
+    tools.innerHTML = '<details class="reading-settings"><summary title="Reading settings: text size and appearance"><span class="reading-settings-glyph" aria-hidden="true">Aa</span><span class="reading-settings-name">Reading settings</span></summary><div class="reading-options"><fieldset><legend>Text size</legend><div class="text-size-options"><button type="button" data-text-size="standard">Standard</button><button type="button" data-text-size="large">Large</button><button type="button" data-text-size="larger">Larger</button></div></fieldset><fieldset><legend>Appearance</legend><div class="text-size-options theme-options"><button type="button" data-theme-choice="paper">Paper</button><button type="button" data-theme-choice="night">Night</button><button type="button" data-theme-choice="device">Device</button></div></fieldset><button type="button" class="clear-place">Clear saved place</button><p>Preferences and saved places stay on this device.</p></div></details><div class="place-tools"><a class="resume-link" hidden>Resume saved place</a><button type="button" class="cite-open" hidden>Cite</button><button type="button" class="save-place">Save my place</button></div><p class="reading-status" role="status"></p>';
     articleHeader.after(tools);
     const measureTools = () => document.documentElement.style.setProperty('--reading-tools-height', `${Math.ceil(tools.getBoundingClientRect().height)}px`);
     if ('ResizeObserver' in window) new ResizeObserver(measureTools).observe(tools);

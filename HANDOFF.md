@@ -50,3 +50,9 @@ Reduced motion, from the code: styles.css and interface.css stop transitions, an
 - Andrew's mark beside his credit on credits.html now links to his home page, https://acao-boop.github.io/ (24px hit area; the 12px mark doesn't move). interface.css version bumped to 20261116-hub on every page.
 - README credits Andrew with a link to the home page; CLAUDE.md identity line records the link.
 - The home page lists this project with its social card. New projects start from acao-boop/project-template.
+
+## Quieter reading pages (17 November 2026)
+- Changes listed in site/CURATION-NOTES.md, "Quieter reading pages": home and chapter title decks sit beside their titles; "Link" became a copy icon; per-heading bookmarks removed; "Reading settings" is an "Aa" control; small labels set in serif italic instead of tracked capitals; duplicate page labels hidden on wide screens.
+- Checks run (preview over the live site): home, Theory, Adam Saffin, Sources, About at 1600×900; Adam Saffin at 375×812 (no horizontal overflow); copy icon appears on hover and keyboard focus; copy success shows the check and announces, then resets; clipboard failure falls back to the address bar; Aa control keeps its accessible name.
+- Andrew decided (17 Nov): GitHub stays the live site; ante-possessive-lives.pages.dev should redirect. The redirect upload (cloudflare-redirect/) is still pending; until then pages.dev serves an old copy.
+
