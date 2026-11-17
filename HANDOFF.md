@@ -54,5 +54,7 @@ Reduced motion, from the code: styles.css and interface.css stop transitions, an
 ## Quieter reading pages (17 November 2026)
 - Changes listed in site/CURATION-NOTES.md, "Quieter reading pages": home and chapter title decks sit beside their titles; "Link" became a copy icon; per-heading bookmarks removed; "Reading settings" is an "Aa" control; small labels set in serif italic instead of tracked capitals; duplicate page labels hidden on wide screens.
 - Checks run (preview over the live site): home, Theory, Adam Saffin, Sources, About at 1600×900; Adam Saffin at 375×812 (no horizontal overflow); copy icon appears on hover and keyboard focus; copy success shows the check and announces, then resets; clipboard failure falls back to the address bar; Aa control keeps its accessible name.
-- Andrew decided (17 Nov): GitHub stays the live site; ante-possessive-lives.pages.dev should redirect. The redirect upload (cloudflare-redirect/) is still pending; until then pages.dev serves an old copy.
+- Andrew decided (17 Nov): GitHub stays the live site. The redirect (cloudflare-redirect/: `_redirects` + index.html) was deployed to the Cloudflare Pages project's production on 17 Nov; https://ante-possessive-lives.pages.dev/adam#adam-overview now lands on the same page and section on GitHub. Earlier Cloudflare deployments remain in its history for rollback.
+- Live check after publishing: all 11 changed files (6 pages, 404, interface/curation CSS and JS) match `site/` by SHA-256. `published` tag moved locally; it reaches GitHub on the next VS Code Sync with tags.
+- Next: Professor Kazanjian to confirm the citation authorship line.
 
