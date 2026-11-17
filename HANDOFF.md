@@ -18,7 +18,7 @@
 ## Next step
 - Andrew: sign in to Cloudflare, open the ante-possessive-lives Pages project, Create deployment, and upload the `cloudflare-redirect/` folder. Then Claude checks that pages.dev links forward to GitHub.
 - Run LinkedIn Post Inspector on https://acao-boop.github.io/ante-possessive-lives/ and update the Featured link.
-- Ask Professor Kazanjian to confirm the citation's authorship line before readers rely on it.
+- Citation authorship: resolved 17 Nov 2026 (standard forms; see site/CURATION-NOTES.md, Cite).
 
 ## Known minor issues
 - site/README.md still describes the GitHub Pages release 1.0/V26.4. The history is fine to keep, but it's not the current deployment.
@@ -56,5 +56,6 @@ Reduced motion, from the code: styles.css and interface.css stop transitions, an
 - Checks run (preview over the live site): home, Theory, Adam Saffin, Sources, About at 1600×900; Adam Saffin at 375×812 (no horizontal overflow); copy icon appears on hover and keyboard focus; copy success shows the check and announces, then resets; clipboard failure falls back to the address bar; Aa control keeps its accessible name.
 - Andrew decided (17 Nov): GitHub stays the live site. The redirect (cloudflare-redirect/: `_redirects` + index.html) was deployed to the Cloudflare Pages project's production on 17 Nov; https://ante-possessive-lives.pages.dev/adam#adam-overview now lands on the same page and section on GitHub. Earlier Cloudflare deployments remain in its history for rollback.
 - Live check after publishing: all 11 changed files (6 pages, 404, interface/curation CSS and JS) match `site/` by SHA-256. `published` tag moved locally; it reaches GitHub on the next VS Code Sync with tags.
-- Next: Professor Kazanjian to confirm the citation authorship line.
+- Citations switched to standard Chicago/MLA forms on 17 Nov (Andrew approved): director in the author position, University of Pennsylvania as publisher, Chicago without an access date. interface.js version 20261117-cite.
+- Next: nothing outstanding; new work starts from a fresh request.
 

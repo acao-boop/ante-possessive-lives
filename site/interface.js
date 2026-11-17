@@ -430,17 +430,18 @@
     const url = document.querySelector('link[rel="canonical"]')?.href || location.href.split('#')[0];
     const bare = url.replace(/^https?:\/\//, '').replace(/\/$/, '');
     const now = new Date();
-    const chicagoDate = now.toLocaleDateString('en-US', {month:'long', day:'numeric', year:'numeric'});
     const months = ['Jan.','Feb.','Mar.','Apr.','May','June','July','Aug.','Sept.','Oct.','Nov.','Dec.'];
     const mlaDate = `${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}`;
     const title = file === 'index.html' ? '' : pages.find(([name]) => name === file)[1];
     const work = `<i>${projectTitle}</i>`;
+    // Standard forms: the director in the author position, the university as publisher; the full team is on the About page.
+    // Chicago omits the access date because the work carries a publication date; MLA keeps it.
     return title ? [
-      ['Chicago', `“${escapeHTML(title)}.” ${work}. Directed by David Kazanjian. 2026. ${url}. Accessed ${chicagoDate}.`],
-      ['MLA', `“${escapeHTML(title)}.” ${work}, directed by David Kazanjian, 2026, ${bare}. Accessed ${mlaDate}.`]
+      ['Chicago', `“${escapeHTML(title)}.” In ${work}, directed by David Kazanjian. University of Pennsylvania, 2026. ${url}.`],
+      ['MLA', `“${escapeHTML(title)}.” ${work}, directed by David Kazanjian, U of Pennsylvania, 2026, ${bare}. Accessed ${mlaDate}.`]
     ] : [
-      ['Chicago', `${work}. Directed by David Kazanjian. 2026. ${url}. Accessed ${chicagoDate}.`],
-      ['MLA', `${work}. Directed by David Kazanjian, 2026, ${bare}. Accessed ${mlaDate}.`]
+      ['Chicago', `Kazanjian, David, dir. ${work}. University of Pennsylvania, 2026. ${url}.`],
+      ['MLA', `Kazanjian, David, director. ${work}. U of Pennsylvania, 2026, ${bare}. Accessed ${mlaDate}.`]
     ];
   };
   let citeDialog, citeTrigger;
