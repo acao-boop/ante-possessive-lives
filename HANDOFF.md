@@ -7,11 +7,12 @@
 - Images copied to this computer through Claude's file bridge carry C2PA content credentials ("Claude provided this file"), about 5.7 KB each: the three Woodbury WebPs and social-preview.jpg. The pictures are unchanged; byte comparisons with files from elsewhere differ by that label only.
 
 ## Last change
+- 2026-11-18: moved 17 working files (V24–V26 notes, PURM scripts, source audit, curation/interface/maintenance notes, changelog, asset credits, README) from `site/` to `docs/site-notes/`; everything in `site/` is published, and these were publicly reachable (checked: three returned 200 on the live site). No page, script, tool or workflow referenced them. CLAUDE.md, README.md and this file now point to the new paths. Not pushed: once Andrew approves and the push publishes, check the old URLs return the 404 page. Also added docs/ideas-from-enoch.md (ideas from the Enoch homepage redesign that Ante could use).
 - 2026-11-17: switched review to the local VS Code server; Claude commits and pushes after Andrew approves, with the overlay preview as fallback.
 - 2026-11-16: published to GitHub Pages (Pages source switched to GitHub Actions in the browser; pushed main to 7e85db9).
 - 2026-11-16: prepared the move to GitHub Pages: canonical and preview URLs now name the GitHub address; 404.html uses `/ante-possessive-lives/` paths; both scripts treat a folder address as Home; Actions workflow; `cloudflare-redirect/` for the old address; repo README; preview tool works under the GitHub folder. Adopted the engraved alpha as the project device (Andrew's decision).
 - 2026-11-16: synced this repo with the live Cloudflare release (14d6310).
-- 2026-11-16: built the three ideas: Cite (Chicago and MLA) on chapter pages and Home; a Night appearance that follows the device unless the reader picks Paper, Night or Device under Reading settings; and a one-line colophon on Home. Also darkened the faint rail labels in Paper to pass 4.5:1. Details in site/CURATION-NOTES.md.
+- 2026-11-16: built the three ideas: Cite (Chicago and MLA) on chapter pages and Home; a Night appearance that follows the device unless the reader picks Paper, Night or Device under Reading settings; and a one-line colophon on Home. Also darkened the faint rail labels in Paper to pass 4.5:1. Details in docs/site-notes/CURATION-NOTES.md.
 - 2026-11-16: fixed Review items 1–8 and added refinements: Key terms link in the contents rail, "/" opens search, balanced headings, a paper-toned text selection, page cross-fade (view transitions, off under reduced motion), a closing margin on Home, one rule under the Sources heading, a Theory page title matching the other pages, and Woodbury WebP copies in `display/`. No research prose, citations, credits, anchors or original image files changed.
 - 2026-11-16: browser review by Claude, recorded under Review. No site files changed.
 - 2026-11-16: moved into this project folder and added git, CLAUDE.md and this file. No site files changed.
@@ -19,10 +20,10 @@
 ## Next step
 - Andrew: sign in to Cloudflare, open the ante-possessive-lives Pages project, Create deployment, and upload the `cloudflare-redirect/` folder. Then Claude checks that pages.dev links forward to GitHub.
 - Run LinkedIn Post Inspector on https://acao-boop.github.io/ante-possessive-lives/ and update the Featured link.
-- Citation authorship: resolved 17 Nov 2026 (standard forms; see site/CURATION-NOTES.md, Cite).
+- Citation authorship: resolved 17 Nov 2026 (standard forms; see docs/site-notes/CURATION-NOTES.md, Cite).
 
 ## Known minor issues
-- site/README.md still describes the GitHub Pages release 1.0/V26.4. The history is fine to keep, but it's not the current deployment.
+- docs/site-notes/README.md still describes the GitHub Pages release 1.0/V26.4. The history is fine to keep, but it's not the current deployment.
 
 ## Review (2026-11-16)
 Status: all eight items fixed on 2026-11-16 (see Last change). How they were checked is under Log. One departure from item 5: the Home card bookmarks stay, because with "Save chapter" removed they are now the only way to save a whole chapter.
@@ -53,7 +54,7 @@ Reduced motion, from the code: styles.css and interface.css stop transitions, an
 - The home page lists this project with its social card. New projects start from acao-boop/project-template.
 
 ## Quieter reading pages (17 November 2026)
-- Changes listed in site/CURATION-NOTES.md, "Quieter reading pages": home and chapter title decks sit beside their titles; "Link" became a copy icon; per-heading bookmarks removed; "Reading settings" is an "Aa" control; small labels set in serif italic instead of tracked capitals; duplicate page labels hidden on wide screens.
+- Changes listed in docs/site-notes/CURATION-NOTES.md, "Quieter reading pages": home and chapter title decks sit beside their titles; "Link" became a copy icon; per-heading bookmarks removed; "Reading settings" is an "Aa" control; small labels set in serif italic instead of tracked capitals; duplicate page labels hidden on wide screens.
 - Checks run (preview over the live site): home, Theory, Adam Saffin, Sources, About at 1600×900; Adam Saffin at 375×812 (no horizontal overflow); copy icon appears on hover and keyboard focus; copy success shows the check and announces, then resets; clipboard failure falls back to the address bar; Aa control keeps its accessible name.
 - Andrew decided (17 Nov): GitHub stays the live site. The redirect (cloudflare-redirect/: `_redirects` + index.html) was deployed to the Cloudflare Pages project's production on 17 Nov; https://ante-possessive-lives.pages.dev/adam#adam-overview now lands on the same page and section on GitHub. Earlier Cloudflare deployments remain in its history for rollback.
 - Live check after publishing: all 11 changed files (6 pages, 404, interface/curation CSS and JS) match `site/` by SHA-256. `published` tag moved locally; it reaches GitHub on the next VS Code Sync with tags.

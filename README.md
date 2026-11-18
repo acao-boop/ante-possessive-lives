@@ -16,4 +16,4 @@ Web design and build by [Andrew Cao](https://acao-boop.github.io/), whose other 
 ## Local preview
 From `site/`, run `python3 -m http.server 8000` and open http://localhost:8000/.
 
-Credits for the research, writing and images are on the site's About & Credits page and in `site/ASSET-CREDITS.md`.
+Credits for the research, writing and images are on the site's About & Credits page and in `docs/site-notes/ASSET-CREDITS.md`.

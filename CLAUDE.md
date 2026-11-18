@@ -7,9 +7,10 @@ Collaborative scholarly site directed by David Kazanjian. Public: https://acao-b
 - Do one bounded task per session. Before stopping, update HANDOFF.md (state, last change, checks, next step) and commit.
 
 ## Layout
-- `site/`: the whole static site; publish this folder as-is. Read site/INTERFACE-NOTES.md and site/CURATION-NOTES.md before interface changes. site/ASSET-CREDITS.md records image provenance.
+- `site/`: the whole static site; publish this folder as-is, so keep notes and working files out of it.
+- `docs/site-notes/`: the site's working notes, moved out of `site/` on 18 November 2026 so they are no longer published. Read docs/site-notes/INTERFACE-NOTES.md and docs/site-notes/CURATION-NOTES.md before interface changes. docs/site-notes/ASSET-CREDITS.md records image provenance.
 - `docs/handoff/`: Codex handoff material. Reference only.
-- site/README.md and site/MAINTENANCE.md describe the old GitHub Pages release. Don't follow their publish steps.
+- docs/site-notes/README.md and docs/site-notes/MAINTENANCE.md describe the old GitHub Pages release. Don't follow their publish steps.
 
 ## Run and check
 - Preview: from `site/`, run `python3 -m http.server 8000`, then open http://localhost:8000/. The live site sits under `/ante-possessive-lives/`, so keep page links relative; only 404.html uses full `/ante-possessive-lives/` paths.
