@@ -2,9 +2,9 @@
 (() => {
   'use strict';
   const pages = [
-    ['index.html','Project Index'], ['theory.html','Theory & Method'],
+    ['index.html','Home'], ['theory.html','Theory & Method'],
     ['adam.html','Adam Saffin'], ['juan-patricio.html','Juan Patricio'],
-    ['bibliography.html','Sources & Bibliography'], ['credits.html','About & Credits']
+    ['bibliography.html','Sources'], ['credits.html','About']
   ];
   const base = new URL('.',document.currentScript.src);
   const slug = /\/$/.test(location.pathname) ? 'index' : decodeURIComponent(location.pathname).split('/').pop().replace(/\.html$/,'') || 'index';
@@ -91,7 +91,7 @@
     body.className='saved-body'; note.className='saved-note'; note.textContent='Chapters and sections saved in this browser. Your reading place is kept separately.';
     count=document.createElement('p'); count.className='saved-count'; count.setAttribute('role','status');
     list=document.createElement('ul'); list.className='saved-list';
-    empty=document.createElement('p'); empty.className='saved-empty'; empty.textContent='Use the bookmark beside a section heading, or beside a chapter in the Project Index, to add it here.';
+    empty=document.createElement('p'); empty.className='saved-empty'; empty.textContent='Use the bookmark beside a chapter under Contents on Home to add it here.';
     header.append(title,close); body.append(count,list,empty,note); dialog.append(header,body); document.body.append(dialog);
     dialog.addEventListener('close',() => returnFocus?.focus());
     dialog.addEventListener('click',event => { if(event.target===dialog) { const box=dialog.getBoundingClientRect(); if(event.clientX<box.left || event.clientX>box.right || event.clientY<box.top || event.clientY>box.bottom) dialog.close(); } });
@@ -111,7 +111,7 @@
     if(valid(entry)) makeBookmark(entry,button);
   });
   if (currentFile && currentFile!=='index.html') {
-    // Chapters are saved from the Project Index; a reader's place is kept with "Save my place".
+    // Chapters are saved from Contents on Home; a reader's place is kept with "Save my place".
     // Per-heading bookmark buttons were removed on 17 November 2026; sections saved before then still list and open.
   }
   refresh();

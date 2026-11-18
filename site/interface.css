@@ -249,7 +249,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .contributor-portrait img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.8); }
 .contributor-body h3 { font-size: 26px; font-weight: 400; letter-spacing: -.02em; }
 .contributor-name-with-mark { display: flex; align-items: center; gap: 6px; }
-.contributor-signature { display: block; flex-shrink: 0; width: 12px; height: 12px; object-fit: contain; }
+.contributor-signature { display: block; flex-shrink: 0; width: 13px; height: 16px; object-fit: contain; }
 /* Andrew's mark links to his home page; the hit area is enlarged without moving the mark. */
 .contributor-signature-link { display: block; flex-shrink: 0; padding: 6px; margin: -6px; border-radius: 2px; }
 .contributor-signature-link:focus-visible { outline: 2px solid currentColor; outline-offset: 0; }

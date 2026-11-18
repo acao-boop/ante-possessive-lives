@@ -1,9 +1,9 @@
 /* Progressive enhancements for a static archival publication. */
 (() => {
   const pages = [
-    ['index.html', 'Project Index'], ['theory.html', 'Theory & Method'],
+    ['index.html', 'Home'], ['theory.html', 'Theory & Method'],
     ['adam.html', 'Adam Saffin'], ['juan-patricio.html', 'Juan Patricio'],
-    ['bibliography.html', 'Sources & Bibliography'], ['credits.html', 'About & Credits']
+    ['bibliography.html', 'Sources'], ['credits.html', 'About']
   ];
   const base = new URL('.', document.currentScript.src);
   const slug = path => /\/$/.test(path) ? 'index' : decodeURIComponent(path).split('/').pop().replace(/\.html$/, '') || 'index';
@@ -36,8 +36,9 @@
     const setChapterMenu = () => { chapterMenu.open = !compact.matches; };
     setChapterMenu();
     compact.addEventListener('change', setChapterMenu);
+    // Only the three chapters carry numerals (I–III), matching figures and search; Sources and About keep their names.
     chapterMenu.querySelectorAll('.global-nav a').forEach((link, index) => {
-      link.setAttribute('aria-label', `Chapter ${roman(index + 1)}: ${link.textContent.trim()}`);
+      if (index < 3) link.setAttribute('aria-label', `Chapter ${roman(index + 1)}: ${link.textContent.trim()}`);
     });
   }
   const rail = document.querySelector('.section-rail');
@@ -336,7 +337,7 @@
     }
     element.append(document.createTextNode(text.slice(offset)));
   };
-  const loadIndex = () => searchIndex ||= fetch(new URL('search-index.json?v=20261115f', base)).then(response => {
+  const loadIndex = () => searchIndex ||= fetch(new URL('search-index.json?v=20261118', base)).then(response => {
     if (!response.ok) throw new Error('Index unavailable');
     return response.json();
   }).then(index => index.entries).catch(error => { searchIndex = null; throw error; });
