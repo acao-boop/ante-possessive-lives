@@ -198,13 +198,14 @@ body:has(.saved-sections[open]) { overflow: hidden; }
 .title-lockup {
   grid-column: 1 / -1; grid-row: 1; display: grid;
   /* Columns size to the title, so the description sits beside it rather than at the far edge. */
-  grid-template-columns: max-content minmax(220px, 23rem); justify-content: start;
-  gap: 0 clamp(40px, 4.5vw, 72px); padding-bottom: 36px;
+  /* One lockup: kicker, title, then the deck beneath it, as on the chapter pages (Andrew, 18 Nov 2026). */
+  grid-template-columns: minmax(0, 1fr); justify-content: start;
+  gap: 0; padding-bottom: 36px;
 }
 .landing-kicker { grid-column: 1 / -1; margin-bottom: 20px; }
 .landing-kicker::before { display: none; }
 .landing-hero h1 { grid-column: 1; margin: 0; font-size: clamp(48px,5.5vw,80px); }
-.landing-hero .subtitle { grid-column: 2; align-self: end; margin: 0 0 5px; font-size: 17px; line-height: 1.75; }
+.landing-hero .subtitle { grid-column: 1; align-self: start; max-width: 34rem; margin: 22px 0 0; font-size: 19px; line-height: 1.6; }
 .hero-image-link {
   grid-column: 1 / -1; grid-row: 2; justify-self: center;
   width: 100vw; height: clamp(330px,39vw,580px);
@@ -243,6 +244,15 @@ body:has(.saved-sections[open]) { overflow: hidden; }
 .index-save-wrapper > .bookmark-action .bookmark-label { display: none; }
 .index-save-framework > .bookmark-action { top: 15px; right: 0; background: transparent; }
 .index-save-framework > .dossier-entry-framework { padding-right: 54px; }
+/* Case cards: the bookmark sits in the title row, a bare icon like Theory & Method's, not on the map (Andrew, 18 Nov 2026).
+   --case-banner-h mirrors the banner heights in interface.css and drives both, so the two cannot drift. */
+.index-save-case { --case-banner-h: 225px; --case-body-pad: 22px; }
+.index-save-case .case-banner { height: var(--case-banner-h); }
+.index-save-case .case-card-body { padding-top: var(--case-body-pad); }
+.index-save-case > .bookmark-action { top: calc(var(--case-banner-h) + var(--case-body-pad) - 3px); right: -10px; background: transparent; }
+.index-save-case .entry-title { padding-right: 40px; }
+@media (max-width: 900px) { .index-save-case { --case-banner-h: 180px; } }
+@media (max-width: 640px) { .index-save-case { --case-banner-h: 205px; --case-body-pad: 19px; } }
 @media print { .index-save-wrapper > .bookmark-action { display: none !important; } }
 
 /* A simple inverted-V device beside the existing project title. */
