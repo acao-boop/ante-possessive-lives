@@ -21,7 +21,7 @@
 - 2026-11-16: moved into this project folder and added git, CLAUDE.md and this file. No site files changed.
 
 ## Next step
-- Andrew: run LinkedIn Post Inspector on https://acao-boop.github.io/ante-possessive-lives/ (share card changed) so LinkedIn refetches the card.
+- LinkedIn Post Inspector run by Andrew on 18 Nov after publishing; the new card shows. Nothing outstanding besides the two proposals.
 - Proposals waiting on Andrew (docs/cosmetic-pass-2026-11-18.md): shorter manuscript banner on phones so Contents shows on arrival; self-hosted Source Serif 4.
 - CLAUDE.md still names https://acao-boop.github.io/ as where Andrew's mark links; update only on Andrew's word.
 - Andrew: sign in to Cloudflare, open the ante-possessive-lives Pages project, Create deployment, and upload the `cloudflare-redirect/` folder. Then Claude checks that pages.dev links forward to GitHub.
