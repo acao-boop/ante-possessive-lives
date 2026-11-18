@@ -114,6 +114,14 @@
     // Chapters are saved from Contents on Home; a reader's place is kept with "Save my place".
     // Per-heading bookmark buttons were removed on 17 November 2026; sections saved before then still list and open.
   }
+  // Phones: the related-scholarship plate follows the first section, so the reading starts on the first screen.
+  const plate=document.querySelector('.chapter-heading > .chapter-source-plate');
+  const firstSection=document.querySelector('.theory-reading-flow > .card');
+  if(plate && firstSection) {
+    const plateHome=plate.parentElement, phone=matchMedia('(max-width: 640px)');
+    const place=() => { if(phone.matches) firstSection.after(plate); else plateHome.append(plate); };
+    phone.addEventListener('change',place); place();
+  }
   refresh();
   addEventListener('storage',event => { if(event.key===key) { saved=load(); refresh(); } });
   // The color band and mobile disclosure can change the actual sticky height.

@@ -404,3 +404,17 @@ body:has(.cite-dialog[open]) { overflow: hidden; }
 :is(.download-btn, .comparison-label) { font-family: var(--font-serif) !important; font-size: 13px !important; font-weight: 400 !important; }
 /* Where the side rail shows the page's label, the same label is not repeated above the title. */
 @media (min-width: 901px) { .bibliography-kicker, .credits-kicker { display: none; } }
+
+/* Inner pages (Andrew, 18 Nov 2026). Side lists show names only; Roman numerals stay with the chapters (menu, figures, search). */
+.nav-group li a { grid-template-columns: minmax(0,1fr); }
+.nav-group li a::before { content: none; display: none; }
+/* Desktop: the related-scholarship plate sits at the column's right edge instead of floating mid-header. */
+.archive-section > header.chapter-heading { grid-template-columns: minmax(0,1fr) minmax(190px, 17rem); }
+@media (max-width: 900px) {
+  /* The band's Contents menu already leads back; a second row only pushed the reading down. */
+  .section-rail .back-btn { display: none; }
+}
+@media (max-width: 640px) {
+  /* curation.js moves the plate after the first section on phones. */
+  .theory-reading-flow > .chapter-source-plate { margin: 8px 0 40px; }
+}
