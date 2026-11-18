@@ -388,13 +388,13 @@ body:has(.cite-dialog[open]) { overflow: hidden; }
     .rail-kicker, .badge, .vocabulary-kicker, .source-plate-label, .bibliography-kicker, .usage-note,
     .credits-kicker, .credits-eyebrow, .contributor-role, .contribution-label, .term-note-label, .adam-map-label,
     .comparison-label, .download-btn, .vocab-tooltip-meta > span, .theft-model-label > span, .storymap-fallback > span,
-    .citation-style h3) {
+    .citation-style h3, .editorial-reference > span) {
   text-transform: none !important; letter-spacing: 0 !important; font-variant-caps: normal;
 }
 /* Section labels and panel labels read as quiet italic running heads. */
 :is(.landing-kicker, .index-kicker, .index-group-label, .rail-kicker, .badge, .vocabulary-kicker, .source-plate-label,
     .bibliography-kicker, .credits-kicker, .credits-eyebrow, .contribution-label, .term-note-label, .adam-map-label,
-    .citation-style h3) {
+    .citation-style h3, .editorial-reference > span) {
   font-family: var(--font-serif) !important; font-style: italic; font-weight: 400 !important; font-size: 14px !important; line-height: 1.5;
 }
 .side-vocab-stick .vocabulary-kicker, .theory-vocab-stick .vocabulary-kicker { font-size: 14px !important; }
@@ -418,3 +418,14 @@ body:has(.cite-dialog[open]) { overflow: hidden; }
   /* curation.js moves the plate after the first section on phones. */
   .theory-reading-flow > .chapter-source-plate { margin: 8px 0 40px; }
 }
+/* Return link at the end of each section on long pages; phones and tablets only, where the section list is at the top. */
+.section-return { display: none; }
+@media (max-width: 900px) {
+  .section-return { display: block; margin: 28px 0 0; font: 13px var(--font-ui); }
+  .section-return a { color: var(--ink-soft); text-decoration: none; }
+  .section-return a:is(:hover,:focus-visible) { color: var(--seal-wax); }
+}
+@media print { .section-return { display: none !important; } }
+/* Juan Patricio's Story Map heading matches Adam Saffin's (24px, same family and weight). */
+.storymap-heading { margin: 0 0 18px; font-size: 24px; font-weight: 400; font-style: normal; line-height: 1.25; text-align: left; }
+#storymap-container > .badge { text-align: left; }

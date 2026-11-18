@@ -122,6 +122,21 @@
     const place=() => { if(phone.matches) firstSection.after(plate); else plateHome.append(plate); };
     phone.addEventListener('change',place); place();
   }
+  // Phones: long pages end each section with a way back to "On this page" (shown at ≤900px only, by CSS).
+  const pageContents=document.querySelector('.contents-disclosure');
+  const sections=document.querySelectorAll('.theory-reading-flow > .card, .source-group');
+  if(pageContents && sections.length > 2) {
+    pageContents.id ||= 'page-contents';
+    sections.forEach(section => {
+      const back=document.createElement('p'); back.className='section-return';
+      const link=document.createElement('a'); link.href=`#${pageContents.id}`; link.textContent='On this page ↑';
+      link.addEventListener('click',event => {
+        event.preventDefault(); pageContents.open=true;
+        pageContents.scrollIntoView({block:'start'}); pageContents.querySelector('summary')?.focus({preventScroll:true});
+      });
+      back.append(link); section.append(back);
+    });
+  }
   refresh();
   addEventListener('storage',event => { if(event.key===key) { saved=load(); refresh(); } });
   // The color band and mobile disclosure can change the actual sticky height.

@@ -21,6 +21,8 @@ Which element: the bookmark buttons on the Adam Saffin and Juan Patricio cards i
 
 ## 3. Internal page structure (ranked)
 
+Status 18 Nov: items 1, 2, 3, 5 and 6 applied and published; 4 is with the collaborators; 7 left as is. Tagline A and the bookmark fix were applied earlier the same day.
+
 Pages measured at 1280px: Theory 18,450px tall, Juan Patricio 16,330, Adam Saffin 11,920, Sources 8,270, About 3,570.
 
 1. **Long pages have no way back to the contents mid-page on phones.** On desktop the sticky rail lists the sections. On phones the "On this page" list sits only at the top, so from deep inside Theory or Juan Patricio a reader has to scroll up thousands of pixels. Fix: a quiet "On this page ↑" link at the end of each H2 section on screens ≤900px, linking back to the disclosure, which opens it. No new sticky bar (the 16 Nov review removed sticky tools on phones to save space).
