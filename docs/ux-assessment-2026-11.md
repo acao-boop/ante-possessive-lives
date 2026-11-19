@@ -124,3 +124,25 @@ The two case pages already use the same section order (Overview, context, Story 
 9. **For the collaborators, no action from Andrew:** kickers on every H2, Theory's question heading, Juan/Adam order in Theory's Implications, page numbers on quotes.
 
 If he says GO on 1–3, they fit in one session: local commit, checked at both widths, published only on his yes.
+
+---
+
+## Andrew's decisions (19 Nov 2026)
+
+Asked one at a time; all chose the recommended option unless noted.
+
+1. **Saved list:** the saved place goes at the top of the list, and the empty-state text is corrected.
+2. **Case pages:** Juan Patricio's figures become real figures, and his Story Map uses Adam's block. Nothing visible moves.
+3. **Search:** rebuild the index from the pages with a rerunnable helper in `tools/`; counts in ordinary numbers.
+4. **Phone navigation:** the crimson band's right label shows the current section; tapping it opens the list.
+5. **Source links:** quote attributions and mentions link to their Sources entries (entries get anchors), and each section ends with "Sources for this section →".
+6. **Phone Story Maps:** about 60% of the screen height, with "Open full screen" above the map.
+7. **Theory diagrams (Andrew's own answer, in place of the heading-list question):** "Reconstruct the diagrams if you see fit — pitch them if you have actual disagreements with the models based on your understanding of the scholarship or just optimize current visuals." Pitched and chosen:
+   - **Diagram I:** keep both rows. On the recursive row, add a dashed backward arrow from "rendered as ownership" to the start, with a short label saying the ownership appears to have come first. This is Nichols's recursive point.
+   - **Diagram II:** three overlapping circles (Before, Against, Apposite), with Ante-Possession where all three meet. No numerals and no top box. Same wording.
+   - **Diagram III:** a widening spiral in place of the closed circle. Phones get a visible "back to Capture, on a larger scale" return. "Capitalized" becomes "Capitalization".
+   - Rebuilt as inline SVG/HTML. Figure titles stop counting as headings but keep their look, which also settles the heading-list item.
+8. **Figure numbering:** Roman throughout, so Theory becomes Figure I.I–I.IV.
+9. **Woodbury credit:** committed locally (6c776f1), held for the batch.
+
+**For the collaborators (not asked):** kickers on every H2 (three new phrases); Theory's long question heading; the Juan/Adam order in Theory's Implications; page numbers on quotations; Kazanjian's sign-off on the Woodbury credit wording. **Also worth showing Kazanjian before publishing:** the three rebuilt diagrams, since they change how his models are drawn, and the "Capitalization" label.
