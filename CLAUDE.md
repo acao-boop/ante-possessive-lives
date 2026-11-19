@@ -27,6 +27,7 @@ Collaborative scholarly site directed by David Kazanjian. Public: https://acao-b
 ## Constraints
 - Plain static HTML/CSS/JS only: no framework, build step, backend, login or paid service.
 - Preserve scholarly prose, citations, original image bytes, figure sources, anchors, maps, StoryMaps (externally hosted) and all collaborator credits. A visual change does not authorize editorial changes.
+- **Editorial authority (19 Nov 2026):** all collaborators gave Andrew the okay to make whatever changes he sees fit. Wording, headings, citations and credits no longer need to go back to the collaborators; Andrew's own yes is enough. They are still his call, not Claude's: propose, and change them only on his yes.
 - Identity: the project device is the serifed, engraved alpha (Λ) in `site/ante-device.svg`, adopted 16 November 2026 in place of the plain inverted V. Keep the large manuscript banner, the full-width crimson navigation band and the single Framework/Case Studies chooser. Andrew's personal mark stays small and beside his credit, and links to his hub, https://andrewcao.org/, where this project is listed.
 - Don't add redundant descriptions, duplicate navigation, decorative numbering or purposeless symbols.
 
