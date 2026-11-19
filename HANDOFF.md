@@ -33,7 +33,8 @@
 - 2026-11-16: moved into this project folder and added git, CLAUDE.md and this file. No site files changed.
 
 ## Next step
-- **Ante is at rest (19 Nov 2026).** Everything Andrew decided is live at `published` (b3505e8); Kazanjian approved the batch; no collaborator items are open. Start new work only on Andrew's request.
+- **Ante is at rest (19 Nov 2026).** Everything Andrew decided is live at `published` (b3505e8); Kazanjian approved the batch; Start new work only on Andrew's request.
+- For the collaborators to confirm (citation, their call): the Marx credit under Theory's "theft" quote and its Sources entry ("On Proudhon," letter to J. B. Schweitzer, 24 Jan 1865), added at Andrew's request on 19 Nov after the batch approval. If they prefer another edition (e.g. Collected Works vol. 20) or a different form, it is a two-line change.
 - Done and checked 19 Nov: the old Cloudflare address returns a 301 to the GitHub site; the LinkedIn card was refreshed on 18 Nov; CLAUDE.md now names andrewcao.org as where Andrew's mark links. Live sweep: all six pages have one H1, no broken internal links, anchors or files, and every image has alt text.
 - Optional, if work resumes: "Alternate access" wording above the Story Maps ("If the embedded map does not load…"); real-phone touch over the Story Maps, screen-reader speech and reduced motion were never tested live; the CSS still has many `!important` layers (fragile, not broken).
 - Citation authorship: resolved 17 Nov 2026 (standard forms; see docs/site-notes/CURATION-NOTES.md, Cite).
