@@ -27,7 +27,7 @@ Collaborative scholarly site directed by David Kazanjian. Public: https://acao-b
 ## Constraints
 - Plain static HTML/CSS/JS only: no framework, build step, backend, login or paid service.
 - Preserve scholarly prose, citations, original image bytes, figure sources, anchors, maps, StoryMaps (externally hosted) and all collaborator credits. A visual change does not authorize editorial changes.
-- Identity: the project device is the serifed, engraved alpha (Λ) in `site/ante-device.svg`, adopted 16 November 2026 in place of the plain inverted V. Keep the large manuscript banner, the full-width crimson navigation band and the single Framework/Case Studies chooser. Andrew's personal mark stays small and beside his credit, and links to his home page, https://acao-boop.github.io/ (repo acao-boop/acao-boop.github.io), where this project is listed.
+- Identity: the project device is the serifed, engraved alpha (Λ) in `site/ante-device.svg`, adopted 16 November 2026 in place of the plain inverted V. Keep the large manuscript banner, the full-width crimson navigation band and the single Framework/Case Studies chooser. Andrew's personal mark stays small and beside his credit, and links to his hub, https://andrewcao.org/, where this project is listed.
 - Don't add redundant descriptions, duplicate navigation, decorative numbering or purposeless symbols.
 
 ## Working with Andrew

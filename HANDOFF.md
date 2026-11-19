@@ -33,10 +33,9 @@
 - 2026-11-16: moved into this project folder and added git, CLAUDE.md and this file. No site files changed.
 
 ## Next step
-- LinkedIn Post Inspector run by Andrew on 18 Nov after publishing; the new card shows. Nothing outstanding besides the two proposals.
-- CLAUDE.md still names https://acao-boop.github.io/ as where Andrew's mark links; update only on Andrew's word.
-- Andrew: sign in to Cloudflare, open the ante-possessive-lives Pages project, Create deployment, and upload the `cloudflare-redirect/` folder. Then Claude checks that pages.dev links forward to GitHub.
-- Run LinkedIn Post Inspector on https://acao-boop.github.io/ante-possessive-lives/ and update the Featured link.
+- **Ante is at rest (19 Nov 2026).** Everything Andrew decided is live at `published` (b3505e8); Kazanjian approved the batch; no collaborator items are open. Start new work only on Andrew's request.
+- Done and checked 19 Nov: the old Cloudflare address returns a 301 to the GitHub site; the LinkedIn card was refreshed on 18 Nov; CLAUDE.md now names andrewcao.org as where Andrew's mark links. Live sweep: all six pages have one H1, no broken internal links, anchors or files, and every image has alt text.
+- Optional, if work resumes: "Alternate access" wording above the Story Maps ("If the embedded map does not load…"); real-phone touch over the Story Maps, screen-reader speech and reduced motion were never tested live; the CSS still has many `!important` layers (fragile, not broken).
 - Citation authorship: resolved 17 Nov 2026 (standard forms; see docs/site-notes/CURATION-NOTES.md, Cite).
 
 ## Known minor issues
