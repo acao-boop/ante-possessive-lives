@@ -428,3 +428,77 @@ body:has(.cite-dialog[open]) { overflow: hidden; }
 /* Juan Patricio's Story Map heading matches Adam Saffin's (24px, same family and weight). */
 .storymap-heading { margin: 0 0 18px; font-size: 24px; font-weight: 400; font-style: normal; line-height: 1.25; text-align: left; }
 #storymap-container > .badge { text-align: left; }
+
+/* Theory diagrams — 19 November 2026 (Andrew's decisions in docs/ux-assessment-2026-11.md).
+   Figure titles and the names inside the diagrams are no longer headings, so the page's heading list
+   holds only the argument; they keep the look the old h3/h4s had. */
+.theory-figure-title { display: block; margin-top: 0; color: var(--ink); font-weight: 400; }
+.theft-model-name { margin: 0; color: var(--ink); font-size: 1.04rem; font-weight: 400; line-height: 1.22; }
+.article-shell .cycle-stage .cycle-stage-name { display: inline-block; margin: .05rem 0 .45rem .42rem; color: var(--ink); font-size: 1rem; font-weight: 400; line-height: 1.2; vertical-align: top; }
+
+/* I.I — the recursive row carries a dashed return: what dispossession produced is read back as if it came first. */
+.recursive-steps { position: relative; min-width: 0; }
+.recursion-return { position: relative; margin: 14px 0 0; padding-top: 22px; text-align: center; line-height: 1.4; }
+.recursion-return::before { content: ""; position: absolute; top: 0; left: calc(100% / 6); right: calc(100% / 6); height: 14px;
+  border: 1.5px dashed var(--seal-wax); border-top: 0; }
+.recursion-return::after { content: ""; position: absolute; top: -7px; left: calc(100% / 6 - 5.5px);
+  border: 6px solid transparent; border-bottom: 8px solid var(--seal-wax); border-top: 0; }
+.recursion-return span { position: relative; top: 2px; padding: 0 8px; background: inherit; color: var(--ink-soft); font-style: italic; font-size: .84rem; line-height: 1.4; }
+@media (max-width: 760px) {
+  .recursive-steps { padding-left: 26px; }
+  .recursion-return { position: static; margin-top: 18px; padding-top: 0; text-align: left; }
+  .recursion-return::before { top: 6px; bottom: 34px; left: 2px; right: auto; width: 14px; height: auto; border: 1.5px dashed var(--seal-wax); border-right: 0; }
+  .recursion-return::after { top: 0; left: 12px; border: 6px solid transparent; border-left: 8px solid var(--seal-wax); border-right: 0; }
+  .recursion-return span { top: 0; padding: 0; }
+}
+
+/* I.II — three overlapping facets; ante-possession is where all three meet, not a parent of three types. */
+.facet-model { display: grid; gap: 22px; }
+.facet-venn { display: block; width: min(400px, 100%); height: auto; margin: 0 auto; overflow: visible; }
+.facet-venn circle { fill: var(--seal-wax); fill-opacity: .07; stroke: var(--seal-wax); stroke-width: 1.4; }
+.facet-venn text { fill: var(--ink); font-family: var(--font-serif); text-anchor: middle; }
+.facet-label { font-size: 19px; }
+.facet-core { font-size: 14px; font-style: italic; }
+.facet-terms { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 0; padding: 0; list-style: none; }
+.facet-terms li { padding: 14px 16px; border-top: 2px solid var(--seal-wax); background: var(--paper-soft); }
+.article-shell .facet-terms p { margin: 0; color: var(--ink-soft); font-size: .86rem; line-height: 1.45; }
+.article-shell .facet-terms .facet-term { margin-bottom: 6px; color: var(--ink); font-size: 1rem; }
+@media (max-width: 760px) { .facet-terms { grid-template-columns: 1fr; gap: 12px; } }
+
+/* I.III — the cycle widens: an earlier, smaller turn faintly inside, each later arc further out. */
+.spiral-arrows path { stroke: var(--seal-wax); }
+.spiral-arrows marker path { fill: var(--seal-wax); }
+.spiral-arrows .spiral-earlier { stroke-dasharray: 3 5; stroke-opacity: .55; marker-end: none; }
+.spiral-arrows .spiral-return { stroke-width: 2.2; }
+.spiral-note { fill: var(--ink-faint); font: italic 14px var(--font-serif); text-anchor: middle; }
+.cycle-return { display: none; }
+@media (max-width: 760px) {
+  .page-theory .cycle-stage:last-child::after { content: "↓"; position: absolute; bottom: -1.08rem; left: 50%; color: var(--seal-wax); transform: translateX(-50%); }
+  .cycle-return { display: block; margin: 22px 0 0; padding: 10px 14px; border: 1.5px dashed var(--seal-wax); color: var(--ink); text-align: center; font-style: italic; }
+  .cycle-return::before { content: "↺ "; color: var(--seal-wax); font-style: normal; }
+}
+
+/* Sources routes — 19 November 2026. Quote titles link to their entries; each section ends with its Sources group. */
+a.source-link { color: inherit; text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; }
+a.source-link:is(:hover,:focus-visible) { color: var(--seal-wax); text-decoration-color: currentColor; }
+.section-sources { margin: 32px 0 0; font: 13px/1.5 var(--font-serif); }
+.section-sources a { color: var(--ink-soft); text-decoration: none; }
+.section-sources a:is(:hover,:focus-visible) { color: var(--seal-wax); }
+@media (max-width: 900px) { .section-sources + .section-return { margin-top: 10px; } }
+@media print { .section-sources { display: none !important; } }
+.citation-entry[id] { scroll-margin-top: calc(var(--masthead) + 24px); }
+.citation-entry:target { outline: 2px solid var(--seal-wax); outline-offset: 6px; }
+
+/* Phones: the band names the current section (curation.js). */
+@media (max-width: 900px) { .chapter-current.is-section { color: var(--ink-soft); } }
+
+/* Phones: Story Maps take about 60% of the screen and the full-screen link comes first. */
+@media (max-width: 640px) {
+  .page-saffin #saffin-storymap, .page-patricio #storymap-container { display: flex; flex-direction: column; }
+  .page-saffin #saffin-storymap > .adam-media-heading,
+  .page-patricio #storymap-container > :is(.badge, .storymap-heading) { order: 0; }
+  .page-saffin #saffin-storymap > .storymap-fallback, .page-patricio #storymap-container > .storymap-fallback { order: 1; margin: 0 0 14px; }
+  .page-saffin #saffin-storymap > .storymap-container, .page-patricio #storymap-container > iframe { order: 2; }
+  .page-saffin #saffin-storymap > .figure-caption, .page-patricio #storymap-container > .figure-caption { order: 3; }
+  .page-saffin #saffin-storymap iframe, .page-patricio #storymap-container iframe { height: 60svh !important; min-height: 320px !important; }
+}

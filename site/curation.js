@@ -10,13 +10,6 @@
   const slug = /\/$/.test(location.pathname) ? 'index' : decodeURIComponent(location.pathname).split('/').pop().replace(/\.html$/,'') || 'index';
   const currentFile = pages.find(([path]) => path === `${slug}.html`)?.[0];
   const key = 'ante-lives.bookmarks';
-  const roman = n => {
-    let result = '';
-    for (const [value,letters] of [[100,'C'],[90,'XC'],[50,'L'],[40,'XL'],[10,'X'],[9,'IX'],[5,'V'],[4,'IV'],[1,'I']]) {
-      while (n >= value) { result += letters; n -= value; }
-    }
-    return result;
-  };
   const valid = value => value && pages.some(([path]) => path === value.path)
     && typeof value.id === 'string' && (!value.id || /^[A-Za-z][\w:-]{0,160}$/.test(value.id))
     && typeof value.label === 'string' && value.label.length > 0 && value.label.length <= 250;
@@ -50,7 +43,7 @@
       button.setAttribute('aria-label',`${selected?'Remove bookmark for':'Bookmark'} ${entry.label}`);
       button.querySelector('.bookmark-label').textContent=button.dataset.bookmarkContext==='chapter' ? (selected?'Chapter saved':'Save chapter') : (selected?'Saved':'Save');
     });
-    document.querySelectorAll('.bookmark-count').forEach(node => { node.textContent=saved.length?roman(saved.length):''; });
+    document.querySelectorAll('.bookmark-count').forEach(node => { node.textContent=saved.length?String(saved.length):''; });
     if (dialog?.open) render();
   };
   const toggle = entry => {
@@ -65,9 +58,23 @@
     button.addEventListener('click',() => toggle(entry));
     bookmarkButtons.push({button,entry}); return button;
   };
+  // The reading place from "Save my place" (interface.js) leads the list, so the dialog is never empty when something is kept.
+  const loadPlace = () => {
+    try { const value=JSON.parse(localStorage.getItem('ante-lives.place')); return value && valid({...value,label:value.label||value.page}) && typeof value.page==='string' ? value : null; }
+    catch { return null; }
+  };
   const render = () => {
-    list.replaceChildren(); count.textContent=saved.length?`${roman(saved.length)} saved ${saved.length===1?'item':'items'}`:'No saved items yet';
-    empty.hidden=!!saved.length;
+    const place=loadPlace();
+    list.replaceChildren(); count.textContent=saved.length?`${saved.length} saved ${saved.length===1?'chapter':'chapters'}`:(place?'No chapters saved yet':'Nothing saved yet');
+    empty.hidden=!!(saved.length || place);
+    if (place) {
+      const row=document.createElement('li'),link=document.createElement('a');
+      row.className='saved-place';
+      link.href=new URL(`${place.path}${place.id?`#${place.id}`:''}`,base).href;
+      link.append(span('saved-context','Your place'),document.createTextNode(`${place.page} · ${place.label}`));
+      link.addEventListener('click',() => dialog.close());
+      row.append(link); list.append(row);
+    }
     saved.forEach(entry => {
       const row=document.createElement('li'),link=document.createElement('a'),remove=document.createElement('button');
       const chapter=pages.find(([path]) => path===entry.path);
@@ -88,10 +95,10 @@
     header.className='saved-header'; title.id='saved-sections-title'; title.textContent='Saved reading';
     close=document.createElement('button'); close.type='button'; close.className='saved-close'; close.textContent='Close';
     close.addEventListener('click',() => dialog.close());
-    body.className='saved-body'; note.className='saved-note'; note.textContent='Chapters and sections saved in this browser. Your reading place is kept separately.';
+    body.className='saved-body'; note.className='saved-note'; note.textContent='Kept in this browser only.';
     count=document.createElement('p'); count.className='saved-count'; count.setAttribute('role','status');
     list=document.createElement('ul'); list.className='saved-list';
-    empty=document.createElement('p'); empty.className='saved-empty'; empty.textContent='Use the bookmark beside a chapter under Contents on Home to add it here.';
+    empty=document.createElement('p'); empty.className='saved-empty'; empty.textContent='Bookmark a chapter under Contents on Home, or use “Save my place” while reading.';
     header.append(title,close); body.append(count,list,empty,note); dialog.append(header,body); document.body.append(dialog);
     dialog.addEventListener('close',() => returnFocus?.focus());
     dialog.addEventListener('click',event => { if(event.target===dialog) { const box=dialog.getBoundingClientRect(); if(event.clientX<box.left || event.clientX>box.right || event.clientY<box.top || event.clientY>box.bottom) dialog.close(); } });
@@ -135,6 +142,35 @@
         pageContents.scrollIntoView({block:'start'}); pageContents.querySelector('summary')?.focus({preventScroll:true});
       });
       back.append(link); section.append(back);
+    });
+  }
+  // Each chapter section closes with a route to its group on Sources (Andrew, 19 Nov 2026).
+  const sourceGroup={'theory.html':'conceptual','adam.html':'new-england','juan-patricio.html':'yucatan'}[currentFile];
+  if(sourceGroup) document.querySelectorAll('.theory-reading-flow > .card').forEach(section => {
+    const line=document.createElement('p'); line.className='section-sources';
+    const link=document.createElement('a'); link.href=`bibliography.html#${sourceGroup}`; link.textContent='Sources for this section →';
+    line.append(link);
+    const back=section.querySelector(':scope > .section-return'); if(back) back.before(line); else section.append(line);
+  });
+  // Phones: the band's right-hand label names the section being read; tapping it opens "On this page".
+  const bandLabel=document.querySelector('.chapter-menu .chapter-current');
+  const railLinks=pageContents ? [...pageContents.querySelectorAll('.nav-group li a[href^="#"]')] : [];
+  if(bandLabel && railLinks.length) {
+    const chapter=bandLabel.textContent, compactBand=matchMedia('(max-width: 900px)');
+    let ticking=false, shown='';
+    const update=() => {
+      ticking=false;
+      let current=null;
+      if(compactBand.matches) railLinks.forEach(link => { const target=document.getElementById(link.hash.slice(1)); if(target && target.getBoundingClientRect().top <= 150) current=link; });
+      const label=current ? `${chapter} · ${current.textContent.trim()}` : chapter;
+      if(label!==shown) { bandLabel.textContent=shown=label; bandLabel.classList.toggle('is-section',!!current); }
+    };
+    addEventListener('scroll',() => { if(!ticking) { ticking=true; requestAnimationFrame(update); } },{passive:true});
+    compactBand.addEventListener('change',update); update();
+    bandLabel.addEventListener('click',event => {
+      if(!bandLabel.classList.contains('is-section')) return;
+      event.preventDefault(); pageContents.open=true;
+      pageContents.scrollIntoView({block:'start'}); pageContents.querySelector('summary')?.focus({preventScroll:true});
     });
   }
   refresh();

@@ -337,7 +337,7 @@
     }
     element.append(document.createTextNode(text.slice(offset)));
   };
-  const loadIndex = () => searchIndex ||= fetch(new URL('search-index.json?v=20261118', base)).then(response => {
+  const loadIndex = () => searchIndex ||= fetch(new URL('search-index.json?v=20261119', base)).then(response => {
     if (!response.ok) throw new Error('Index unavailable');
     return response.json();
   }).then(index => index.entries).catch(error => { searchIndex = null; throw error; });
@@ -382,7 +382,7 @@
         }
       });
     });
-    if (!indexFailed) count.textContent = tokens.length ? matches.length ? `${roman(matches.length)} ${matches.length === 1 ? 'result' : 'results'}${matches.length > 12 ? '; showing the first XII' : ''}.` : 'No matches. Try a name, place, or shorter phrase.' : 'Browse a chapter, or search names, places, concepts, and sources.';
+    if (!indexFailed) count.textContent = tokens.length ? matches.length ? `${matches.length} ${matches.length === 1 ? 'result' : 'results'}${matches.length > 12 ? '; showing the first 12' : ''}.` : 'No matches. Try a name, place, or shorter phrase.' : 'Browse a chapter, or search names, places, concepts, and sources.';
   };
   const openSearch = trigger => {
     if (document.querySelector('dialog[open]') && !search?.open) return;
