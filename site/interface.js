@@ -337,7 +337,7 @@
     }
     element.append(document.createTextNode(text.slice(offset)));
   };
-  const loadIndex = () => searchIndex ||= fetch(new URL('search-index.json?v=20261119-batch2', base)).then(response => {
+  const loadIndex = () => searchIndex ||= fetch(new URL('search-index.json?v=20261121-esquivel', base)).then(response => {
     if (!response.ok) throw new Error('Index unavailable');
     return response.json();
   }).then(index => index.entries).catch(error => { searchIndex = null; throw error; });
